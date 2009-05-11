@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="CommonWrapping"
+    nsURI="http://www.sei.pku.edu.cn/rsa/commonwrapping" nsPrefix="CommonWrapping">
+  <eClassifiers xsi:type="ecore:EClass" name="WrappingEObjectImpl" eSuperTypes="#//EObject">
+    <eOperations name="createCore" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eOperations name="destroyCore" lowerBound="1"/>
+    <eOperations name="addSubCore" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="wrappingEObject" lowerBound="1" eType="#//WrappingEObjectImpl"/>
+      <eParameters name="featureID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="removeSubCore" lowerBound="1">
+      <eParameters name="wrappingEObject" lowerBound="1" eType="#//WrappingEObjectImpl"/>
+      <eParameters name="featureID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="listSubCores" lowerBound="1" eType="#//EJavaList">
+      <eParameters name="featureID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="isForCore" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="core" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="eGet"/>
+    <eOperations name="eSet"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="waitingFeature" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" transient="true"
+        defaultValueLiteral="-1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="core" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        volatile="true" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="newborn" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dead" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="use" eType="#//EObjectListForWrapping"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EJavaList" instanceClassName="java.util.List"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EObjectListForWrapping"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JDBCDataSourceImpl" eSuperTypes="#//WrappingEObjectImpl #//EObject">
+    <eOperations name="createCore" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eOperations name="destroyCore" lowerBound="1"/>
+    <eOperations name="addSubCore" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="wrappingEObject" lowerBound="1" eType="#//JDBCDataSourceImpl"/>
+      <eParameters name="featureID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="removeSubCore" lowerBound="1">
+      <eParameters name="wrappingEObject" lowerBound="1" eType="#//JDBCDataSourceImpl"/>
+      <eParameters name="featureID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="listSubCores" lowerBound="1" eType="#//EJavaList">
+      <eParameters name="featureID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="isForCore" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="core" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="getXXX"/>
+    <eOperations name="setXXX"/>
+    <eOperations name="eGet"/>
+    <eOperations name="eSet"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EObject">
+    <eOperations name="eGet"/>
+    <eOperations name="eSet"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass"/>
+</ecore:EPackage>

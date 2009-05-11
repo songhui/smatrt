@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.sei.pku.edu.cn/rsa/decmodel"
+            class="cn.edu.pku.sei.ra.wrapping.decorate.DecModel.DecModelPackage"
+            genModel="model/DecModel.genmodel"/>
+   </extension>
+
+</plugin>
