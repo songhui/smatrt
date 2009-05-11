@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id: plugin.xml,v 1.2 2008/11/19 02:38:09 song Exp $
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="cn.edu.pku.sei.ra.wrapping.CommonWrapping.presentation.CommonWrappingModelWizardID"
+            name="%_UI_CommonWrappingModelWizard_label"
+            class="cn.edu.pku.sei.ra.wrapping.CommonWrapping.presentation.CommonWrappingModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CommonWrappingModelFile.gif">
+         <description>%_UI_CommonWrappingModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="cn.edu.pku.sei.ra.wrapping.CommonWrapping.presentation.CommonWrappingEditorID"
+            name="%_UI_CommonWrappingEditor_label"
+            icon="icons/full/obj16/CommonWrappingModelFile.gif"
+            extensions="commonwrapping"
+            class="cn.edu.pku.sei.ra.wrapping.CommonWrapping.presentation.CommonWrappingEditor"
+            contributorClass="cn.edu.pku.sei.ra.wrapping.CommonWrapping.presentation.CommonWrappingActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

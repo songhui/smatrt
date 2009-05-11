@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="cn.edu.pku.sei.ra.wrapping.decorate.DecModel.presentation.DecModelModelWizardID"
+            name="%_UI_DecModelModelWizard_label"
+            class="cn.edu.pku.sei.ra.wrapping.decorate.DecModel.presentation.DecModelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/DecModelModelFile.gif">
+         <description>%_UI_DecModelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="cn.edu.pku.sei.ra.wrapping.decorate.DecModel.presentation.DecModelEditorID"
+            name="%_UI_DecModelEditor_label"
+            icon="icons/full/obj16/DecModelModelFile.gif"
+            extensions="decmodel"
+            class="cn.edu.pku.sei.ra.wrapping.decorate.DecModel.presentation.DecModelEditor"
+            contributorClass="cn.edu.pku.sei.ra.wrapping.decorate.DecModel.presentation.DecModelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

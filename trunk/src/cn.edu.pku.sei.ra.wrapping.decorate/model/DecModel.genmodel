@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/cn.edu.pku.sei.ra.wrapping.decorate/src"
+    modelPluginID="cn.edu.pku.sei.ra.wrapping.decorate" modelName="DecModel" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.genmodel#//genmodel">
+  <foreignModel>DecModel.ecore</foreignModel>
+  <genPackages prefix="DecModel" basePackage="cn.edu.pku.sei.ra.wrapping.decorate"
+      disposableProviderFactory="true" ecorePackage="DecModel.ecore#/">
+    <genClasses image="false" ecoreClass="DecModel.ecore#//Decoration">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DecModel.ecore#//Decoration/genModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DecModel.ecore#//Decoration/importClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DecModel.ecore#//Decoration/codeArea"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DecModel.ecore#//Decoration/mapArea"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//ImportClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DecModel.ecore#//ImportClass/fullClassName"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//CodeArea">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DecModel.ecore#//CodeArea/code"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//Code">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DecModel.ecore#//Code/description"/>
+      <genFeatures property="Readonly" createChild="false" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute DecModel.ecore#//Code/code"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//CodeNone"/>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//CodeFragment">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute DecModel.ecore#//CodeFragment/text"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//CodeReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DecModel.ecore#//CodeReference/reference"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//CodeComposition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DecModel.ecore#//CodeComposition/child"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//MapArea">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DecModel.ecore#//MapArea/globalMap"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DecModel.ecore#//MapArea/classMap"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//AbstractMap">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DecModel.ecore#//AbstractMap/specType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DecModel.ecore#//AbstractMap/specCode"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//GlobalMap"/>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//ClassMap">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DecModel.ecore#//ClassMap/classRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DecModel.ecore#//ClassMap/featureMap"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//FeatureMap">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DecModel.ecore#//FeatureMap/feature"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//FeatureMapForAbstractClass">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DecModel.ecore#//FeatureMapForAbstractClass/class2eclass"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//SpecCode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DecModel.ecore#//SpecCode/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DecModel.ecore#//SpecCode/final"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DecModel.ecore#//SpecCode/description"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//Create"/>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//Destroy"/>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//Lookup"/>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//Identify"/>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//Get"/>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//Set"/>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//ListSub"/>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//Insert"/>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//Remove"/>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//UtilMethod"/>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//UtilField"/>
+    <genClasses image="false" ecoreClass="DecModel.ecore#//EStringToStringMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DecModel.ecore#//EStringToStringMapEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DecModel.ecore#//EStringToStringMapEntry/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
