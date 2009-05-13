@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+
+<!--
+ Copyright 2002 Sun Microsystems, Inc. All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 
+ - Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+ 
+ - Redistribution in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in
+   the documentation and/or other materials provided with the
+   distribution.
+ 
+ Neither the name of Sun Microsystems, Inc. or the names of
+ contributors may be used to endorse or promote products derived
+ from this software without specific prior written permission.
+ 
+ This software is provided "AS IS," without a warranty of any
+ kind. ALL EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND
+ WARRANTIES, INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE HEREBY
+ EXCLUDED. SUN AND ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES
+ SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR
+ DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL SUN
+ OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA, OR
+ FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR
+ PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF
+ LIABILITY, ARISING OUT OF THE USE OF OR INABILITY TO USE SOFTWARE,
+ EVEN IF SUN HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ 
+ You acknowledge that Software is not designed, licensed or intended
+ for use in the design, construction, operation or maintenance of
+ any nuclear facility.
+-->
+
+
+<!-- =================================================================== -->
+<!-- $Id: build.xml,v 1.1 2008/11/19 02:31:07 song Exp $                -->
+<!-- =================================================================== -->
+
+<project name="signon" default="core" basedir=".">
+  <property environment="myenv" />
+
+  <property name="j2ee.home" value="${myenv.JONAS_ROOT}" />
+
+  <target name="init">
+
+    <property name="home" value="." />
+
+    <!-- The destination directory for the build -->
+    <property name="build" value="${home}/build" />
+    <property name="buildjardir" value="C:/JOnAS-4.9.2/ejbjars" />
+
+    <property name="src" value="${home}/src" />
+
+    <!-- The destination directory for all the compiled classes. -->
+    <property name="classbindir" value="${build}/classes" />
+
+    <!-- The classpath for J2EE classes. -->
+    <path id="j2ee.path">
+      <fileset dir="${j2ee.home}/lib/commons">
+        <include name="j2ee/*.jar" />
+      </fileset>
+    </path>
+
+    <!-- The classpath used for building the workspace. -->
+    <path id="mainpath">
+      <pathelement location="${classbindir}" />
+      <path refid="j2ee.path" />
+    </path>
+
+    <property name="jarname" value="${build}/catalog-artist.jar" />
+
+   </target>
+
+  <target name="compile" depends="init">
+    <mkdir dir="${classbindir}" />
+    <javac srcdir="${src}"
+           debug="${javac.debug}"
+           destdir="${classbindir}"
+           classpathref="mainpath"
+           />
+  </target>
+
+
+  <target name="ejbjar"
+          description="Build the jar file"
+          depends="compile" >
+    <jar destfile="${buildjardir}/productartist.jar">
+  		<zipfileset dir="${home}/etc" prefix="META-INF/" />
+    	<fileset dir="${classbindir}" />
+    </jar>
+  </target>
+ 
+
+  <target name="clean" depends="init">
+    <delete dir="${signon.build}" />
+  </target>
+
+ 
+
+  <target name="core" depends="compile, ejbjar" />
+
+
+</project>
+

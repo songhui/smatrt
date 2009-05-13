@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="JOnAS"
+    nsURI="http://www.sei.pku.edu.cn/rsa/jonas_test" nsPrefix="JOnAS">
+  <eClassifiers xsi:type="ecore:EClass" name="MBeanServer">
+    <eAnnotations source="http://www.sei.pku.edu.cn/rsa">
+      <details key="RootClass" value="true"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serverHost" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http:///jp.ac.u_tokyo.wrapper.AttributeAnnotations">
+        <details key="KeyAttribute" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serverPort" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jdbcDataSource" ordered="false"
+        upperBound="-1" eType="#//JDBCDataSource" containment="true" eOpposite="#//JDBCDataSource/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statefulSessionBean" ordered="false"
+        upperBound="-1" eType="#//StatefulSessionBean" containment="true" eOpposite="#//StatefulSessionBean/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statelessSessionBean" ordered="false"
+        upperBound="-1" eType="#//StatelessSessionBean" containment="true" eOpposite="#//StatelessSessionBean/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entityBean" ordered="false"
+        upperBound="-1" eType="#//EntityBean" containment="true" eOpposite="#//EntityBean/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jvm" ordered="false" upperBound="-1"
+        eType="#//JVM" containment="true" eOpposite="#//JVM/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="webModule" ordered="false"
+        upperBound="-1" eType="#//WebModule" containment="true" eOpposite="#//WebModule/parent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="J2EEManagedObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http:///jp.ac.u_tokyo.wrapper.AttributeAnnotations">
+        <details key="KeyAttribute" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EJB" eSuperTypes="#//J2EEManagedObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jndiName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http:///jp.ac.u_tokyo.wrapper.AttributeAnnotations">
+        <details key="KeyAttribute" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localClass" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localHomeClass" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="homeClass" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ejbClass" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cacheSize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="poolSize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxCacheSize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minPoolSize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataSourceJNDI" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SessionBean" eSuperTypes="#//EJB">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sessionTimeOut" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StatefulSessionBean" eSuperTypes="#//SessionBean">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="#//MBeanServer" eOpposite="#//MBeanServer/statefulSessionBean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StatelessSessionBean" eSuperTypes="#//SessionBean">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="#//MBeanServer" eOpposite="#//MBeanServer/statelessSessionBean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntityBean" eSuperTypes="#//EJB">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="passivationTimeOut" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inactivityTimeOut" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deadlockTimeOut" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lockPolicy" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="#//MBeanServer" eOpposite="#//MBeanServer/entityBean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JDBCDataSource" eSuperTypes="#//J2EEManagedObject">
+    <eAnnotations source="http://www.sei.pku.edu.cn/runtime-access">
+      <details key="create" value="if(name!=null){&#xD;&#xA;&#x9;&#x9;&#x9;Management mgmt=JOnASPackage.eINSTANCE.getMainEntry();&#xD;&#xA;&#x9;&#x9;&#x9;try {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;String p_Filename=name;&#xD;&#xA;&#x9;&#x9;        String[] asParam = new String[1];&#xD;&#xA;&#x9;&#x9;        String[] asSignature = new String[1];&#xD;&#xA;&#x9;&#x9;        asParam[0] = p_Filename;&#xD;&#xA;&#x9;&#x9;        asSignature[0] = &quot;java.lang.String&quot;;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return null;"/>
+      <details key="delete" value="if(name!=null){&#xD;&#xA;&#x9;&#x9;&#x9;Management mgmt=JOnASPackage.eINSTANCE.getMainEntry();&#xD;&#xA;&#x9;&#x9;&#x9;try {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;String p_Filename=name;&#xD;&#xA;&#x9;&#x9;        String[] asParam = new String[1];&#xD;&#xA;&#x9;&#x9;        String[] asSignature = new String[1];&#xD;&#xA;&#x9;&#x9;        asParam[0] = p_Filename;&#xD;&#xA;&#x9;&#x9;        asSignature[0] = &quot;java.lang.String&quot;;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return null;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jdbcMinConnPool" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jdbcMaxConnPool" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.sei.pku.edu.cn/runtime-access">
+        <details key="get" value="        if(getCore()==null) &#xD;&#xA;        &#x9;return  -1;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Management mainEntry=JOnASPackage.eINSTANCE.getMainEntry();&#xD;&#xA;&#x9;&#x9;ObjectName obj=(ObjectName)getCore();&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;try {&#xD;&#xA;&#x9;&#x9;&#x9;Object res=mainEntry.getAttribute(obj, &quot;jdbcMaxConnPool&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;jdbcMaxConnPool=((Integer)res).intValue();&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;} catch (Exception e) {&#xD;&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;        &#xD;&#xA;&#x9;&#x9;return jdbcMaxConnPool;//second"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentOpened" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jndiName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="busyMax" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connectionFailures" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentBusy" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="userName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="busyMin" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="userPassword" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jdbcMaxWaiters" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="#//MBeanServer" eOpposite="#//MBeanServer/jdbcDataSource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JVM" eSuperTypes="#//J2EEManagedObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="javaVersion" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="javaVendor" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allThreadsCount" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="#//MBeanServer" eOpposite="#//MBeanServer/jvm"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WebModule" eSuperTypes="#//J2EEManagedObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostname" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startupTime" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="warURL" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="#//MBeanServer" eOpposite="#//MBeanServer/webModule"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ejbref" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
