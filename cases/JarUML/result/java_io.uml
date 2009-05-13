@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmi:id="-2566560617373212527">
+  <packagedElement xmi:type="uml:Package" xmi:id="8747698093463131742" name="java.io.">
+    <packagedElement xmi:type="uml:Class" xmi:id="7938412589882507584" name="Bits"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="8782237168509779596" name="CharArrayReader">
+      <ownedAttribute xmi:id="2635169468939262404" name="pos"/>
+      <ownedAttribute xmi:id="4592999703278294424" name="markedPos"/>
+      <ownedAttribute xmi:id="-7939886813490392121" name="count"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-3185252711270603609" name="CharArrayWriter">
+      <ownedAttribute xmi:id="4000530357199706902" name="count"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-4148393971005689200" name="CharConversionException"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-1661883577151803810" name="Console$2">
+      <generalization xmi:id="8323426054467987299" general="214869737035248809"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="54109911010352510" name="Console$LineReader">
+      <ownedAttribute xmi:id="-6259599523218560515" name="nChars"/>
+      <ownedAttribute xmi:id="-5589448813552408634" name="nextChar"/>
+      <ownedAttribute xmi:id="1604545709124356582" name="leftoverLF"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-786164407564408974" name="FileFilter"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-5230476392763689222" name="FilterWriter"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="651847672410549932" name="IOError">
+      <ownedAttribute xmi:id="4667578889143587225" name="serialVersionUID"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-3684643274267379334" name="InvalidObjectException">
+      <ownedAttribute xmi:id="-6481213961761766645" name="serialVersionUID"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-700500279817356554" name="LineNumberInputStream">
+      <ownedAttribute xmi:id="1111259220195483929" name="pushBack"/>
+      <ownedAttribute xmi:id="8943879134735065939" name="lineNumber"/>
+      <ownedAttribute xmi:id="8162774682914442747" name="markLineNumber"/>
+      <ownedAttribute xmi:id="-853374541402978369" name="markPushBack"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-7857365876332084114" name="LineNumberReader">
+      <generalization xmi:id="-4325307016336878603" general="-264213260434768708"/>
+      <ownedAttribute xmi:id="3039550732260167549" name="lineNumber"/>
+      <ownedAttribute xmi:id="4623370764053327967" name="markedLineNumber"/>
+      <ownedAttribute xmi:id="2650488250959963048" name="skipLF"/>
+      <ownedAttribute xmi:id="3158455083747768017" name="markedSkipLF"/>
+      <ownedAttribute xmi:id="-3532991230897466329" name="maxSkipBufferSize"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-5190685880996855197" name="NotActiveException">
+      <ownedAttribute xmi:id="8791213641172265188" name="serialVersionUID"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-8411147671882982702" name="NotSerializableException">
+      <ownedAttribute xmi:id="4983818060279286485" name="serialVersionUID"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-3077712882799000787" name="ObjectInputStream$1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-3264018547953997569" name="ObjectInputStream$Caches"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-3450104891203287565" name="ObjectInputStream$ValidationList$1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="8137929890007509633" name="ObjectInputStream$ValidationList$Callback">
+      <ownedAttribute xmi:id="-2030284457005160168" name="priority"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-2912708351256436556" name="ObjectInputValidation"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-8736199673680934901" name="ObjectOutputStream$1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="7833056156239174433" name="ObjectOutputStream$Caches"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-1765109651633433014" name="ObjectOutputStream$DebugTraceInfoStack"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-4585693492173146910" name="ObjectOutputStream$PutField"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-6025405217568602308" name="ObjectOutputStream$PutFieldImpl">
+      <generalization xmi:id="-3479634820225486181" general="-4585693492173146910"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-1972430901326323908" name="ObjectStreamClass$EntryFuture$1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="2757316334591953835" name="OptionalDataException">
+      <ownedAttribute xmi:id="-4873981156531600904" name="serialVersionUID"/>
+      <ownedAttribute xmi:id="-2296356886255267171" name="length"/>
+      <ownedAttribute xmi:id="7137220864079204860" name="eof"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="3769566826472584585" name="PipedInputStream">
+      <ownedAttribute xmi:id="-7747010105401628217" name="closedByWriter"/>
+      <ownedAttribute xmi:id="-8438496318018169685" name="closedByReader"/>
+      <ownedAttribute xmi:id="8234351803060115610" name="connected"/>
+      <ownedAttribute xmi:id="-3473241285865053046" name="DEFAULT_PIPE_SIZE"/>
+      <ownedAttribute xmi:id="6395379654876339758" name="PIPE_SIZE"/>
+      <ownedAttribute xmi:id="-3298303635513633793" name="in"/>
+      <ownedAttribute xmi:id="-8955004678692130422" name="out"/>
+      <ownedAttribute xmi:id="7059656358645771626" name="$assertionsDisabled"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-8342317955852582462" name="PipedOutputStream"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-2031019064494853907" name="PipedReader">
+      <ownedAttribute xmi:id="5564138227609303880" name="closedByWriter"/>
+      <ownedAttribute xmi:id="8687883724174713681" name="closedByReader"/>
+      <ownedAttribute xmi:id="5535008468427650711" name="connected"/>
+      <ownedAttribute xmi:id="-4624748498866648918" name="DEFAULT_PIPE_SIZE"/>
+      <ownedAttribute xmi:id="-6814834245792619544" name="in"/>
+      <ownedAttribute xmi:id="-4030357049091395555" name="out"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-2430030250100535923" name="PipedWriter">
+      <ownedAttribute xmi:id="8284231834386640544" name="closed"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-3747332609650590957" name="PushbackReader">
+      <generalization xmi:id="1170889053705094215" general="-6970571774330636317"/>
+      <ownedAttribute xmi:id="8612860787332755031" name="pos"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-2711732898195158373" name="SequenceInputStream"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="4310820091281479193" name="SerializablePermission">
+      <ownedAttribute xmi:id="-3031821125338377173" name="serialVersionUID"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-7163341416485817325" name="StreamCorruptedException">
+      <ownedAttribute xmi:id="-7507000482854648512" name="serialVersionUID"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="4902170839621365388" name="StringBufferInputStream">
+      <ownedAttribute xmi:id="-401746709800669865" name="pos"/>
+      <ownedAttribute xmi:id="3920848880806339507" name="count"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="8877551995828236062" name="SyncFailedException"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="6742050614726751910" name="UTFDataFormatException"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-6042944005112662133" name="WriteAbortedException">
+      <ownedAttribute xmi:id="8564281792962803119" name="serialVersionUID"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="4904655657408955366" name="StreamTokenizer">
+      <ownedAttribute xmi:id="6326861916136454639" name="peekc"/>
+      <ownedAttribute xmi:id="2925101428716999978" name="NEED_CHAR"/>
+      <ownedAttribute xmi:id="2440276992634051591" name="SKIP_LF"/>
+      <ownedAttribute xmi:id="2502230907409464106" name="pushedBack"/>
+      <ownedAttribute xmi:id="-2665325271858736294" name="forceLower"/>
+      <ownedAttribute xmi:id="6895216068359524928" name="LINENO"/>
+      <ownedAttribute xmi:id="-2731408267144381640" name="eolIsSignificantP"/>
+      <ownedAttribute xmi:id="-6773870442750772543" name="slashSlashCommentsP"/>
+      <ownedAttribute xmi:id="-6602403695128152495" name="slashStarCommentsP"/>
+      <ownedAttribute xmi:id="-2597339124922788970" name="CT_WHITESPACE"/>
+      <ownedAttribute xmi:id="3070019936503692650" name="CT_DIGIT"/>
+      <ownedAttribute xmi:id="6853837447714638347" name="CT_ALPHA"/>
+      <ownedAttribute xmi:id="-6932688033332648626" name="CT_QUOTE"/>
+      <ownedAttribute xmi:id="3433356339699340006" name="CT_COMMENT"/>
+      <ownedAttribute xmi:id="6669309253314596866" name="ttype"/>
+      <ownedAttribute xmi:id="177941502908440763" name="TT_EOF"/>
+      <ownedAttribute xmi:id="-2959007398555501253" name="TT_EOL"/>
+      <ownedAttribute xmi:id="2004704026254257022" name="TT_NUMBER"/>
+      <ownedAttribute xmi:id="7715422778165784084" name="TT_WORD"/>
+      <ownedAttribute xmi:id="4368132258118557018" name="TT_NOTHING"/>
+      <ownedAttribute xmi:id="175344366684246011" name="nval"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-8826972696530503488" name="ObjectOutputStream$HandleTable">
+      <ownedAttribute xmi:id="-7733483957376834836" name="size"/>
+      <ownedAttribute xmi:id="5265121642632743874" name="threshold"/>
+      <ownedAttribute xmi:id="-3771588555742294302" name="loadFactor"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="3600410645022999712" name="ObjectOutputStream$BlockDataOutputStream">
+      <ownedAttribute xmi:id="-8402608274058929015" name="MAX_BLOCK_SIZE"/>
+      <ownedAttribute xmi:id="-8714532028254684253" name="MAX_HEADER_SIZE"/>
+      <ownedAttribute xmi:id="-3792103192522226377" name="CHAR_BUF_SIZE"/>
+      <ownedAttribute xmi:id="4512606041549375017" name="blkmode"/>
+      <ownedAttribute xmi:id="-6853803625808753123" name="pos"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-1899672192374381895" name="ObjectStreamClass$3"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-7546936992008261640" name="ObjectOutputStream$ReplaceTable"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-2003273856328818033" name="ObjectInputStream$GetField"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-4750085760995383117" name="ObjectInputStream$GetFieldImpl">
+      <generalization xmi:id="9200031223840396823" general="-2003273856328818033"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-8959564139397460289" name="ObjectStreamException">
+      <ownedAttribute xmi:id="-8727326197631009032" name="serialVersionUID"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="3508041216260601719" name="InvalidClassException">
+      <ownedAttribute xmi:id="-4336768626305026108" name="serialVersionUID"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-3526517642198469223" name="ObjectStreamClass$5"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-380796563889077520" name="ObjectStreamClass$4"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-7469990626215803041" name="ObjectInputStream$CallbackContext"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-8025712644897536476" name="ObjectStreamClass$ClassDataSlot">
+      <ownedAttribute xmi:id="-5686675602689219297" name="hasData"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-3664482107351555313" name="ObjectStreamClass$MemberSignature"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-9029542339850031232" name="DataOutputStream">
+      <ownedAttribute xmi:id="-5731590846100482913" name="written"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="1035637373666020182" name="ObjectStreamClass$1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="9180101164904420902" name="ObjectStreamClass$FieldReflector">
+      <ownedAttribute xmi:id="1441877199837013893" name="numPrimFields"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-1974781064559306601" name="ObjectStreamClass$FieldReflectorKey">
+      <ownedAttribute xmi:id="3366743334992962232" name="hash"/>
+      <ownedAttribute xmi:id="-407835394383707159" name="nullClass"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="3510797671889788020" name="ObjectStreamClass$2"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="3100765362242082133" name="ObjectStreamClass$EntryFuture"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-3261228276826472929" name="ObjectStreamClass$WeakClassKey">
+      <ownedAttribute xmi:id="-4341626849121033615" name="hash"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-2418916695406630337" name="ObjectStreamClass$Caches"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="7522185680891870589" name="ObjectInputStream$ValidationList"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-625511146766472473" name="ObjectInputStream$HandleTable$HandleList">
+      <ownedAttribute xmi:id="-2692582926270346500" name="size"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-5163459146334792851" name="ObjectInputStream$HandleTable">
+      <ownedAttribute xmi:id="3416210365897088134" name="STATUS_OK"/>
+      <ownedAttribute xmi:id="-8188943572823684768" name="STATUS_UNKNOWN"/>
+      <ownedAttribute xmi:id="-603196386365610788" name="STATUS_EXCEPTION"/>
+      <ownedAttribute xmi:id="-4828853935588005704" name="lowDep"/>
+      <ownedAttribute xmi:id="5316038097890335036" name="size"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="8567147706157725519" name="ObjectInputStream$PeekInputStream">
+      <ownedAttribute xmi:id="7027867015405278199" name="peekb"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-5575529288738223040" name="ObjectInputStream$BlockDataInputStream">
+      <ownedAttribute xmi:id="6912299057248160365" name="MAX_BLOCK_SIZE"/>
+      <ownedAttribute xmi:id="-4969624705790331067" name="MAX_HEADER_SIZE"/>
+      <ownedAttribute xmi:id="-2700064846213996394" name="CHAR_BUF_SIZE"/>
+      <ownedAttribute xmi:id="-6857581757474740605" name="HEADER_BLOCKED"/>
+      <ownedAttribute xmi:id="1825475673314368231" name="blkmode"/>
+      <ownedAttribute xmi:id="2840136782694332246" name="pos"/>
+      <ownedAttribute xmi:id="-8254779103180938719" name="end"/>
+      <ownedAttribute xmi:id="-2811605902711969841" name="unread"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="6499811977363399881" name="PushbackInputStream">
+      <ownedAttribute xmi:id="-1408500108756335940" name="pos"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="5429496007829655523" name="InterruptedIOException">
+      <ownedAttribute xmi:id="-2014655735613479210" name="bytesTransferred"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-3254069664620257343" name="UnsupportedEncodingException"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="6146194639168289221" name="StringWriter"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-3324049274309350758" name="Externalizable"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-6962712573304600648" name="EOFException"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-6970571774330636317" name="FilterReader"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="5850318521380735604" name="StringReader">
+      <ownedAttribute xmi:id="7074177896398705622" name="length"/>
+      <ownedAttribute xmi:id="3734817255047735735" name="next"/>
+      <ownedAttribute xmi:id="8521782890343149828" name="mark"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-1175151657362059409" name="RandomAccessFile">
+      <ownedAttribute xmi:id="-4715705500082165283" name="rw"/>
+      <ownedAttribute xmi:id="-527676104232916672" name="O_RDONLY"/>
+      <ownedAttribute xmi:id="-8135798138172200698" name="O_RDWR"/>
+      <ownedAttribute xmi:id="-5091037554013212199" name="O_SYNC"/>
+      <ownedAttribute xmi:id="-7017200801268391785" name="O_DSYNC"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-5798799833798186967" name="FileWriter">
+      <generalization xmi:id="-2786567905095353855" general="-4787690023733793930"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="7259000799233555009" name="ByteArrayOutputStream">
+      <ownedAttribute xmi:id="4687674734690516954" name="count"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-849128367859612466" name="ByteArrayInputStream">
+      <ownedAttribute xmi:id="-4680092243611745302" name="pos"/>
+      <ownedAttribute xmi:id="8747039831938876883" name="mark"/>
+      <ownedAttribute xmi:id="-3380574996152105738" name="count"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="214869737035248809" name="PrintWriter">
+      <ownedAttribute xmi:id="-7089237678854484129" name="autoFlush"/>
+      <ownedAttribute xmi:id="3801153732784297509" name="trouble"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="6446289080218532711" name="DataInputStream"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-2287169801607900776" name="DataInput"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="7529520592516591212" name="ObjectInput"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-8221299160688222557" name="ObjectInputStream">
+      <ownedAttribute xmi:id="44579941036742960" name="NULL_HANDLE"/>
+      <ownedAttribute xmi:id="4400184286642095111" name="depth"/>
+      <ownedAttribute xmi:id="5459925568934901395" name="closed"/>
+      <ownedAttribute xmi:id="-8859009447743989011" name="passHandle"/>
+      <ownedAttribute xmi:id="-7543091738212191434" name="defaultDataEnd"/>
+      <ownedAttribute xmi:id="6362880352396344701" name="enableOverride"/>
+      <ownedAttribute xmi:id="2209408093278914586" name="enableResolve"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="1303722042411129170" name="ObjectStreamConstants">
+      <ownedAttribute xmi:id="6336712353256499161" name="STREAM_MAGIC"/>
+      <ownedAttribute xmi:id="-4114742186235917318" name="STREAM_VERSION"/>
+      <ownedAttribute xmi:id="-567596127628261799" name="TC_BASE"/>
+      <ownedAttribute xmi:id="4918153218421049191" name="TC_NULL"/>
+      <ownedAttribute xmi:id="5465624542172278096" name="TC_REFERENCE"/>
+      <ownedAttribute xmi:id="7944762703028573599" name="TC_CLASSDESC"/>
+      <ownedAttribute xmi:id="3039379505367969666" name="TC_OBJECT"/>
+      <ownedAttribute xmi:id="-3592796813929916661" name="TC_STRING"/>
+      <ownedAttribute xmi:id="-670181352788791575" name="TC_ARRAY"/>
+      <ownedAttribute xmi:id="-2243084681922986646" name="TC_CLASS"/>
+      <ownedAttribute xmi:id="-1845602099575352632" name="TC_BLOCKDATA"/>
+      <ownedAttribute xmi:id="-1455701467984084471" name="TC_ENDBLOCKDATA"/>
+      <ownedAttribute xmi:id="342313667546073856" name="TC_RESET"/>
+      <ownedAttribute xmi:id="6803244570924419888" name="TC_BLOCKDATALONG"/>
+      <ownedAttribute xmi:id="-4762054197718305631" name="TC_EXCEPTION"/>
+      <ownedAttribute xmi:id="-8603541253209967393" name="TC_LONGSTRING"/>
+      <ownedAttribute xmi:id="648890876226253763" name="TC_PROXYCLASSDESC"/>
+      <ownedAttribute xmi:id="-982579470036553542" name="TC_ENUM"/>
+      <ownedAttribute xmi:id="3876834619522438807" name="TC_MAX"/>
+      <ownedAttribute xmi:id="9018018924538212673" name="baseWireHandle"/>
+      <ownedAttribute xmi:id="-8986711568905611848" name="SC_WRITE_METHOD"/>
+      <ownedAttribute xmi:id="-302793374190005181" name="SC_BLOCK_DATA"/>
+      <ownedAttribute xmi:id="1218532717469550022" name="SC_SERIALIZABLE"/>
+      <ownedAttribute xmi:id="8430832461565690004" name="SC_EXTERNALIZABLE"/>
+      <ownedAttribute xmi:id="2604765919781047861" name="SC_ENUM"/>
+      <ownedAttribute xmi:id="7594885912920894205" name="PROTOCOL_VERSION_1"/>
+      <ownedAttribute xmi:id="-5370595436769150622" name="PROTOCOL_VERSION_2"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="6490137595057698419" name="DataOutput"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="9063619027980906983" name="ObjectOutput"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="5954603586172740492" name="ObjectOutputStream">
+      <ownedAttribute xmi:id="7890993699861414191" name="protocol"/>
+      <ownedAttribute xmi:id="5458154098548671278" name="depth"/>
+      <ownedAttribute xmi:id="5997700373107073868" name="enableOverride"/>
+      <ownedAttribute xmi:id="236932504872018057" name="enableReplace"/>
+      <ownedAttribute xmi:id="2860444309724251143" name="extendedDebugInfo"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-4494217663958222536" name="FilenameFilter"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="4812606042887357184" name="IOException">
+      <ownedAttribute xmi:id="-3726821066983223720" name="serialVersionUID"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-1901933701095698189" name="FileNotFoundException">
+      <generalization xmi:id="-7979725528669620908" general="4812606042887357184"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-7129133283612965646" name="DeleteOnExitHook"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="3474089616120017059" name="FilePermissionCollection">
+      <ownedAttribute xmi:id="4359639914463201438" name="serialVersionUID"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="1632623083088317082" name="FilePermission$1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-5273493281413962796" name="FilePermission">
+      <ownedAttribute xmi:id="3363093464615284222" name="EXECUTE"/>
+      <ownedAttribute xmi:id="-1842085119777400473" name="WRITE"/>
+      <ownedAttribute xmi:id="3319669732647154651" name="READ"/>
+      <ownedAttribute xmi:id="4860175763457530639" name="DELETE"/>
+      <ownedAttribute xmi:id="8610798985315711635" name="ALL"/>
+      <ownedAttribute xmi:id="3177492583139412128" name="NONE"/>
+      <ownedAttribute xmi:id="427166662415931961" name="mask"/>
+      <ownedAttribute xmi:id="510054514848804478" name="directory"/>
+      <ownedAttribute xmi:id="3408828971238214175" name="recursive"/>
+      <ownedAttribute xmi:id="-3444742589244770481" name="RECURSIVE_CHAR"/>
+      <ownedAttribute xmi:id="-6973387561044292691" name="WILD_CHAR"/>
+      <ownedAttribute xmi:id="7733737531580613874" name="serialVersionUID"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-7762026786850705804" name="ObjectStreamClass">
+      <ownedAttribute xmi:id="-4058924204310010704" name="serialVersionUID"/>
+      <ownedAttribute xmi:id="2660087159518167426" name="isProxy"/>
+      <ownedAttribute xmi:id="-7937753398750637391" name="isEnum"/>
+      <ownedAttribute xmi:id="8712088852614972919" name="serializable"/>
+      <ownedAttribute xmi:id="1671801839822946481" name="externalizable"/>
+      <ownedAttribute xmi:id="9060420918385653464" name="hasWriteObjectData"/>
+      <ownedAttribute xmi:id="8916058745333339123" name="hasBlockExternalData"/>
+      <ownedAttribute xmi:id="-8347898646418802142" name="primDataSize"/>
+      <ownedAttribute xmi:id="7948609607444549237" name="numObjFields"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-4174300974402089182" name="InputStreamReader"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="1502817212384054787" name="FileReader">
+      <generalization xmi:id="1201320592836286162" general="-4174300974402089182"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-5640804726390944600" name="Reader">
+      <ownedAttribute xmi:id="1323427770647828645" name="maxSkipBufferSize"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-264213260434768708" name="BufferedReader">
+      <generalization xmi:id="7137202528496104028" general="-5640804726390944600"/>
+      <ownedAttribute xmi:id="6803675869089770194" name="nChars"/>
+      <ownedAttribute xmi:id="3442278352496989958" name="nextChar"/>
+      <ownedAttribute xmi:id="8733831316424878795" name="INVALIDATED"/>
+      <ownedAttribute xmi:id="-4436340979417520127" name="UNMARKED"/>
+      <ownedAttribute xmi:id="-3133067472922282442" name="markedChar"/>
+      <ownedAttribute xmi:id="928888418121404843" name="readAheadLimit"/>
+      <ownedAttribute xmi:id="-6082099854556761378" name="skipLF"/>
+      <ownedAttribute xmi:id="4294455519129556637" name="markedSkipLF"/>
+      <ownedAttribute xmi:id="-5869379938096717330" name="defaultCharBufferSize"/>
+      <ownedAttribute xmi:id="-4994860802347728293" name="defaultExpectedLineLength"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-4060913446602505491" name="Console$1$1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="7740414196385384098" name="Console$1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-3096795368942647378" name="Console">
+      <ownedAttribute xmi:id="-7565416193306549837" name="echoOff"/>
+      <ownedAttribute xmi:id="453658121127573859" name="$assertionsDisabled"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="6264323275285081900" name="ExpiringCache$Entry">
+      <ownedAttribute xmi:id="8681874989146824590" name="timestamp"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="6139114365250329290" name="File$1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-1389405111614961916" name="ExpiringCache$1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-2151879955211130084" name="ExpiringCache">
+      <ownedAttribute xmi:id="-55539750221955651" name="millisUntilExpiration"/>
+      <ownedAttribute xmi:id="7023561558912488313" name="queryCount"/>
+      <ownedAttribute xmi:id="-8822999191169714197" name="queryOverflow"/>
+      <ownedAttribute xmi:id="351511242697896243" name="MAX_ENTRIES"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="4900633712736137805" name="Win32FileSystem">
+      <generalization xmi:id="2138777831183726020" general="6611649682720768899"/>
+      <ownedAttribute xmi:id="-1541840455275288564" name="slash"/>
+      <ownedAttribute xmi:id="-7836385686098369084" name="altSlash"/>
+      <ownedAttribute xmi:id="1954426559149887976" name="semicolon"/>
+      <ownedAttribute xmi:id="2101885898390167590" name="$assertionsDisabled"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-4423569531031923119" name="WinNTFileSystem">
+      <generalization xmi:id="-5705921372528117274" general="4900633712736137805"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="6611649682720768899" name="FileSystem">
+      <ownedAttribute xmi:id="2744934801505731926" name="BA_EXISTS"/>
+      <ownedAttribute xmi:id="1870449898850118121" name="BA_REGULAR"/>
+      <ownedAttribute xmi:id="8602282366710842508" name="BA_DIRECTORY"/>
+      <ownedAttribute xmi:id="4405763146396665973" name="BA_HIDDEN"/>
+      <ownedAttribute xmi:id="3765807899993408874" name="ACCESS_READ"/>
+      <ownedAttribute xmi:id="-2935438475022476812" name="ACCESS_WRITE"/>
+      <ownedAttribute xmi:id="3473109637183921772" name="ACCESS_EXECUTE"/>
+      <ownedAttribute xmi:id="-1743959669480328865" name="SPACE_TOTAL"/>
+      <ownedAttribute xmi:id="8761851258972902685" name="SPACE_FREE"/>
+      <ownedAttribute xmi:id="-135684314569406608" name="SPACE_USABLE"/>
+      <ownedAttribute xmi:id="-5794384275560777780" name="useCanonCaches"/>
+      <ownedAttribute xmi:id="4472128556077157752" name="useCanonPrefixCache"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-6603696536830845313" name="File">
+      <ownedAttribute xmi:id="7818092651955591535" name="prefixLength"/>
+      <ownedAttribute xmi:id="4333492723356845864" name="separatorChar"/>
+      <ownedAttribute xmi:id="871510421055209292" name="pathSeparatorChar"/>
+      <ownedAttribute xmi:id="5358246284628295958" name="counter"/>
+      <ownedAttribute xmi:id="7753306844102863767" name="serialVersionUID"/>
+      <ownedAttribute xmi:id="8537946910758755246" name="$assertionsDisabled"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="6365392959737008955" name="BufferedWriter">
+      <ownedAttribute xmi:id="-2468154443063554982" name="nChars"/>
+      <ownedAttribute xmi:id="6357933578472869024" name="nextChar"/>
+      <ownedAttribute xmi:id="-6499983524955865152" name="defaultCharBufferSize"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="4267280752070756918" name="Writer">
+      <ownedAttribute xmi:id="3211820317745106138" name="writeBufferSize"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-4787690023733793930" name="OutputStreamWriter">
+      <generalization xmi:id="-2549298559652701428" general="4267280752070756918"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-7098373423507842674" name="BufferedOutputStream">
+      <ownedAttribute xmi:id="7725437935049039012" name="count"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="2681807367588062034" name="FilterOutputStream"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="3015127635255261942" name="PrintStream">
+      <generalization xmi:id="-4609753682564533288" general="2681807367588062034"/>
+      <ownedAttribute xmi:id="-5410033605641257559" name="autoFlush"/>
+      <ownedAttribute xmi:id="7600241879927231352" name="trouble"/>
+      <ownedAttribute xmi:id="8506576369590657008" name="closing"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-3320866821529936040" name="FilterInputStream"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-1439161355222512639" name="BufferedInputStream">
+      <generalization xmi:id="4271782683267456482" general="-3320866821529936040"/>
+      <ownedAttribute xmi:id="-1381785455728218392" name="defaultBufferSize"/>
+      <ownedAttribute xmi:id="-2338726506342296563" name="count"/>
+      <ownedAttribute xmi:id="1794514940597184587" name="pos"/>
+      <ownedAttribute xmi:id="-1442506078714439529" name="markpos"/>
+      <ownedAttribute xmi:id="2039251650104823257" name="marklimit"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-7463722594644651013" name="Flushable"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="718648983939812053" name="OutputStream"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="-3159245286459696402" name="FileOutputStream">
+      <generalization xmi:id="7407306392810197651" general="718648983939812053"/>
+      <ownedAttribute xmi:id="-3120902327540307033" name="append"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="5770380175766645718" name="FileDescriptor">
+      <ownedAttribute xmi:id="3818586757961697155" name="fd"/>
+      <ownedAttribute xmi:id="672916499179846492" name="handle"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-1338854505314161306" name="Closeable"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="1341398667421307685" name="InputStream">
+      <ownedAttribute xmi:id="-1443343182358709627" name="SKIP_BUFFER_SIZE"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-8673146707319026501" name="FileInputStream">
+      <generalization xmi:id="-3368926319366395748" general="1341398667421307685"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="-4604279249777852094" name="ObjectStreamField">
+      <ownedAttribute xmi:id="-1811505374355869964" name="unshared"/>
+      <ownedAttribute xmi:id="-1202742140782468181" name="offset"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="8211950962450467249" name="Serializable"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="-4688025224712861148" memberEnd="3362839349615090382 -7294016495027658136">
+      <ownedEnd xmi:id="-7294016495027658136" type="-3096795368942647378" association="-4688025224712861148"/>
+      <ownedEnd xmi:id="3362839349615090382" type="-1661883577151803810" association="-4688025224712861148"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="8341836161407643124" memberEnd="-5473414659237751926 -651249462139285582">
+      <ownedEnd xmi:id="-651249462139285582" type="-5640804726390944600" association="8341836161407643124"/>
+      <ownedEnd xmi:id="-5473414659237751926" type="54109911010352510" association="8341836161407643124"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-6056079786445404684" memberEnd="8742645043865783369 -3429370720511201015">
+      <ownedEnd xmi:id="-3429370720511201015" type="-3096795368942647378" association="-6056079786445404684"/>
+      <ownedEnd xmi:id="8742645043865783369" type="54109911010352510" association="-6056079786445404684"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-7781505670791950186" memberEnd="2190164586487538536 2473535284039476390">
+      <ownedEnd xmi:id="2473535284039476390" type="4267280752070756918" association="-7781505670791950186"/>
+      <ownedEnd xmi:id="2190164586487538536" type="-5230476392763689222" association="-7781505670791950186"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-3065690837080543943" memberEnd="-5019947637371902820 1714807223302116831">
+      <ownedEnd xmi:id="1714807223302116831" type="7522185680891870589" association="-3065690837080543943"/>
+      <ownedEnd xmi:id="-5019947637371902820" type="-3450104891203287565" association="-3065690837080543943"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-615488178803666725" memberEnd="-4524201588016989109 1002502535754300744">
+      <ownedEnd xmi:id="1002502535754300744" type="-2912708351256436556" association="-615488178803666725"/>
+      <ownedEnd xmi:id="-4524201588016989109" type="8137929890007509633" association="-615488178803666725"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="5615084925747967047" memberEnd="-3710749456250560723 -6219036367804049660">
+      <ownedEnd xmi:id="-6219036367804049660" type="8137929890007509633" association="5615084925747967047"/>
+      <ownedEnd xmi:id="-3710749456250560723" type="8137929890007509633" association="5615084925747967047"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-9123318891002382381" memberEnd="-6269858491200074795 -553213139726031544">
+      <ownedEnd xmi:id="-553213139726031544" type="-7762026786850705804" association="-9123318891002382381"/>
+      <ownedEnd xmi:id="-6269858491200074795" type="-6025405217568602308" association="-9123318891002382381"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="7562515474011641878" memberEnd="744584937818545911 1358461315980944901">
+      <ownedEnd xmi:id="1358461315980944901" type="5954603586172740492" association="7562515474011641878"/>
+      <ownedEnd xmi:id="744584937818545911" type="-6025405217568602308" association="7562515474011641878"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-8601240831005969386" memberEnd="510473523954691202 -7932939377184265693">
+      <ownedEnd xmi:id="-7932939377184265693" type="3100765362242082133" association="-8601240831005969386"/>
+      <ownedEnd xmi:id="510473523954691202" type="-1972430901326323908" association="-8601240831005969386"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="4316809056179544285" memberEnd="-1425505521004740888 -6971940019764524574">
+      <ownedEnd xmi:id="-6971940019764524574" type="3769566826472584585" association="4316809056179544285"/>
+      <ownedEnd xmi:id="-1425505521004740888" type="-8342317955852582462" association="4316809056179544285"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="7621912048237160320" memberEnd="-2783349143956958422 8937266911344809274">
+      <ownedEnd xmi:id="8937266911344809274" type="-2031019064494853907" association="7621912048237160320"/>
+      <ownedEnd xmi:id="-2783349143956958422" type="-2430030250100535923" association="7621912048237160320"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-3990142684376604177" memberEnd="1170597215980139392 2473348399106091080">
+      <ownedEnd xmi:id="2473348399106091080" type="1341398667421307685" association="-3990142684376604177"/>
+      <ownedEnd xmi:id="1170597215980139392" type="-2711732898195158373" association="-3990142684376604177"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-6236728779635619792" memberEnd="743658213052580793 2623131809670875956">
+      <ownedEnd xmi:id="2623131809670875956" type="-5640804726390944600" association="-6236728779635619792"/>
+      <ownedEnd xmi:id="743658213052580793" type="4904655657408955366" association="-6236728779635619792"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-3645206212683975979" memberEnd="-8823504478600906329 8497383465611741710">
+      <ownedEnd xmi:id="8497383465611741710" type="1341398667421307685" association="-3645206212683975979"/>
+      <ownedEnd xmi:id="-8823504478600906329" type="4904655657408955366" association="-3645206212683975979"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="433450177056862404" memberEnd="6973583349314038061 1403790940512947349">
+      <ownedEnd xmi:id="1403790940512947349" type="718648983939812053" association="433450177056862404"/>
+      <ownedEnd xmi:id="6973583349314038061" type="3600410645022999712" association="433450177056862404"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-1762459112451957331" memberEnd="-2422380144103715122 5336235780705761006">
+      <ownedEnd xmi:id="5336235780705761006" type="-9029542339850031232" association="-1762459112451957331"/>
+      <ownedEnd xmi:id="-2422380144103715122" type="3600410645022999712" association="-1762459112451957331"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-4199835577194366002" memberEnd="6915074128445074641 -2751420791462489184">
+      <ownedEnd xmi:id="-2751420791462489184" type="-8826972696530503488" association="-4199835577194366002"/>
+      <ownedEnd xmi:id="6915074128445074641" type="-7546936992008261640" association="-4199835577194366002"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-5884121752196546877" memberEnd="2697614189452029514 6251346386445829253">
+      <ownedEnd xmi:id="6251346386445829253" type="-7762026786850705804" association="-5884121752196546877"/>
+      <ownedEnd xmi:id="2697614189452029514" type="-4750085760995383117" association="-5884121752196546877"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="7577588779687839386" memberEnd="5839237681736624312 4769310501368056682">
+      <ownedEnd xmi:id="4769310501368056682" type="-8221299160688222557" association="7577588779687839386"/>
+      <ownedEnd xmi:id="5839237681736624312" type="-4750085760995383117" association="7577588779687839386"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-3773989019972562578" memberEnd="2196494784334008302 -7604376748455529331">
+      <ownedEnd xmi:id="-7604376748455529331" type="-7762026786850705804" association="-3773989019972562578"/>
+      <ownedEnd xmi:id="2196494784334008302" type="-7469990626215803041" association="-3773989019972562578"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-2449328565709867228" memberEnd="-4002626064993808003 -927791541782078401">
+      <ownedEnd xmi:id="-927791541782078401" type="-7762026786850705804" association="-2449328565709867228"/>
+      <ownedEnd xmi:id="-4002626064993808003" type="-8025712644897536476" association="-2449328565709867228"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-6590857142561184211" memberEnd="7390973569481466855 6296332104384527961">
+      <ownedEnd xmi:id="6296332104384527961" type="-7762026786850705804" association="-6590857142561184211"/>
+      <ownedEnd xmi:id="7390973569481466855" type="1035637373666020182" association="-6590857142561184211"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-3241542367151300268" memberEnd="-3571210961915514055 908945150294296890">
+      <ownedEnd xmi:id="908945150294296890" type="-7762026786850705804" association="-3241542367151300268"/>
+      <ownedEnd xmi:id="-3571210961915514055" type="3510797671889788020" association="-3241542367151300268"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-7326105323350999550" memberEnd="-1227606980685477924 -1365510055033299055">
+      <ownedEnd xmi:id="-1365510055033299055" type="8137929890007509633" association="-7326105323350999550"/>
+      <ownedEnd xmi:id="-1227606980685477924" type="7522185680891870589" association="-7326105323350999550"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-1608752036422637699" memberEnd="7721617807172279749 -3711630621506430176">
+      <ownedEnd xmi:id="-3711630621506430176" type="1341398667421307685" association="-1608752036422637699"/>
+      <ownedEnd xmi:id="7721617807172279749" type="8567147706157725519" association="-1608752036422637699"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="2837820360332461838" memberEnd="-5335393621791018682 -1890204371839692752">
+      <ownedEnd xmi:id="-1890204371839692752" type="8567147706157725519" association="2837820360332461838"/>
+      <ownedEnd xmi:id="-5335393621791018682" type="-5575529288738223040" association="2837820360332461838"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="192817000971498005" memberEnd="5289327598555356209 -4071295365329808259">
+      <ownedEnd xmi:id="-4071295365329808259" type="6446289080218532711" association="192817000971498005"/>
+      <ownedEnd xmi:id="5289327598555356209" type="-5575529288738223040" association="192817000971498005"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="8058704947858208365" memberEnd="8936717052706556173 8684084797570643387">
+      <ownedEnd xmi:id="8684084797570643387" type="-8221299160688222557" association="8058704947858208365"/>
+      <ownedEnd xmi:id="8936717052706556173" type="-5575529288738223040" association="8058704947858208365"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-6522765149724566858" memberEnd="-3631280402978401403 -6587377127892112638">
+      <ownedEnd xmi:id="-6587377127892112638" type="-5640804726390944600" association="-6522765149724566858"/>
+      <ownedEnd xmi:id="-3631280402978401403" type="-6970571774330636317" association="-6522765149724566858"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="4723406308563286869" memberEnd="-2266110385021995931 -8241899899756482108">
+      <ownedEnd xmi:id="-8241899899756482108" type="5770380175766645718" association="4723406308563286869"/>
+      <ownedEnd xmi:id="-2266110385021995931" type="-1175151657362059409" association="4723406308563286869"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-5699628893237483948" memberEnd="-3520073712812268360 -8807647962059980258">
+      <ownedEnd xmi:id="-8807647962059980258" type="4267280752070756918" association="-5699628893237483948"/>
+      <ownedEnd xmi:id="-3520073712812268360" type="214869737035248809" association="-5699628893237483948"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-2740245946347976854" memberEnd="-2731895903349209369 4413694123654227871">
+      <ownedEnd xmi:id="4413694123654227871" type="3015127635255261942" association="-2740245946347976854"/>
+      <ownedEnd xmi:id="-2731895903349209369" type="214869737035248809" association="-2740245946347976854"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-3541995317180699967" memberEnd="-3486404047587152403 -3137019804319554853">
+      <ownedEnd xmi:id="-3137019804319554853" type="-5575529288738223040" association="-3541995317180699967"/>
+      <ownedEnd xmi:id="-3486404047587152403" type="-8221299160688222557" association="-3541995317180699967"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="3246075283704473700" memberEnd="-2838393416454923789 -2293092242826586781">
+      <ownedEnd xmi:id="-2293092242826586781" type="7522185680891870589" association="3246075283704473700"/>
+      <ownedEnd xmi:id="-2838393416454923789" type="-8221299160688222557" association="3246075283704473700"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="1181181139768785758" memberEnd="6547276459995924213 1735300464878447867">
+      <ownedEnd xmi:id="1735300464878447867" type="-5163459146334792851" association="1181181139768785758"/>
+      <ownedEnd xmi:id="6547276459995924213" type="-8221299160688222557" association="1181181139768785758"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="6067992733484232420" memberEnd="3416636663164716357 2368187377569815587">
+      <ownedEnd xmi:id="2368187377569815587" type="-7469990626215803041" association="6067992733484232420"/>
+      <ownedEnd xmi:id="3416636663164716357" type="-8221299160688222557" association="6067992733484232420"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="3306716455998175524" memberEnd="4325921275125077250 -2576597766002262702">
+      <ownedEnd xmi:id="-2576597766002262702" type="4310820091281479193" association="3306716455998175524"/>
+      <ownedEnd xmi:id="4325921275125077250" type="1303722042411129170" association="3306716455998175524"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="7653481930916159123" memberEnd="3865768032755266775 -5663520050753825938">
+      <ownedEnd xmi:id="-5663520050753825938" type="3600410645022999712" association="7653481930916159123"/>
+      <ownedEnd xmi:id="3865768032755266775" type="5954603586172740492" association="7653481930916159123"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="23177210222617043" memberEnd="-9003473132781219416 -6249328377265863321">
+      <ownedEnd xmi:id="-6249328377265863321" type="-8826972696530503488" association="23177210222617043"/>
+      <ownedEnd xmi:id="-9003473132781219416" type="5954603586172740492" association="23177210222617043"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="9111088560732791677" memberEnd="1933822629931145206 427085727765693445">
+      <ownedEnd xmi:id="427085727765693445" type="-7546936992008261640" association="9111088560732791677"/>
+      <ownedEnd xmi:id="1933822629931145206" type="5954603586172740492" association="9111088560732791677"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="5384283380266580601" memberEnd="6617115476461101338 5534962199667101767">
+      <ownedEnd xmi:id="5534962199667101767" type="-7762026786850705804" association="5384283380266580601"/>
+      <ownedEnd xmi:id="6617115476461101338" type="5954603586172740492" association="5384283380266580601"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-5018843253849798483" memberEnd="-2437112050194684504 6899974915914507740">
+      <ownedEnd xmi:id="6899974915914507740" type="-6025405217568602308" association="-5018843253849798483"/>
+      <ownedEnd xmi:id="-2437112050194684504" type="5954603586172740492" association="-5018843253849798483"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="267164547802247462" memberEnd="7570312316711392162 8302735078023950505">
+      <ownedEnd xmi:id="8302735078023950505" type="-1765109651633433014" association="267164547802247462"/>
+      <ownedEnd xmi:id="7570312316711392162" type="5954603586172740492" association="267164547802247462"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-261545179674186743" memberEnd="9075070614326342205 -8412451072335512236">
+      <ownedEnd xmi:id="-8412451072335512236" type="-7129133283612965646" association="-261545179674186743"/>
+      <ownedEnd xmi:id="9075070614326342205" type="-7129133283612965646" association="-261545179674186743"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="4374885380094104046" memberEnd="8048191902578601569 1399046447439893576">
+      <ownedEnd xmi:id="1399046447439893576" type="-5273493281413962796" association="4374885380094104046"/>
+      <ownedEnd xmi:id="8048191902578601569" type="1632623083088317082" association="4374885380094104046"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="7426185503462894448" memberEnd="1051522956336190004 8502602147503649719">
+      <ownedEnd xmi:id="8502602147503649719" type="3508041216260601719" association="7426185503462894448"/>
+      <ownedEnd xmi:id="1051522956336190004" type="-7762026786850705804" association="7426185503462894448"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="1041320025512241951" memberEnd="8281241461476513609 -3464027041539884932">
+      <ownedEnd xmi:id="-3464027041539884932" type="9180101164904420902" association="1041320025512241951"/>
+      <ownedEnd xmi:id="8281241461476513609" type="-7762026786850705804" association="1041320025512241951"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-596813071304177902" memberEnd="7005002683254294096 -8913521149777836300">
+      <ownedEnd xmi:id="-8913521149777836300" type="-7762026786850705804" association="-596813071304177902"/>
+      <ownedEnd xmi:id="7005002683254294096" type="-7762026786850705804" association="-596813071304177902"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-6001836697695716156" memberEnd="173633595780464728 -10786337259160549">
+      <ownedEnd xmi:id="-10786337259160549" type="-5640804726390944600" association="-6001836697695716156"/>
+      <ownedEnd xmi:id="173633595780464728" type="-264213260434768708" association="-6001836697695716156"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-7527378529548438257" memberEnd="-8295927182884885253 -6286943319916319589">
+      <ownedEnd xmi:id="-6286943319916319589" type="7740414196385384098" association="-7527378529548438257"/>
+      <ownedEnd xmi:id="-8295927182884885253" type="-4060913446602505491" association="-7527378529548438257"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-3521057799754444966" memberEnd="1303366005708516887 776517070150175375">
+      <ownedEnd xmi:id="776517070150175375" type="-5640804726390944600" association="-3521057799754444966"/>
+      <ownedEnd xmi:id="1303366005708516887" type="-3096795368942647378" association="-3521057799754444966"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="2566402854684025428" memberEnd="-8005658464820087589 6809936462573634588">
+      <ownedEnd xmi:id="6809936462573634588" type="4267280752070756918" association="2566402854684025428"/>
+      <ownedEnd xmi:id="-8005658464820087589" type="-3096795368942647378" association="2566402854684025428"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-1919116240017404462" memberEnd="-6003262010885655213 -8464976452957332423">
+      <ownedEnd xmi:id="-8464976452957332423" type="214869737035248809" association="-1919116240017404462"/>
+      <ownedEnd xmi:id="-6003262010885655213" type="-3096795368942647378" association="-1919116240017404462"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="2691410775135624370" memberEnd="5547577509337582771 -303505128349682628">
+      <ownedEnd xmi:id="-303505128349682628" type="-3096795368942647378" association="2691410775135624370"/>
+      <ownedEnd xmi:id="5547577509337582771" type="-3096795368942647378" association="2691410775135624370"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="5398441156948278984" memberEnd="-6080798735761290214 -3577942615946950651">
+      <ownedEnd xmi:id="-3577942615946950651" type="-2151879955211130084" association="5398441156948278984"/>
+      <ownedEnd xmi:id="-6080798735761290214" type="-1389405111614961916" association="5398441156948278984"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-2605209687733820864" memberEnd="-3341792324643074947 6751029775695810521">
+      <ownedEnd xmi:id="6751029775695810521" type="-2151879955211130084" association="-2605209687733820864"/>
+      <ownedEnd xmi:id="-3341792324643074947" type="4900633712736137805" association="-2605209687733820864"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-6403727401211086591" memberEnd="2389782213310695928 -2037263309389815217">
+      <ownedEnd xmi:id="-2037263309389815217" type="6611649682720768899" association="-6403727401211086591"/>
+      <ownedEnd xmi:id="2389782213310695928" type="-6603696536830845313" association="-6403727401211086591"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="7673024666135761394" memberEnd="1598642710674084805 -4811447703212237345">
+      <ownedEnd xmi:id="-4811447703212237345" type="4267280752070756918" association="7673024666135761394"/>
+      <ownedEnd xmi:id="1598642710674084805" type="6365392959737008955" association="7673024666135761394"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="7429507898429239083" memberEnd="-6851413095893306509 -2652343791414778635">
+      <ownedEnd xmi:id="-2652343791414778635" type="718648983939812053" association="7429507898429239083"/>
+      <ownedEnd xmi:id="-6851413095893306509" type="2681807367588062034" association="7429507898429239083"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-8156227039683626630" memberEnd="2596663324988774727 -1743830690629295989">
+      <ownedEnd xmi:id="-1743830690629295989" type="6365392959737008955" association="-8156227039683626630"/>
+      <ownedEnd xmi:id="2596663324988774727" type="3015127635255261942" association="-8156227039683626630"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="7457024556402142928" memberEnd="3297909374228376773 3586382481158626493">
+      <ownedEnd xmi:id="3586382481158626493" type="-4787690023733793930" association="7457024556402142928"/>
+      <ownedEnd xmi:id="3297909374228376773" type="3015127635255261942" association="7457024556402142928"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-2114170170313802656" memberEnd="-2486338978932054068 -62569059608905762">
+      <ownedEnd xmi:id="-62569059608905762" type="1341398667421307685" association="-2114170170313802656"/>
+      <ownedEnd xmi:id="-2486338978932054068" type="-3320866821529936040" association="-2114170170313802656"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="6502224749322350236" memberEnd="8806412855683755993 -2562447848806393879">
+      <ownedEnd xmi:id="-2562447848806393879" type="5770380175766645718" association="6502224749322350236"/>
+      <ownedEnd xmi:id="8806412855683755993" type="-3159245286459696402" association="6502224749322350236"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="965686630096687197" memberEnd="9151569776437412930 -97288672315344028">
+      <ownedEnd xmi:id="-97288672315344028" type="5770380175766645718" association="965686630096687197"/>
+      <ownedEnd xmi:id="9151569776437412930" type="5770380175766645718" association="965686630096687197"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="-5942943320870844464" memberEnd="-3623037969107017335 -7500324852288056808">
+      <ownedEnd xmi:id="-7500324852288056808" type="5770380175766645718" association="-5942943320870844464"/>
+      <ownedEnd xmi:id="-3623037969107017335" type="-8673146707319026501" association="-5942943320870844464"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>
