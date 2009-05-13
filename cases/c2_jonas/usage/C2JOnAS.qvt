@@ -1,0 +1,215 @@
+
+transformation C2JOnAS(arc:C2, sys:JOnAS){
+
+	key C2::Connector{name};
+	key C2::Component{name};
+	key C2::Architecture{deployedHost};
+	key JOnAS::MBeanServer{serverHost};
+	key JOnAS::EJB{name};
+	key JOnAS::WebModule{name};
+
+	top	relation Root2Root {
+		
+		host : String;
+
+		enforce domain arc s: C2::Architecture {
+			deployedHost=host
+		};
+		
+		enforce domain sys t: JOnAS::MBeanServer {
+			serverHost=host	
+		};
+				
+		when {
+			s.parent.oclIsUndefined();
+		}
+	}
+	
+	top relation Component2EntityBean {	
+	
+		name : String;
+		address : String;
+		filePath : String;
+		jdbc:String;
+		
+		checkonly domain arc arch:C2::Architecture{};
+		enforce domain arc conn:C2::Connector{
+			name=address
+		};
+		enforce domain arc comp : C2::Component{
+			name=name,
+			address=address,
+			filePath=filePath,
+			type='Entity',
+			below=conn,
+			above = conn2 : C2::Connector{
+								name=jdbc
+							}
+		};
+				
+		checkonly domain sys mbeanserver :JOnAS::MBeanServer{
+		};		
+		enforce domain sys entitybean : JOnAS::EntityBean{
+			name=name,
+			jndiName=address,
+			fileName=filePath,
+			parent=mbeanserver,
+			dataSourceJNDI=jdbc
+		};	
+		
+		when {
+			Root2Root(arch,mbeanserver);
+		}	
+	}
+	
+	top relation Component2StatefulSessionBean {	
+	
+		name : String;
+		address : String;
+		filePath : String;
+		instanceLife : Integer;
+		
+		checkonly domain arc arch:C2::Architecture{};
+		enforce domain arc conn:C2::Connector{
+			name=address
+		};
+		enforce domain arc comp : C2::Component{
+			name=name,
+			address=address,
+			filePath=filePath,
+			type='DurativeOperation',
+			below=conn,
+			instanceLife=instanceLife
+		};
+				
+		checkonly domain sys server :JOnAS::MBeanServer{
+		};		
+		enforce domain sys sb : JOnAS::StatefulSessionBean{
+			name=name,
+			jndiName=address,
+			fileName=filePath,
+			parent=server,
+			sessionTimeOut=instanceLife
+		};	
+		
+		when {
+			Root2Root(arch,server);
+		}	
+	}
+	
+	top relation Component2StatelessSessionBean {	
+	
+		name : String;
+		address : String;
+		filePath : String;
+		instanceLife : Integer;
+		jdbc : String;
+		
+		
+		checkonly domain arc arch:C2::Architecture{};
+		enforce domain arc conn:C2::Connector{
+			name=address
+		};
+		enforce domain arc comp : C2::Component{
+			name=name,
+			address=address,
+			filePath=filePath,
+			type='OneStopOperation',
+			instanceLife=instanceLife,
+			below=conn,
+			above = conn2 : C2::Connector{
+								name=jdbc
+							}
+		};
+				
+		checkonly domain sys server :JOnAS::MBeanServer{
+		};		
+		enforce domain sys sb : JOnAS::StatelessSessionBean{
+			name=name,
+			jndiName=address,
+			fileName=filePath,
+			parent=server,
+			sessionTimeOut=instanceLife,
+			dataSourceJNDI=jdbc
+		};	
+		
+		when {
+			Root2Root(arch,server);
+		}	
+	}
+	
+	top relation Component2WebModule {	
+	
+		name : String;
+		address : String;
+		filePath : String;
+		refjndi : String;
+		
+		
+		checkonly domain arc arch : C2::Architecture{};
+		enforce domain arc conn : C2::Connector{
+			name='HTTP',
+			parent=arch
+		};
+		enforce domain arc comp : C2::Component{
+			name=name,
+			address=address,
+			filePath=filePath,
+			below=conn,
+			above=refconn : C2::Connector{
+						name=refjndi
+					}
+		};
+				
+		checkonly domain sys server : JOnAS::MBeanServer{};
+		enforce domain sys webModule : JOnAS::WebModule{
+			name=name,
+			path=address,
+			warURL=filePath,
+			parent=server,
+			ejbref=refjndi
+		};	
+		
+		when {
+			Root2Root(arch,server);
+		}	
+	}
+	
+	
+	top relation Component2DataSource {
+		
+		name:String;
+		address:String;	
+		maxPool : Integer;	
+		minPool : Integer;
+		
+		checkonly domain arc arch : C2::Architecture{};
+		enforce domain arc conn : C2::Connector{
+			name=address,
+			parent=arch,
+			type='jdbc'			
+		};		
+		enforce domain arc comp : C2::Component{
+			below=conn,
+			name=name,
+			address=address,
+			maxPool=maxPool,
+			minPool=minPool,
+			parent=arch
+		};
+		
+		checkonly domain sys server : JOnAS::MBeanServer{};
+		enforce domain sys data : JOnAS::JDBCDataSource{
+			jndiName=address,
+			name=name,
+			jdbcMaxConnPool=maxPool,
+			jdbcMinConnPool=minPool,
+			parent=server
+		};
+		
+		when{
+			Root2Root(arch,server);
+		}
+	}
+		
+}

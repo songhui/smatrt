@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JOnAS:MBeanServer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:JOnAS="http://www.sei.pku.edu.cn/rsa/jonas" serverHost="127.0.0.1" serverPort="1099">
+  <jdbcDataSource name="HSQL1" description="no desc" jdbcMinConnPool="10" jdbcMaxConnPool="100" jdbcConnPool="10" jndiName="jdbc_1" userName="jonas" userPassword="jonas" url="jdbc:hsqldb:hsql://localhost:9001/db_jonas" jdbcMaxWaiters="100"/>
+  <statefulSessionBean displayName="ShoppingCartSB"/>
+  <statefulSessionBean displayName="ShoppingControllerEJB"/>
+  <statefulSessionBean name="ShoppingClientFacadeEJB" jndiName="PetShoppingClientFacadeEJBHome" fileName="/C:/JOnAS-4.9.2/work/apps/jonas/petstore_2008.10.24-14.28.18/petstore-ejb.jar" localClass="com.sun.j2ee.blueprints.petstore.controller.ejb.ShoppingClientFacadeLocal" localHomeClass="com.sun.j2ee.blueprints.petstore.controller.ejb.ShoppingClientFacadeLocalHome" ejbClass="com.sun.j2ee.blueprints.petstore.controller.ejb.ShoppingClientFacadeLocalEJB" displayName="ShoppingClientFacadeEJB"/>
+  <statelessSessionBean displayName="UniqueIdGeneratorEB"/>
+  <statelessSessionBean displayName="SignOnSB"/>
+  <statelessSessionBean displayName="MEJB"/>
+  <statelessSessionBean name="AsyncSenderEJB" jndiName="AsyncSenderEJBHome" fileName="/C:/JOnAS-4.9.2/work/apps/jonas/petstore_2008.10.24-14.28.18/asyncsender-ejb.jar" localClass="com.sun.j2ee.blueprints.asyncsender.ejb.AsyncSender" localHomeClass="com.sun.j2ee.blueprints.asyncsender.ejb.AsyncSenderLocalHome" ejbClass="com.sun.j2ee.blueprints.asyncsender.ejb.AsyncSenderEJB" displayName="AsyncSenderJAR"/>
+  <statelessSessionBean displayName="DomainMEJB"/>
+  <statelessSessionBean displayName="CatalogEB"/>
+  <entityBean name="AccountEJB" jndiName="AccountEJBRemote" fileName="/C:/JOnAS-4.9.2/work/apps/jonas/petstore_2008.10.24-14.28.18/customer-ejb.jar" localClass="com.sun.j2ee.blueprints.customer.account.ejb.AccountLocal" localHomeClass="com.sun.j2ee.blueprints.customer.account.ejb.AccountLocalHome" ejbClass="com.sun.j2ee.blueprints.customer.account.ejb.AccountEJB" displayName="AccountEB" dataSourceJNDI="jdbc_1"/>
+  <entityBean displayName="AddressEB"/>
+  <entityBean displayName="UserEB"/>
+  <entityBean displayName="CustomerEB"/>
+  <entityBean displayName="ProfileEB"/>
+  <entityBean displayName="CounterEB"/>
+  <entityBean displayName="CreditCardEB"/>
+  <entityBean displayName="ContactInfoEB"/>
+  <jvm name="jonas" javaVersion="1.6.0_10" javaVendor="Java HotSpot(TM) Client VM-11.0-b15 / Sun Microsystems Inc." allThreadCount="93"/>
+  <webModule name="//localhost/jonasAdmin" path="/jonasAdmin" startTime="1230039691890" host="localhost" startupTime="15" warURL="file:/C:/JOnAS-4.9.2/webapps/autoload/jonasAdmin.war"/>
+  <webModule path="/jetty"/>
+  <webModule name="//localhost/petstore" path="/petstore" startTime="1230039704562" host="localhost" startupTime="16" warURL="file:/C:/JOnAS-4.9.2/work/apps/jonas/petstore_2008.10.24-14.28.18/petstore.war"/>
+  <webModule name="//localhost/jonas-doc-en" path="/jonas-doc-en" startTime="1230039685234" host="localhost" warURL="file:/C:/JOnAS-4.9.2/webapps/autoload/jonas-doc-en/"/>
+  <webModule path="/jonas-emb-javadoc"/>
+  <webModule path="/mejb"/>
+  <webModule path=""/>
+  <webModule path="/tomcat-docs"/>
+  <webModule path="/jonas-javadoc"/>
+</JOnAS:MBeanServer>

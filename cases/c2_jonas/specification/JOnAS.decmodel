@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DecModel:Decoration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DecModel="http://www.sei.pku.edu.cn/rsa/decmodel" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <genModel href="JOnAS.genmodel#/"/>
+  <importClass>
+    <fullClassName>import javax.management.j2ee.Management;</fullClassName>
+    <fullClassName>import javax.management.j2ee.ManagementHome;</fullClassName>
+    <fullClassName>import javax.naming.Context;</fullClassName>
+    <fullClassName>import javax.naming.InitialContext;</fullClassName>
+    <fullClassName>import javax.rmi.PortableRemoteObject;</fullClassName>
+    <fullClassName>import javax.management.ObjectName;</fullClassName>
+    <fullClassName>javax.management.Attribute</fullClassName>
+    <fullClassName>import javax.xml.parsers.DocumentBuilder;</fullClassName>
+    <fullClassName>import javax.xml.parsers.DocumentBuilderFactory;</fullClassName>
+    <fullClassName>import org.apache.xerces.dom.DOMImplementationImpl;</fullClassName>
+    <fullClassName>import org.apache.xerces.jaxp.DocumentBuilderFactoryImpl;</fullClassName>
+    <fullClassName>import org.apache.xml.serialize.OutputFormat;</fullClassName>
+    <fullClassName>import org.apache.xml.serialize.XMLSerializer;</fullClassName>
+    <fullClassName>import org.apache.xpath.XPathAPI;</fullClassName>
+    <fullClassName>import org.w3c.dom.traversal.NodeIterator;</fullClassName>
+    <fullClassName>import org.w3c.dom.*;</fullClassName>
+    <fullClassName>java.util.Hashtable</fullClassName>
+    <fullClassName>java.io.*</fullClassName>
+    <fullClassName>java.util.Iterator</fullClassName>
+    <fullClassName>java.util.Properties</fullClassName>
+  </importClass>
+  <codeArea>
+    <code xsi:type="DecModel:CodeFragment" description="get raw result, reused for subsequent class casting" text="&#x9;&#x9;Management mainEntry=$global&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;.getMainEntry();&#xD;&#xA;&#x9;&#x9;Object result=null;&#x9;&#xD;&#xA;&#x9;&#x9;try {&#xD;&#xA;&#x9;&#x9;&#x9;result=mainEntry.&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;getAttribute($core,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; &quot;$feature_name&quot;);&#xD;&#xA;&#x9;&#x9;} catch (Exception e) {&#xD;&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xD;&#xA;&#x9;&#x9;&#x9;return $feature_name;&#xD;&#xA;&#x9;&#x9;}"/>
+    <code xsi:type="DecModel:CodeComposition" description="get string-typed attribute">
+      <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.0"/>
+      <child xsi:type="DecModel:CodeFragment" text="if(result==null)&#xD;&#xA;&#x9;return $feature_name;&#xD;&#xA;$feature_name=(String)result;"/>
+    </code>
+    <code xsi:type="DecModel:CodeComposition" description="get int-typed attribute">
+      <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.0"/>
+      <child xsi:type="DecModel:CodeFragment" text="if(result==null)&#xD;&#xA;&#x9;return $feature_name;&#xD;&#xA;$feature_name=((Integer)result).intValue();"/>
+    </code>
+    <code xsi:type="DecModel:CodeComposition" description="get long-typed attribute">
+      <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.0"/>
+      <child xsi:type="DecModel:CodeFragment" text="if(result==null)&#xD;&#xA;&#x9;return $feature_name;&#xD;&#xA;$feature_name=((Long)result).longValue();"/>
+    </code>
+    <code xsi:type="DecModel:CodeComposition" description="get object-typed attribute as a string">
+      <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.0"/>
+      <child xsi:type="DecModel:CodeFragment" text="if(result==null)&#xD;&#xA;&#x9;return $feature_name;&#xD;&#xA;$feature_name=result.toString();"/>
+    </code>
+    <code xsi:type="DecModel:CodeFragment" description="set int-typed attribute" text="&#x9;&#x9;Management mainEntry=$global.getMainEntry();&#xD;&#xA;&#x9;&#x9;try {&#xD;&#xA;&#x9;&#x9;&#x9;Attribute ab=new Attribute(&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&quot;$feature_name&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;new Integer($feature_name)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;);&#xD;&#xA;&#x9;&#x9;&#x9;mainEntry.setAttribute($core,ab);&#xD;&#xA;&#x9;&#x9;} catch (Exception e) {&#xD;&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xD;&#xA;&#x9;&#x9;}"/>
+  </codeArea>
+  <mapArea>
+    <globalMap>
+      <specCode xsi:type="DecModel:UtilMethod">
+        <code xsi:type="DecModel:CodeFragment" description="get main entry" text="&#x9;private long mainEntryBorn=0;&#xD;&#xA;&#x9;private Management mainEntry=null; &#xD;&#xA;&#x9;public Management getMainEntry(){&#xD;&#xA;&#x9;&#x9;System.setProperty(&quot;java.naming.factory.initial&quot;, &quot;org.objectweb.carol.jndi.spi.MultiOrbInitialContextFactory&quot;);&#xD;&#xA;&#x9;&#x9;Context initialContext=null;&#xD;&#xA;&#x9;&#x9;long current=System.currentTimeMillis();&#xD;&#xA;&#x9;&#x9;if(current-mainEntryBorn>8000){&#xD;&#xA;&#x9;&#x9;&#x9;mainEntryBorn=current;&#xD;&#xA;&#x9;&#x9;&#x9;mainEntry=null;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;if(mainEntry!=null){&#xD;&#xA;&#x9;&#x9;&#x9;return mainEntry;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;try {&#xD;&#xA;            initialContext = new InitialContext();           &#xD;&#xA;        } catch (Exception e) {&#xD;&#xA;            e.printStackTrace();&#xD;&#xA;            return null;&#xD;&#xA;        }  &#xD;&#xA;        // Connecting to the MEJB home through JNDI&#xD;&#xA;        ManagementHome mgmtHome=null; &#xD;&#xA;        try {&#xD;&#xA;        &#x9;Object obj=initialContext.lookup(&quot;ejb/mgmt/MEJB&quot;);&#xD;&#xA;            mgmtHome = (ManagementHome) PortableRemoteObject.narrow(initialContext.lookup(&quot;ejb/mgmt/MEJB&quot;),&#xD;&#xA;                    ManagementHome.class);&#xD;&#xA;            mainEntry=mgmtHome.create();&#xD;&#xA;        } catch (Exception e) {&#xD;&#xA;           e.printStackTrace();&#xD;&#xA;           return null;&#xD;&#xA;        }&#xD;&#xA;        return mainEntry;&#xD;&#xA;&#x9;}&#xD;&#xA;"/>
+      </specCode>
+    </globalMap>
+    <classMap specType="ObjectName">
+      <specCode xsi:type="DecModel:Get">
+        <code xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.4"/>
+      </specCode>
+      <specCode xsi:type="DecModel:Identify">
+        <code xsi:type="DecModel:CodeFragment" text="if($core!=null &amp;&amp; core.equals($arg0))&#xD;&#xA;&#x9;$result=true;&#xD;&#xA;else&#xD;&#xA;&#x9;$result=false;"/>
+      </specCode>
+      <classRef href="JOnAS.ecore#//J2EEManagedObject"/>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeFragment" text="name=$core.getKeyProperty(&quot;name&quot;);"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//J2EEManagedObject/name"/>
+      </featureMap>
+    </classMap>
+    <classMap>
+      <specCode xsi:type="DecModel:Create">
+        <code xsi:type="DecModel:CodeFragment" description="deploy a new data source" text="&#x9;&#x9;if(name!=null){&#xD;&#xA;&#x9;&#x9;&#x9;Management mgmt=$global.getMainEntry();&#xD;&#xA;&#x9;&#x9;&#x9;try {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;String p_Filename=name;&#xD;&#xA;&#x9;&#x9;        String[] asParam = new String[1];&#xD;&#xA;&#x9;&#x9;        String[] asSignature = new String[1];&#xD;&#xA;&#x9;&#x9;        asParam[0] = p_Filename;&#xD;&#xA;&#x9;&#x9;        asSignature[0] = &quot;java.lang.String&quot;;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;        ObjectName onDb=new ObjectName(&quot;jonas:type=service,name=database&quot;);&#xD;&#xA;&#x9;&#x9;        // Verify if datasource already loaded&#xD;&#xA;&#x9;&#x9;        Boolean oLoaded = (Boolean) mgmt.invoke(onDb, &quot;isLoadedDataSource&quot;, asParam&#xD;&#xA;&#x9;&#x9;            , asSignature);&#xD;&#xA;&#x9;&#x9;        if (oLoaded.booleanValue() == false) {&#xD;&#xA;&#x9;&#x9;            // Get Datasource properties file&#xD;&#xA;&#x9;&#x9;            Properties oProps = (Properties) mgmt.invoke(onDb&#xD;&#xA;&#x9;&#x9;                , &quot;getDataSourcePropertiesFile&quot;, asParam, asSignature);&#xD;&#xA;&#x9;&#x9;            // Load Datasource&#xD;&#xA;&#x9;&#x9;            Object[] aoParam = {&#xD;&#xA;&#x9;&#x9;                p_Filename, oProps, new Boolean(true)};&#xD;&#xA;&#x9;&#x9;            String[] asSign_3 = {&#xD;&#xA;&#x9;&#x9;                &quot;java.lang.String&quot;, &quot;java.util.Properties&quot;, &quot;java.lang.Boolean&quot;};&#xD;&#xA;&#x9;&#x9;            mgmt.invoke(onDb, &quot;loadDataSource&quot;, aoParam, asSign_3);&#xD;&#xA;&#x9;&#x9;        }&#xD;&#xA;&#x9;&#x9;        else {&#xD;&#xA;&#x9;&#x9;            return null;&#xD;&#xA;&#x9;&#x9;        }&#xD;&#xA;&#x9;&#x9;&#x9;} catch (Exception e) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;// TODO Auto-generated catch block&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;e.printStackTrace();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;return null;&#xD;&#xA;&#x9;&#x9;&#x9;} &#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return null;"/>
+      </specCode>
+      <specCode xsi:type="DecModel:Destroy">
+        <code xsi:type="DecModel:CodeFragment" description="destroy EJB" text="&#x9;&#x9;Management mgmt=$global.getMainEntry();&#xD;&#xA;&#x9;&#x9;try{&#xD;&#xA;            String[] asParam = new String[1];&#xD;&#xA;            asParam[0] = name;&#xD;&#xA;            String[] asSignature = new String[1];&#xD;&#xA;            asSignature[0] = &quot;java.lang.String&quot;;&#xD;&#xA;            ObjectName onDb=new ObjectName(&quot;jonas:type=service,name=database&quot;);&#xD;&#xA;            mgmt.invoke(onDb, &quot;unloadDataSource&quot;&#xD;&#xA;                , asParam, asSignature);&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;catch(Exception e){&#xD;&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xD;&#xA;&#x9;&#x9;&#x9;return;&#xD;&#xA;&#x9;&#x9;}"/>
+      </specCode>
+      <classRef href="JOnAS.ecore#//JDBCDataSource"/>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//JDBCDataSource/currentOpened"/>
+      </featureMap>
+      <featureMap specType="">
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//JDBCDataSource/jdbcMaxConnPool"/>
+      </featureMap>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//JDBCDataSource/jdbcMaxWaiters"/>
+      </featureMap>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//JDBCDataSource/jdbcMinConnPool"/>
+      </featureMap>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//JDBCDataSource/busyMax"/>
+      </featureMap>
+      <featureMap specType="">
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//JDBCDataSource/busyMin"/>
+      </featureMap>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//JDBCDataSource/currentBusy"/>
+      </featureMap>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//JDBCDataSource/connectionFailures"/>
+      </featureMap>
+    </classMap>
+    <classMap>
+      <classRef href="JOnAS.ecore#//SessionBean"/>
+      <featureMap specType="">
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference"/>
+        </specCode>
+        <specCode xsi:type="DecModel:Set">
+          <code xsi:type="DecModel:CodeReference" description="set int-typed attribute" reference="//@codeArea/@code.5"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//SessionBean/sessionTimeOut"/>
+      </featureMap>
+    </classMap>
+    <classMap>
+      <specCode xsi:type="DecModel:Create">
+        <code xsi:type="DecModel:CodeFragment" description="create EJB" text="&#x9;&#x9;if(fileName!=null &amp;&amp; fileName.endsWith(&quot;jar&quot;)){&#xD;&#xA;&#x9;&#x9;&#x9;Management mgmt=$global.getMainEntry();&#xD;&#xA;&#x9;&#x9;&#x9;ObjectName query;&#xD;&#xA;&#x9;&#x9;&#x9;try {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;this.setNewborn(false);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;String[] signature={&quot;java.lang.String&quot;};&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;String[] params=new String[1];&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;params[0] = fileName;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;query = new ObjectName(&quot;jonas:j2eeType=J2EEServer,*&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;ObjectName server=(ObjectName)mgmt.queryNames(query, null).iterator().next();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;String deployedName=(String)mgmt.invoke(server, &quot;deployJar&quot;, params, signature);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;query=new ObjectName(deployedName);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;ObjectName module=(ObjectName)mgmt.queryNames(query, null).iterator().next();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;String[] allEjb=(String[])mgmt.getAttribute(module, &quot;ejbs&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;String qString=allEjb[0];&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;query=new ObjectName(qString+&quot;,*&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;ObjectName res=(ObjectName)mgmt.queryNames(query, null).iterator().next();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;return res;&#xD;&#xA;&#x9;&#x9;&#x9;} catch (Exception e) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;// TODO Auto-generated catch block&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;e.printStackTrace();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;return null;&#xD;&#xA;&#x9;&#x9;&#x9;} &#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return null;"/>
+      </specCode>
+      <specCode xsi:type="DecModel:Destroy">
+        <code xsi:type="DecModel:CodeFragment" description="destroy EJB" text="&#x9;&#x9;if(core==null)&#xD;&#xA;&#x9;&#x9;&#x9;return;&#xD;&#xA;&#x9;&#x9;getFileName();&#xD;&#xA;&#x9;&#x9;if(fileName!=null &amp;&amp; fileName.endsWith(&quot;jar&quot;)){&#xD;&#xA;&#x9;&#x9;&#x9;Management mgmt=$global.getMainEntry();&#xD;&#xA;&#x9;&#x9;&#x9;ObjectName query;&#xD;&#xA;&#x9;&#x9;&#x9;try {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;this.setCore(null);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;this.setNewborn(false);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;String[] signature={&quot;java.lang.String&quot;};&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;String[] params=new String[1];&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;params[0] = fileName;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;query = new ObjectName(&quot;jonas:j2eeType=J2EEServer,*&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;ObjectName server=(ObjectName)mgmt.queryNames(query, null).iterator().next();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;mgmt.invoke(server, &quot;unDeployJar&quot;, params, signature);&#xD;&#xA;&#x9;&#x9;&#x9;} catch (Exception e) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;// TODO Auto-generated catch block&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;e.printStackTrace();&#xD;&#xA;&#x9;&#x9;&#x9;} &#xD;&#xA;&#x9;&#x9;}"/>
+      </specCode>
+      <classRef href="JOnAS.ecore#//EJB"/>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//EJB/cacheSize"/>
+      </featureMap>
+      <featureMap specType="">
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//EJB/poolSize"/>
+      </featureMap>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//EJB/minPoolSize"/>
+      </featureMap>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//EJB/maxCacheSize"/>
+      </featureMap>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeFragment" text="&#x9;Management mainEntry=$global.getMainEntry();&#x9;&#x9;&#xD;&#xA;&#x9;try {&#xD;&#xA;&#x9;&#x9;&#x9;Hashtable hs=(Hashtable)mainEntry.getAttribute($core, &quot;allDataSourceName&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;$feature_name=hs.keySet().iterator().next().toString();&#xD;&#xA;&#x9;&#x9;} catch (Exception e) {&#xD;&#xA;&#x9;&#x9;&#x9;$feature_name=null;&#xD;&#xA;&#x9;&#x9;}"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//EJB/dataSourceJNDI"/>
+      </featureMap>
+    </classMap>
+    <classMap>
+      <specCode xsi:type="DecModel:Create">
+        <code xsi:type="DecModel:CodeNone"/>
+      </specCode>
+      <specCode xsi:type="DecModel:Destroy">
+        <code xsi:type="DecModel:CodeNone"/>
+      </specCode>
+      <classRef href="JOnAS.ecore#//EntityBean"/>
+      <featureMap specType="">
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//EntityBean/inactivityTimeOut"/>
+      </featureMap>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//EntityBean/deadlockTimeOut"/>
+      </featureMap>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//EntityBean/passivationTimeOut"/>
+      </featureMap>
+    </classMap>
+    <classMap specType="">
+      <classRef href="JOnAS.ecore#//JVM"/>
+      <featureMap specType="">
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get int-typed attribute" reference="//@codeArea/@code.2"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//JVM/allThreadsCount"/>
+      </featureMap>
+    </classMap>
+    <classMap specType="">
+      <specCode xsi:type="DecModel:Create">
+        <code xsi:type="DecModel:CodeFragment" text="&#x9;&#x9;if(fileName==null &amp;&amp; warURL!=null &amp;&amp; warURL.endsWith(&quot;war&quot;)){&#xD;&#xA;&#x9;&#x9;&#x9;if(warURL.startsWith(&quot;file:&quot;))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;fileName=warURL.substring(5);&#xD;&#xA;&#x9;&#x9;&#x9;else&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;fileName=warURL;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;if(fileName!=null &amp;&amp; fileName.endsWith(&quot;war&quot;)){&#xD;&#xA;&#x9;&#x9;&#x9;Management mgmt=$global.getMainEntry();&#xD;&#xA;&#x9;&#x9;&#x9;ObjectName query;&#xD;&#xA;&#x9;&#x9;&#x9;try {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;this.setNewborn(false);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;String[] signature={&quot;java.lang.String&quot;};&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;String[] params=new String[1];&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;params[0] = fileName;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;query = new ObjectName(&quot;jonas:j2eeType=J2EEServer,*&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;ObjectName server=(ObjectName)mgmt.queryNames(query, null).iterator().next();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;mgmt.invoke(server, &quot;deployWar&quot;, params, signature);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;query=new ObjectName(&quot;jonas:j2eeType=WebModule,*&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;Set allModules=mgmt.queryNames(query, null);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;ObjectName res=null;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;for(Iterator it=allModules.iterator();it.hasNext();){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;ObjectName obj=(ObjectName)it.next();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;String checkWarURL=mgmt.getAttribute(obj, &quot;warURL&quot;).toString();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;if(checkWarURL!=null &amp;&amp; checkWarURL.endsWith(fileName)){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;res=obj;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;break;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;return res;&#xD;&#xA;&#x9;&#x9;&#x9;} catch (Exception e) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;// TODO Auto-generated catch block&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;e.printStackTrace();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;return null;&#xD;&#xA;&#x9;&#x9;&#x9;} &#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return null;"/>
+      </specCode>
+      <specCode xsi:type="DecModel:Destroy">
+        <code xsi:type="DecModel:CodeFragment" text="&#x9;&#x9;if(warURL==null)&#xD;&#xA;&#x9;&#x9;&#x9;getWarURL();&#xD;&#xA;&#x9;&#x9;if(fileName==null &amp;&amp; warURL!=null &amp;&amp; warURL.endsWith(&quot;war&quot;)){&#xD;&#xA;&#x9;&#x9;&#x9;if(warURL.startsWith(&quot;file:&quot;))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;fileName=warURL.substring(5);&#xD;&#xA;&#x9;&#x9;&#x9;else&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;fileName=warURL;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;if(fileName!=null &amp;&amp; fileName.endsWith(&quot;war&quot;)){&#xD;&#xA;&#x9;&#x9;&#x9;Management mgmt=$global.getMainEntry();&#xD;&#xA;&#x9;&#x9;&#x9;ObjectName query;&#xD;&#xA;&#x9;&#x9;&#x9;try {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;this.setCore(null);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;this.setNewborn(false);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;String[] signature={&quot;java.lang.String&quot;};&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;String[] params=new String[1];&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;params[0] = fileName;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;query = new ObjectName(&quot;jonas:j2eeType=J2EEServer,*&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;ObjectName server=(ObjectName)mgmt.queryNames(query, null).iterator().next();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;mgmt.invoke(server, &quot;unDeployWar&quot;, params, signature);&#xD;&#xA;&#x9;&#x9;&#x9;} catch (Exception e) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;// TODO Auto-generated catch block&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;e.printStackTrace();&#xD;&#xA;&#x9;&#x9;&#x9;} &#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
+      </specCode>
+      <classRef href="JOnAS.ecore#//WebModule"/>
+      <featureMap specType="">
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get long-typed attribute" reference="//@codeArea/@code.3"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//WebModule/startTime"/>
+      </featureMap>
+      <featureMap specType="">
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeReference" description="get long-typed attribute" reference="//@codeArea/@code.3"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//WebModule/startupTime"/>
+      </featureMap>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeNone"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//EJB/fileName"/>
+      </featureMap>
+      <featureMap specType="">
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeFragment" text="$feature_name=null;&#xD;&#xA;try{&#xD;&#xA;&#x9;&#x9;&#x9;Management mainEntry=$global.getMainEntry();&#xD;&#xA;&#x9;&#x9;&#x9;String descriptor=(String)mainEntry.getAttribute($core, &quot;jonasDeploymentDescriptor&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;if(descriptor==null||!descriptor.contains(&quot;jonas-ejb-ref&quot;))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;return $feature_name;&#xD;&#xA;&#x9;&#x9;&#x9;DOMImplementation impl &#xD;&#xA;&#x9;&#x9;       = DOMImplementationImpl.getDOMImplementation();&#xD;&#xA;&#x9;&#x9;&#x9;DocumentBuilderFactory factory= DocumentBuilderFactoryImpl.newInstance();&#xD;&#xA;&#x9;&#x9;&#x9;DocumentBuilder db=factory.newDocumentBuilder();&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;Document doc=db.parse(new StringBufferInputStream(descriptor));&#xD;&#xA;&#x9;&#x9;&#x9;String xpathString=&quot;jonas-web-app/jonas-ejb-ref/jndi-name&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;NodeIterator nl = XPathAPI.selectNodeIterator(doc, xpathString);&#xD;&#xA;&#x9;&#x9;&#x9;Element nd=(Element)nl.nextNode();&#xD;&#xA;&#x9;&#x9;&#x9;$feature_name=nd.getFirstChild().getTextContent();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;catch(Exception e){&#xD;&#xA;&#x9;&#x9;&#x9;;&#xD;&#xA;&#x9;&#x9;}"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="JOnAS.ecore#//WebModule/ejbref"/>
+      </featureMap>
+    </classMap>
+    <classMap>
+      <specCode xsi:type="DecModel:ListSub">
+        <code xsi:type="DecModel:CodeFragment" description="retrieve elements from the server" text="try {&#xD;&#xA;&#x9;&#x9;Management mgmt=$global.getMainEntry();&#xD;&#xA;&#x9;&#x9;ObjectName query=new ObjectName(&quot;jonas:j2eeType=$feature_type,*&quot;);&#xD;&#xA;&#x9;&#x9;Set sets=mgmt.queryNames(query, null);&#xD;&#xA;&#x9;&#x9;$result.addAll(sets);&#xD;&#xA;&#x9;} catch (Exception e) {&#xD;&#xA;&#x9;&#x9;e.printStackTrace();&#xD;&#xA;&#x9;}"/>
+      </specCode>
+      <classRef href="JOnAS.ecore#//MBeanServer"/>
+    </classMap>
+  </mapArea>
+</DecModel:Decoration>
