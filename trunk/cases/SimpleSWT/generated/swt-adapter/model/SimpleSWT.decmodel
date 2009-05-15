@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DecModel:Decoration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DecModel="http://www.sei.pku.edu.cn/rsa/decmodel" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <importClass>
+    <fullClassName>org.eclipse.SWT.widgets.Button</fullClassName>
+    <fullClassName>org.eclipse.SWT.widgets.Control</fullClassName>
+    <fullClassName>org.eclipse.SWT.Color</fullClassName>
+  </importClass>
+  <codeArea>
+    <code xsi:type="DecModel:CodeFragment" description="head of display invoke" text="&#x9;&#x9;Display.getDefault().syncExec(new Runnable(){&#xD;&#xA;&#x9;&#x9;&#x9;public void run(){"/>
+    <code xsi:type="DecModel:CodeFragment" description="tale of display invoke"/>
+  </codeArea>
+  <mapArea>
+    <globalMap/>
+    <classMap specType="Control">
+      <specCode xsi:type="DecModel:Identify">
+        <code xsi:type="DecModel:CodeFragment" text="&#x9;&#x9;final Object obj=arg0;&#xD;&#xA;&#x9;&#x9;if(core==obj)&#xD;&#xA;&#x9;&#x9;&#x9;return true;&#xD;&#xA;&#x9;&#x9;if(!(obj instanceof Control))&#xD;&#xA;&#x9;&#x9;&#x9;return false;&#xD;&#xA;&#x9;&#x9;if(id==null)&#xD;&#xA;&#x9;&#x9;&#x9;return false;&#xD;&#xA;&#x9;&#x9;Display.getDefault().syncExec(new Runnable(){&#xD;&#xA;&#x9;&#x9;&#x9;public void run(){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;idEqual=id.equals(((Control)obj).getData());&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;});&#xD;&#xA;&#x9;&#x9;$result=idEqual;"/>
+      </specCode>
+      <classRef href="SimpleSWT.ecore#//ControlWrap"/>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeComposition">
+            <child xsi:type="DecModel:CodeFragment" text="final $spec_type ctrl=$core;"/>
+            <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.0"/>
+            <child xsi:type="DecModel:CodeFragment" description="" text="$feature_name=(String)ctrl.getData();"/>
+            <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.1"/>
+          </code>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="SimpleSWT.ecore#//ControlWrap/id"/>
+      </featureMap>
+    </classMap>
+    <classMap specType="Composite">
+      <classRef href="SimpleSWT.ecore#//CompositeWrap"/>
+      <featureMap xsi:type="DecModel:FeatureMapForAbstractClass" specType="">
+        <specCode xsi:type="DecModel:ListSub">
+          <code xsi:type="DecModel:CodeComposition"/>
+        </specCode>
+        <feature xsi:type="ecore:EReference" href="SimpleSWT.ecore#//CompositeWrap/children"/>
+      </featureMap>
+    </classMap>
+  </mapArea>
+</DecModel:Decoration>

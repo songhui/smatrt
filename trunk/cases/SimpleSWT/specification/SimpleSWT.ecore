@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SimpleSWT"
+    nsURI="http://www.sei.pku.edu.cn/rsa/simpleswt" nsPrefix="SimpleSWT">
+  <eClassifiers xsi:type="ecore:EClass" name="ControlWrap" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="background" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http:///jp.ac.u_tokyo.wrapper.AttributeAnnotations">
+        <details key="KeyAttribute" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//CompositeWrap"
+        eOpposite="#//CompositeWrap/children"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeWrap" eSuperTypes="#//ControlWrap">
+    <eAnnotations source="http://www.sei.pku.edu.cn/rsa">
+      <details key="RootClass" value="true"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" ordered="false"
+        upperBound="-1" eType="#//ControlWrap" containment="true" eOpposite="#//ControlWrap/parent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextWrap" eSuperTypes="#//ControlWrap">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="editable" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ButtonWrap" eSuperTypes="#//ControlWrap">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grayed" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LabelWrap" eSuperTypes="#//ControlWrap">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

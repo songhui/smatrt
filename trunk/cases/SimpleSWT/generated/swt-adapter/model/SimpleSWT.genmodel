@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/testswt/src"
+    modelPluginID="testswt" modelName="SimpleSWT" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>SimpleSWT.ecore</foreignModel>
+  <genPackages prefix="SimpleSWT" disposableProviderFactory="true" ecorePackage="SimpleSWT.ecore#/">
+    <genClasses image="false" ecoreClass="SimpleSWT.ecore#//ControlWrap">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSWT.ecore#//ControlWrap/background"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSWT.ecore#//ControlWrap/id"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SimpleSWT.ecore#//ControlWrap/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="SimpleSWT.ecore#//CompositeWrap">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleSWT.ecore#//CompositeWrap/children"/>
+    </genClasses>
+    <genClasses ecoreClass="SimpleSWT.ecore#//TextWrap">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSWT.ecore#//TextWrap/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSWT.ecore#//TextWrap/editable"/>
+    </genClasses>
+    <genClasses ecoreClass="SimpleSWT.ecore#//ButtonWrap">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSWT.ecore#//ButtonWrap/grayed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSWT.ecore#//ButtonWrap/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSWT.ecore#//ButtonWrap/image"/>
+    </genClasses>
+    <genClasses ecoreClass="SimpleSWT.ecore#//LabelWrap">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSWT.ecore#//LabelWrap/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleSWT.ecore#//LabelWrap/image"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

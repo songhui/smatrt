@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DecModel:Decoration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DecModel="http://www.sei.pku.edu.cn/rsa/decmodel" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <genModel href="SimpleSWT.genmodel#/"/>
+  <importClass>
+    <fullClassName>org.eclipse.swt.widgets.Text</fullClassName>
+    <fullClassName>org.eclipse.swt.SWT</fullClassName>
+    <fullClassName>org.eclipse.swt.widgets.Button</fullClassName>
+    <fullClassName>org.eclipse.swt.widgets.Composite</fullClassName>
+    <fullClassName>org.eclipse.swt.widgets.Display</fullClassName>
+    <fullClassName>cn.edu.pku.sei.ra.guineapig.swtview.views.SampleView</fullClassName>
+    <fullClassName>org.eclipse.ui.PlatformUI</fullClassName>
+    <fullClassName>org.eclipse.swt.widgets.Control</fullClassName>
+    <fullClassName>org.eclipse.swt.widgets.Label</fullClassName>
+    <fullClassName>org.eclipse.swt.graphics.Color</fullClassName>
+    <fullClassName>java.util.Map</fullClassName>
+    <fullClassName>java.util.HashMap</fullClassName>
+  </importClass>
+  <codeArea>
+    <code xsi:type="DecModel:CodeFragment" description="head of display invoke" text="&#x9;&#x9;Display.getDefault().syncExec(new Runnable(){&#xD;&#xA;&#x9;&#x9;&#x9;public void run(){"/>
+    <code xsi:type="DecModel:CodeFragment" description="tail of display invoke" text="&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;});"/>
+    <code xsi:type="DecModel:CodeFragment" description="try" text="&#x9;&#x9;try{"/>
+    <code xsi:type="DecModel:CodeFragment" description="catch, simple and return" text="&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;catch(Exception e){&#xD;&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xD;&#xA;&#x9;&#x9;&#x9;return null;&#xD;&#xA;&#x9;&#x9;}"/>
+    <code xsi:type="DecModel:CodeFragment" description="catch, simple without  return" text="&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;catch(Exception e){&#xD;&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xD;&#xA;&#x9;&#x9;}"/>
+  </codeArea>
+  <mapArea>
+    <globalMap/>
+    <classMap specType="Control">
+      <specCode xsi:type="DecModel:UtilField" final="true">
+        <code xsi:type="DecModel:CodeFragment" text="&#x9;private static Map&lt;String,Integer> colorMap=new HashMap&lt;String,Integer>();&#xD;&#xA;&#x9;static{&#xD;&#xA;&#x9;&#x9;colorMap.put(&quot;red&quot;, SWT.COLOR_RED);&#xD;&#xA;&#x9;&#x9;colorMap.put(&quot;yellow&quot;, SWT.COLOR_YELLOW);&#xD;&#xA;&#x9;&#x9;colorMap.put(&quot;black&quot;, SWT.COLOR_BLACK);&#xD;&#xA;&#x9;&#x9;colorMap.put(&quot;white&quot;, SWT.COLOR_WHITE);&#xD;&#xA;&#x9;&#x9;colorMap.put(&quot;blue&quot;, SWT.COLOR_BLUE);&#xD;&#xA;&#x9;&#x9;colorMap.put(&quot;gray&quot;, SWT.COLOR_GRAY);&#xD;&#xA;&#x9;&#x9;colorMap.put(&quot;green&quot;, SWT.COLOR_GREEN);&#xD;&#xA;&#x9;&#x9;colorMap.put(&quot;cyan&quot;, SWT.COLOR_CYAN);&#xD;&#xA;&#x9;}&#xD;&#xA;boolean idEqual;"/>
+      </specCode>
+      <specCode xsi:type="DecModel:Identify">
+        <code xsi:type="DecModel:CodeFragment" text="&#x9;&#x9;final Object obj=arg0;&#xD;&#xA;&#x9;&#x9;if(core==obj)&#xD;&#xA;&#x9;&#x9;&#x9;return true;&#xD;&#xA;&#x9;&#x9;if(!(obj instanceof Control))&#xD;&#xA;&#x9;&#x9;&#x9;return false;&#xD;&#xA;&#x9;&#x9;if(id==null)&#xD;&#xA;&#x9;&#x9;&#x9;return false;&#xD;&#xA;&#x9;&#x9;Display.getDefault().syncExec(new Runnable(){&#xD;&#xA;&#x9;&#x9;&#x9;public void run(){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;idEqual=id.equals(((Control)obj).getData());&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;});&#xD;&#xA;&#x9;&#x9;$result=idEqual;"/>
+      </specCode>
+      <classRef href="SimpleSWT.ecore#//ControlWrap"/>
+      <featureMap specType="">
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeComposition">
+            <child xsi:type="DecModel:CodeFragment" text="final $spec_type ctrl=$core;"/>
+            <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.0"/>
+            <child xsi:type="DecModel:CodeFragment" text="$feature_name=(String)ctrl.getData();"/>
+            <child xsi:type="DecModel:CodeReference" description="tail of display invoke" reference="//@codeArea/@code.1"/>
+          </code>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="SimpleSWT.ecore#//ControlWrap/id"/>
+      </featureMap>
+      <featureMap specType="">
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeComposition">
+            <child xsi:type="DecModel:CodeFragment" text="final $spec_type ctrl=$core;"/>
+            <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.0"/>
+            <child xsi:type="DecModel:CodeFragment" text="$feature_name=ctrl.getBackground().toString();"/>
+            <child xsi:type="DecModel:CodeReference" description="tail of display invoke" reference="//@codeArea/@code.1"/>
+          </code>
+        </specCode>
+        <specCode xsi:type="DecModel:Set">
+          <code xsi:type="DecModel:CodeComposition">
+            <child xsi:type="DecModel:CodeFragment" text="&#x9;&#x9;final $spec_type ctrl=$core;&#xD;&#xA;&#x9;&#x9;if(ctrl==null)&#xD;&#xA;&#x9;&#x9;&#x9;return;"/>
+            <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.0"/>
+            <child xsi:type="DecModel:CodeFragment" text="&#x9;&#x9;&#x9;&#x9;Color color=ctrl.getBackground();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;Integer it=colorMap.get(background);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;if(it==null)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;return;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;color=color.getDevice().getSystemColor(it.intValue());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;ctrl.setBackground(color);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;ctrl.redraw();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;ctrl.update();"/>
+            <child xsi:type="DecModel:CodeReference" description="tail of display invoke" reference="//@codeArea/@code.1"/>
+          </code>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="SimpleSWT.ecore#//ControlWrap/background"/>
+      </featureMap>
+      <featureMap specType="">
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeComposition">
+            <child xsi:type="DecModel:CodeFragment" text="final $spec_type txt=$core;"/>
+            <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.0"/>
+            <child xsi:type="DecModel:CodeFragment" text="$feature_name=txt.getText();"/>
+            <child xsi:type="DecModel:CodeReference" description="tail of display invoke" reference="//@codeArea/@code.1"/>
+          </code>
+        </specCode>
+        <specCode xsi:type="DecModel:Set">
+          <code xsi:type="DecModel:CodeComposition">
+            <child xsi:type="DecModel:CodeFragment" text="&#x9;&#x9;final $spec_type txt=$core;&#xD;&#xA;&#x9;&#x9;if(txt==null)&#xD;&#xA;&#x9;&#x9;&#x9;return;"/>
+            <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.0"/>
+            <child xsi:type="DecModel:CodeFragment" text="txt.setText(text);"/>
+            <child xsi:type="DecModel:CodeReference" description="tail of display invoke" reference="//@codeArea/@code.1"/>
+          </code>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="SimpleSWT.ecore#//LabelWrap/text"/>
+      </featureMap>
+    </classMap>
+    <classMap specType="Composite">
+      <specCode xsi:type="DecModel:UtilField">
+        <code xsi:type="DecModel:CodeFragment" text="Control[] ctrls;&#xD;&#xA;SampleView view;"/>
+      </specCode>
+      <specCode xsi:type="DecModel:Lookup">
+        <code xsi:type="DecModel:CodeComposition">
+          <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.2"/>
+          <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.0"/>
+          <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.2"/>
+          <child xsi:type="DecModel:CodeFragment" text="&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;view=(SampleView)PlatformUI.getWorkbench().getWorkbenchWindows()[0].getPages()[0]&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;          .showView(&quot;cn.edu.pku.sei.ra.guineapig.swtview.views.SampleView&quot;);"/>
+          <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.4"/>
+          <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.1"/>
+          <child xsi:type="DecModel:CodeFragment" text="&#x9;&#x9;&#x9;Composite root=view.getRoot();&#xD;&#xA;&#x9;&#x9;&#x9;if(id!=null){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;root.setData(id);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;$result=root;"/>
+          <child xsi:type="DecModel:CodeReference" reference="//@codeArea/@code.3"/>
+        </code>
+      </specCode>
+      <specCode xsi:type="DecModel:Identify">
+        <code xsi:type="DecModel:CodeNone"/>
+      </specCode>
+      <classRef href="SimpleSWT.ecore#//CompositeWrap"/>
+      <featureMap xsi:type="DecModel:FeatureMapForAbstractClass" specType="">
+        <specCode xsi:type="DecModel:ListSub">
+          <code xsi:type="DecModel:CodeComposition">
+            <child xsi:type="DecModel:CodeReference" description="head of display invoke" reference="//@codeArea/@code.0"/>
+            <child xsi:type="DecModel:CodeFragment" text="ctrls=(($spec_type)getCore()).getChildren();"/>
+            <child xsi:type="DecModel:CodeReference" description="tail of display invoke" reference="//@codeArea/@code.1"/>
+            <child xsi:type="DecModel:CodeFragment" text="&#x9;&#x9;&#x9;for(int i=0;i&lt;ctrls.length;i++){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;$result.add(ctrls[i]);&#xD;&#xA;&#x9;&#x9;&#x9;}"/>
+          </code>
+        </specCode>
+        <feature xsi:type="ecore:EReference" href="SimpleSWT.ecore#//CompositeWrap/children"/>
+        <class2eclass key="Text" value="TextWrap"/>
+        <class2eclass key="Button" value="ButtonWrap"/>
+        <class2eclass key="Label" value="LabelWrap"/>
+      </featureMap>
+    </classMap>
+    <classMap specType="Text">
+      <specCode xsi:type="DecModel:Identify">
+        <code xsi:type="DecModel:CodeNone"/>
+      </specCode>
+      <classRef href="SimpleSWT.ecore#//TextWrap"/>
+    </classMap>
+    <classMap specType="Button">
+      <specCode xsi:type="DecModel:Identify">
+        <code xsi:type="DecModel:CodeNone"/>
+      </specCode>
+      <classRef href="SimpleSWT.ecore#//ButtonWrap"/>
+    </classMap>
+    <classMap specType="Label">
+      <specCode xsi:type="DecModel:Identify">
+        <code xsi:type="DecModel:CodeNone"/>
+      </specCode>
+      <classRef href="SimpleSWT.ecore#//LabelWrap"/>
+    </classMap>
+  </mapArea>
+</DecModel:Decoration>
