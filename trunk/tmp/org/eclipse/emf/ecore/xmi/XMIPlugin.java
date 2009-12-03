@@ -34,7 +34,7 @@ public final class XMIPlugin extends EMFPlugin
   /**
    * The one instance of this class.
    */
-  private static Implementation plugin;
+  //private static Implementation plugin;
 
   /**
    * Creates the singleton instance.
@@ -50,33 +50,33 @@ public final class XMIPlugin extends EMFPlugin
   @Override
   public ResourceLocator getPluginResourceLocator()
   {
-    return plugin;
+    return null;
   }
 
   /**
    * Returns the singleton instance of the Eclipse plugin.
    * @return the singleton instance.
    */
-  public static Implementation getPlugin()
-  {
-    return plugin;
-  }
+//  public static Implementation getPlugin()
+//  {
+//    return plugin;
+//  }
 
   /**
    * The actual implementation of the Eclipse <b>Plugin</b>.
    */
-  public static class Implementation extends EclipsePlugin 
-  {
-    /**
-     * Creates an instance.
-     */
-    public Implementation()
-    {
-      super();
-
-      // Remember the static instance.
-      //
-      plugin = this;
-    }
-  }
+//  public static class Implementation extends EclipsePlugin 
+//  {
+//    /**
+//     * Creates an instance.
+//     */
+//    public Implementation()
+//    {
+//      super();
+//
+//      // Remember the static instance.
+//      //
+//      plugin = this;
+//    }
+//  }
 }

@@ -20,6 +20,7 @@ package org.eclipse.emf.ecore;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.impl.EPackageRegistryImpl;
 
 
 /**
@@ -78,7 +79,7 @@ public interface EPackage extends ENamedElement
      */
     EFactory getEFactory(String nsURI);
 
-    Registry INSTANCE = org.eclipse.emf.ecore.impl.EPackageRegistryImpl.createGlobalRegistry();
+    Registry INSTANCE = new EPackageRegistryImpl();//org.eclipse.emf.ecore.impl.EPackageRegistryImpl.createGlobalRegistry();
   }
 
   /**

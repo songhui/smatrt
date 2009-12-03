@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.impl.ArchiveURIHandlerImpl;
 import org.eclipse.emf.ecore.resource.impl.EFSURIHandlerImpl;
 import org.eclipse.emf.ecore.resource.impl.FileURIHandlerImpl;
-import org.eclipse.emf.ecore.resource.impl.PlatformResourceURIHandlerImpl;
+//import org.eclipse.emf.ecore.resource.impl.PlatformResourceURIHandlerImpl;
 import org.eclipse.emf.ecore.resource.impl.URIHandlerImpl;
 
 /**
@@ -54,7 +54,7 @@ public interface URIHandler
       (Arrays.asList
          (new URIHandler [] 
           { 
-            new PlatformResourceURIHandlerImpl(), 
+            null, 
             new FileURIHandlerImpl(), 
             new EFSURIHandlerImpl(), 
             new ArchiveURIHandlerImpl(), 

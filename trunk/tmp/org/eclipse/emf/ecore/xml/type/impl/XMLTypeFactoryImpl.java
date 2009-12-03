@@ -29,10 +29,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.StringTokenizer;
 
-import javax.xml.datatype.DatatypeConstants;
-import javax.xml.datatype.Duration;
-import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.namespace.QName;
+import javaxx.xml.datatype.DatatypeConstants;
+import javaxx.xml.datatype.Duration;
+import javaxx.xml.datatype.XMLGregorianCalendar;
+import javaxx.xml.namespace.QName;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;

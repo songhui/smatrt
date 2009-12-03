@@ -29,19 +29,19 @@ import java.util.regex.Pattern;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import org.osgi.framework.BundleContext;
+//import org.osgi.framework.BundleContext;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.Platform;
+//import org.eclipse.core.resources.IFile;
+//import org.eclipse.core.resources.IProject;
+//import org.eclipse.core.resources.IWorkspaceRoot;
+//import org.eclipse.core.resources.ResourcesPlugin;
+//import org.eclipse.core.runtime.CoreException;
+//import org.eclipse.core.runtime.IConfigurationElement;
+//import org.eclipse.core.runtime.Platform;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -65,15 +65,24 @@ public class EcorePlugin  extends EMFPlugin
   /**
    * Creates the singleton instance.
    */
-  private EcorePlugin()
-  {
-    super(new ResourceLocator[] {});
+//  private EcorePlugin()
+//  {
+//    //super(new ResourceLocator[] {});
+//  }
+  
+  public void log(Object o){
+	  System.out.println(o);
   }
-
-  @Override
+  public String getString(String arg0){
+	  return arg0;
+  }
+  public String getString(String arg0,String[] arg1){
+	  return arg0;
+  }
+  //@Override
   public ResourceLocator getPluginResourceLocator()
   {
-    return plugin;
+    return null;
   }
 
   /**
@@ -241,21 +250,21 @@ public class EcorePlugin  extends EMFPlugin
   public static Map<URI, URI> computePlatformResourceToPlatformPluginMap(Collection<URI> uris)
   {
     Map<URI, URI> result = new HashMap<URI, URI>();
-    IWorkspaceRoot root = getWorkspaceRoot();
-    if (root != null)
-    {
-      for (URI uri : uris)
-      {
-        if (uri.isPlatformPlugin())
-        {
-          String pluginID = uri.segment(1);
-          if (!root.getProject(pluginID).isOpen())
-          {
-            result.put(URI.createPlatformResourceURI(pluginID + "/", false), URI.createPlatformPluginURI(pluginID + "/", false));
-          }
-        }
-      }
-    }
+//    IWorkspaceRoot root = ;
+//    if (root != null)
+//    {
+//      for (URI uri : uris)
+//      {
+//        if (uri.isPlatformPlugin())
+//        {
+//          String pluginID = uri.segment(1);
+//          if (!root.getProject(pluginID).isOpen())
+//          {
+//            result.put(URI.createPlatformResourceURI(pluginID + "/", false), URI.createPlatformPluginURI(pluginID + "/", false));
+//          }
+//        }
+//      }
+//    }
     return result;
   }
   
@@ -275,129 +284,129 @@ public class EcorePlugin  extends EMFPlugin
   public static Map<URI, URI> computePlatformPluginToPlatformResourceMap()
   {
     Map<URI, URI> result = new HashMap<URI, URI>();
-    IWorkspaceRoot root = getWorkspaceRoot();
-    if (root != null)
-    { 
-      IProject [] projects = root.getProjects();
-      if (projects != null)
-      {
-        String pluginID = null;
-        
-        class Handler extends DefaultHandler
-        {
-          public String pluginID;
-
-          @Override
-          public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException
-          {
-            if ("".equals(uri) && "plugin".equals(localName))
-            {
-              pluginID = attributes.getValue("id");
-            }
-            throw new SAXException("Done");
-          }
-        }
-        Handler handler = new Handler();
-        
-        SAXParserFactory parserFactory= SAXParserFactory.newInstance();
-        parserFactory.setNamespaceAware(true);
-        SAXParser parser = null;
-        
-        try
-        {
-          parser = parserFactory.newSAXParser();
-        }
-        catch (Exception exception)
-        {
-          INSTANCE.log(exception);
-        }
-        
-        if (bundleSymbolNamePattern == null)
-        {
-          bundleSymbolNamePattern = Pattern.compile("^\\s*Bundle-SymbolicName\\s*:\\s*([^\\s;]*)\\s*(;.*)?$", Pattern.MULTILINE);
-        }
-        
-        byte [] bytes = NO_BYTES;
-        
-        for (int i = 0, size = projects.length; i < size; ++i)
-        {
-          IProject project = projects[i];
-          if (project.isOpen())
-          {
-            pluginID = null;
-            IFile manifest = project.getFile("META-INF/MANIFEST.MF");
-            if (manifest.exists())
-            {
-              InputStream inputStream = null;
-              try
-              {
-                inputStream = manifest.getContents(); 
-                int available = inputStream.available();
-                if (bytes.length < available)
-                {
-                  bytes = new byte [available];
-                }
-                inputStream.read(bytes);
-                String contents = new String(bytes, "UTF-8");
-                Matcher matcher = bundleSymbolNamePattern.matcher(contents);
-                if (matcher.find())
-                {
-                  pluginID = matcher.group(1);
-                }
-              }
-              catch (Exception exception)
-              {
-                INSTANCE.log(exception);
-              }
-              finally
-              {
-                if (inputStream != null)
-                {
-                  try
-                  {
-                    inputStream.close();
-                  }
-                  catch (IOException exception)
-                  {
-                    INSTANCE.log(exception);
-                  }
-                }
-              }
-            }
-            else if (parser != null)
-            {
-              final IFile plugin = project.getFile("plugin.xml");
-              if (plugin.exists())
-              {
-                try
-                {
-                  parser.parse(new InputSource(plugin.getContents()), handler);
-                }
-                catch (Exception exception)
-                {
-                  if (handler.pluginID != null)
-                  {
-                    pluginID = handler.pluginID;
-                  }
-                  else
-                  {
-                    INSTANCE.log(exception);
-                  }
-                }
-              }
-            }
-            
-            if (pluginID != null)
-            {
-              URI platformPluginURI = URI.createPlatformPluginURI(pluginID + "/", false);
-              URI platformResourceURI = URI.createPlatformResourceURI(project.getName() + "/",  true);
-              result.put(platformPluginURI, platformResourceURI);
-            }
-          }
-        }
-      }
-    }
-    
+//    IWorkspaceRoot root = getWorkspaceRoot();
+//    if (root != null)
+//    { 
+//      IProject [] projects = root.getProjects();
+//      if (projects != null)
+//      {
+//        String pluginID = null;
+//        
+//        class Handler extends DefaultHandler
+//        {
+//          public String pluginID;
+//
+//          @Override
+//          public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException
+//          {
+//            if ("".equals(uri) && "plugin".equals(localName))
+//            {
+//              pluginID = attributes.getValue("id");
+//            }
+//            throw new SAXException("Done");
+//          }
+//        }
+//        Handler handler = new Handler();
+//        
+//        SAXParserFactory parserFactory= SAXParserFactory.newInstance();
+//        parserFactory.setNamespaceAware(true);
+//        SAXParser parser = null;
+//        
+//        try
+//        {
+//          parser = parserFactory.newSAXParser();
+//        }
+//        catch (Exception exception)
+//        {
+//          INSTANCE.log(exception);
+//        }
+//        
+//        if (bundleSymbolNamePattern == null)
+//        {
+//          bundleSymbolNamePattern = Pattern.compile("^\\s*Bundle-SymbolicName\\s*:\\s*([^\\s;]*)\\s*(;.*)?$", Pattern.MULTILINE);
+//        }
+//        
+//        byte [] bytes = NO_BYTES;
+//        
+//        for (int i = 0, size = projects.length; i < size; ++i)
+//        {
+//          IProject project = projects[i];
+//          if (project.isOpen())
+//          {
+//            pluginID = null;
+//            IFile manifest = project.getFile("META-INF/MANIFEST.MF");
+//            if (manifest.exists())
+//            {
+//              InputStream inputStream = null;
+//              try
+//              {
+//                inputStream = manifest.getContents(); 
+//                int available = inputStream.available();
+//                if (bytes.length < available)
+//                {
+//                  bytes = new byte [available];
+//                }
+//                inputStream.read(bytes);
+//                String contents = new String(bytes, "UTF-8");
+//                Matcher matcher = bundleSymbolNamePattern.matcher(contents);
+//                if (matcher.find())
+//                {
+//                  pluginID = matcher.group(1);
+//                }
+//              }
+//              catch (Exception exception)
+//              {
+//                INSTANCE.log(exception);
+//              }
+//              finally
+//              {
+//                if (inputStream != null)
+//                {
+//                  try
+//                  {
+//                    inputStream.close();
+//                  }
+//                  catch (IOException exception)
+//                  {
+//                    INSTANCE.log(exception);
+//                  }
+//                }
+//              }
+//            }
+//            else if (parser != null)
+//            {
+//              final IFile plugin = project.getFile("plugin.xml");
+//              if (plugin.exists())
+//              {
+//                try
+//                {
+//                  parser.parse(new InputSource(plugin.getContents()), handler);
+//                }
+//                catch (Exception exception)
+//                {
+//                  if (handler.pluginID != null)
+//                  {
+//                    pluginID = handler.pluginID;
+//                  }
+//                  else
+//                  {
+//                    INSTANCE.log(exception);
+//                  }
+//                }
+//              }
+//            }
+//            
+//            if (pluginID != null)
+//            {
+//              URI platformPluginURI = URI.createPlatformPluginURI(pluginID + "/", false);
+//              URI platformResourceURI = URI.createPlatformResourceURI(project.getName() + "/",  true);
+//              result.put(platformPluginURI, platformResourceURI);
+//            }
+//          }
+//        }
+//      }
+//    }
+//    
     return result;
   }
   
@@ -442,141 +451,141 @@ public class EcorePlugin  extends EMFPlugin
    * A plugin implementation that handles Ecore plugin registration.
    * @see #startup()
    */
-  static public class Implementation extends EclipsePlugin
-  {
-    /**
-     * Creates the singleton instance.
-     */
-    public Implementation()
-    {
-      super();
-      plugin = this;
-    }
-  
-    /**
-     * Starts up this plugin by reading some extensions and populating the relevant registries.
-     * <p>
-     * The {@link org.eclipse.emf.ecore.EPackage.Registry#INSTANCE global} package registry
-     * is populated by plugin registration of the form:
-     *<pre>
-     *  &lt;extension point="org.eclipse.emf.ecore.generated_package" >
-     *      &lt;package uri="http://www.example.org/abc/Abc.ecore" class="org.example.abc.AbcPackage"/>
-     *  &lt;extension>
-     *</pre>
-     * </p>
-     * The URI is arbitrary but an absolute URI is recommended.
-     * Provision for access to the serialized model via <code>"http:"</code> is encouraged.
-     * <p>
-     * The {@link org.eclipse.emf.ecore.resource.Resource.Factory.Registry#INSTANCE global} resource factory registry's 
-     * {@link org.eclipse.emf.ecore.resource.Resource.Factory.Registry#getExtensionToFactoryMap() extension} map
-     * is populated by plugin registration of the form:
-     *<pre>
-     *  &lt;extension point="org.eclipse.emf.ecore.extension_parser">
-     *      &lt;parser type="abc" class="org.example.abc.util.AbcResourceFactoryImpl"/>
-     *  &lt;extension>
-     *</pre>
-     * </p>
-     * <p>
-     * The {@link org.eclipse.emf.ecore.resource.Resource.Factory.Registry#INSTANCE global} resource factory registry's
-     * {@link org.eclipse.emf.ecore.resource.Resource.Factory.Registry#getProtocolToFactoryMap() protocol} map
-     * is populated by plugin registration of the form:
-     *<pre>
-     *  &lt;extension point="org.eclipse.emf.ecore.protocol_parser" >
-     *      &lt;parser protocolName="abc" class="org.example.abc.util.AbcResourceFactoryImpl"/>
-     *  &lt;extension>
-     *</pre>
-     * </p>
-     * <p>
-     * The {@link org.eclipse.emf.ecore.resource.URIConverter#URI_MAP global} URI map
-     * is populated by plugin registration of the form:
-     *<pre>
-     *  &lt;extension point="org.eclipse.emf.ecore.uri_mapping" >
-     *      &lt;mapping source="//special/" target="special/"/>
-     *  &lt;extension>
-     *</pre>
-     * If the target is relative, it is resolved against the plugin's installed location,
-     * resulting in a URI of the form:
-     *<pre>
-     *  platform:/plugin/plugin-name_1.2.3/...
-     *</pre>
-     * The above registration would map
-     *<pre>
-     *  //special/a/b.c
-     *</pre>
-     * to
-     *<pre>
-     *  platform:/plugin/plugin-name_1.2.3/special/a/b.c
-     *</pre>
-     * </p>
-     * @throws Exception if there is a show stopping problem.
-     */
-    @Override
-    public void start(BundleContext context) throws Exception
-    {
-      super.start(context);
-
-      if (IS_RESOURCES_BUNDLE_AVAILABLE && System.getProperty("org.eclipse.emf.ecore.plugin.EcorePlugin.doNotLoadResourcesPlugin") == null)
-      {
-        workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
-      }
-
-      new RegistryReader
-        (Platform.getExtensionRegistry(),
-         EcorePlugin.getPlugin().getBundle().getSymbolicName(), 
-         PACKAGE_REGISTRY_IMPLEMENTATION_PPID)
-      {
-        IConfigurationElement previous;
-
-        @Override
-        protected boolean readElement(IConfigurationElement element)
-        {
-          if (element.getName().equals("registry"))
-          {
-            String implementationClass = element.getAttribute("class");
-            if (implementationClass == null)
-            {
-              logMissingAttribute(element, "class");
-            }
-            else
-            {
-              if (defaultRegistryImplementation != null)
-              {
-                if (previous != null)
-                {
-                  log("Both '" + previous.getContributor().getName() + "' and '" + element.getContributor().getName() + "' register a package registry implementation");
-                }
-                if (defaultRegistryImplementation instanceof EPackageRegistryImpl.Delegator)
-                {
-                  return false;
-                }
-              }
-              try
-              {
-                defaultRegistryImplementation = (EPackage.Registry)element.createExecutableExtension("class");
-                previous = element;
-              }
-              catch (CoreException exception)
-              {
-                log(exception);
-              }
-              return true;
-            }
-          }
-          return false;
-        }
-        
-      }.readRegistry();
-
-      new GeneratedPackageRegistryReader(getEPackageNsURIToGenModelLocationMap()).readRegistry();
-      new DynamicPackageRegistryReader().readRegistry();
-      new FactoryOverrideRegistryReader().readRegistry();
-      new ExtensionParserRegistryReader().readRegistry();
-      new ProtocolParserRegistryReader().readRegistry();
-      new ContentParserRegistryReader().readRegistry();
-      new ContentHandlerRegistryReader().readRegistry();
-      new URIMappingRegistryReader().readRegistry();
-    }
-  }
+//  static public class Implementation// extends EclipsePlugin
+//  {
+//    /**
+//     * Creates the singleton instance.
+//     */
+//    public Implementation()
+//    {
+//      super();
+//      plugin = this;
+//    }
+//  
+//    /**
+//     * Starts up this plugin by reading some extensions and populating the relevant registries.
+//     * <p>
+//     * The {@link org.eclipse.emf.ecore.EPackage.Registry#INSTANCE global} package registry
+//     * is populated by plugin registration of the form:
+//     *<pre>
+//     *  &lt;extension point="org.eclipse.emf.ecore.generated_package" >
+//     *      &lt;package uri="http://www.example.org/abc/Abc.ecore" class="org.example.abc.AbcPackage"/>
+//     *  &lt;extension>
+//     *</pre>
+//     * </p>
+//     * The URI is arbitrary but an absolute URI is recommended.
+//     * Provision for access to the serialized model via <code>"http:"</code> is encouraged.
+//     * <p>
+//     * The {@link org.eclipse.emf.ecore.resource.Resource.Factory.Registry#INSTANCE global} resource factory registry's 
+//     * {@link org.eclipse.emf.ecore.resource.Resource.Factory.Registry#getExtensionToFactoryMap() extension} map
+//     * is populated by plugin registration of the form:
+//     *<pre>
+//     *  &lt;extension point="org.eclipse.emf.ecore.extension_parser">
+//     *      &lt;parser type="abc" class="org.example.abc.util.AbcResourceFactoryImpl"/>
+//     *  &lt;extension>
+//     *</pre>
+//     * </p>
+//     * <p>
+//     * The {@link org.eclipse.emf.ecore.resource.Resource.Factory.Registry#INSTANCE global} resource factory registry's
+//     * {@link org.eclipse.emf.ecore.resource.Resource.Factory.Registry#getProtocolToFactoryMap() protocol} map
+//     * is populated by plugin registration of the form:
+//     *<pre>
+//     *  &lt;extension point="org.eclipse.emf.ecore.protocol_parser" >
+//     *      &lt;parser protocolName="abc" class="org.example.abc.util.AbcResourceFactoryImpl"/>
+//     *  &lt;extension>
+//     *</pre>
+//     * </p>
+//     * <p>
+//     * The {@link org.eclipse.emf.ecore.resource.URIConverter#URI_MAP global} URI map
+//     * is populated by plugin registration of the form:
+//     *<pre>
+//     *  &lt;extension point="org.eclipse.emf.ecore.uri_mapping" >
+//     *      &lt;mapping source="//special/" target="special/"/>
+//     *  &lt;extension>
+//     *</pre>
+//     * If the target is relative, it is resolved against the plugin's installed location,
+//     * resulting in a URI of the form:
+//     *<pre>
+//     *  platform:/plugin/plugin-name_1.2.3/...
+//     *</pre>
+//     * The above registration would map
+//     *<pre>
+//     *  //special/a/b.c
+//     *</pre>
+//     * to
+//     *<pre>
+//     *  platform:/plugin/plugin-name_1.2.3/special/a/b.c
+//     *</pre>
+//     * </p>
+//     * @throws Exception if there is a show stopping problem.
+//     */
+//    @Override
+//    public void start(BundleContext context) throws Exception
+//    {
+//      super.start(context);
+//
+//      if (IS_RESOURCES_BUNDLE_AVAILABLE && System.getProperty("org.eclipse.emf.ecore.plugin.EcorePlugin.doNotLoadResourcesPlugin") == null)
+//      {
+//        workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+//      }
+//
+//      new RegistryReader
+//        (Platform.getExtensionRegistry(),
+//         EcorePlugin.getPlugin().getBundle().getSymbolicName(), 
+//         PACKAGE_REGISTRY_IMPLEMENTATION_PPID)
+//      {
+//        IConfigurationElement previous;
+//
+//        @Override
+//        protected boolean readElement(IConfigurationElement element)
+//        {
+//          if (element.getName().equals("registry"))
+//          {
+//            String implementationClass = element.getAttribute("class");
+//            if (implementationClass == null)
+//            {
+//              logMissingAttribute(element, "class");
+//            }
+//            else
+//            {
+//              if (defaultRegistryImplementation != null)
+//              {
+//                if (previous != null)
+//                {
+//                  log("Both '" + previous.getContributor().getName() + "' and '" + element.getContributor().getName() + "' register a package registry implementation");
+//                }
+//                if (defaultRegistryImplementation instanceof EPackageRegistryImpl.Delegator)
+//                {
+//                  return false;
+//                }
+//              }
+//              try
+//              {
+//                defaultRegistryImplementation = (EPackage.Registry)element.createExecutableExtension("class");
+//                previous = element;
+//              }
+//              catch (CoreException exception)
+//              {
+//                log(exception);
+//              }
+//              return true;
+//            }
+//          }
+//          return false;
+//        }
+//        
+//      }.readRegistry();
+//
+//      new GeneratedPackageRegistryReader(getEPackageNsURIToGenModelLocationMap()).readRegistry();
+//      new DynamicPackageRegistryReader().readRegistry();
+//      new FactoryOverrideRegistryReader().readRegistry();
+//      new ExtensionParserRegistryReader().readRegistry();
+//      new ProtocolParserRegistryReader().readRegistry();
+//      new ContentParserRegistryReader().readRegistry();
+//      new ContentHandlerRegistryReader().readRegistry();
+//      new URIMappingRegistryReader().readRegistry();
+//    }
+//  }
 
   /**
    * The default registry implementation singleton.
@@ -596,30 +605,30 @@ public class EcorePlugin  extends EMFPlugin
    * Returns the Eclipse plugin singleton.
    * @return the plugin singleton.
    */
-  public static Implementation getPlugin()
-  {
-    return plugin;
-  }
-
-  /**
-   * The plugin singleton
-   */
-  private static Implementation plugin;
-
-  /**
-   * The workspace root.
-   * @see #getWorkspaceRoot
-   */
-  private static IWorkspaceRoot workspaceRoot;
-
-  /**
-   * Returns the workspace root, or <code>null</code>, if the runtime environment is stand-alone.
-   * @return the workspace root, or <code>null</code>.
-   */
-  public static IWorkspaceRoot getWorkspaceRoot()
-  {
-    return workspaceRoot;
-  }
+//  public static Implementation getPlugin()
+//  {
+//    return plugin;
+//  }
+//
+//  /**
+//   * The plugin singleton
+//   */
+//  private static Implementation plugin;
+//
+//  /**
+//   * The workspace root.
+//   * @see #getWorkspaceRoot
+//   */
+//  private static IWorkspaceRoot workspaceRoot;
+//
+//  /**
+//   * Returns the workspace root, or <code>null</code>, if the runtime environment is stand-alone.
+//   * @return the workspace root, or <code>null</code>.
+//   */
+//  public static IWorkspaceRoot getWorkspaceRoot()
+//  {
+//    return workspaceRoot;
+//  }
 
   public static final String DYNAMIC_PACKAGE_PPID = "dynamic_package";
   public static final String GENERATED_PACKAGE_PPID = "generated_package";

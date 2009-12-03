@@ -88,7 +88,7 @@ public class EPackageImpl extends ENamedElementImpl implements EPackage, BasicEx
    * @generated
    * @ordered
    */
-  protected static final String NS_URI_EDEFAULT = null;
+  protected static final String NS_URI_EDEFAULT = "http://www.eclipse.org/emf/2002/Ecore";
 
   /**
    * The Ecore factory.
@@ -245,7 +245,7 @@ public class EPackageImpl extends ENamedElementImpl implements EPackage, BasicEx
    * @generated
    * @ordered
    */
-  protected static final String NS_PREFIX_EDEFAULT = null;
+  protected static final String NS_PREFIX_EDEFAULT = "ecore";//null;
 
   /**
    * The cached value of the '{@link #getNsPrefix() <em>Ns Prefix</em>}' attribute.

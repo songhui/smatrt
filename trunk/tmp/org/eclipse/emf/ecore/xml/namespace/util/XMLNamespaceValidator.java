@@ -230,10 +230,10 @@ public class XMLNamespaceValidator extends EObjectValidator
    * <!-- end-user-doc -->
    * @generated NOT
    */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return EcorePlugin.INSTANCE;
-  }
+//  @Override
+//  public ResourceLocator getResourceLocator()
+//  {
+//    return EcorePlugin.INSTANCE;
+//  }
 
 } //XMLNamespaceValidator

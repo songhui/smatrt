@@ -308,15 +308,15 @@ public class RootXMLContentHandlerImpl extends XMLContentHandlerImpl
   /**
    * A describer that {@link #createContentHandler(Map) creates} a {@link RootXMLContentHandlerImpl} instance.
    */
-  public static class Describer extends ContentHandlerImpl.Describer
-  {
-    /**
-     * Creates a {@link RootXMLContentHandlerImpl} instance.
-     */
-    @Override
-    protected ContentHandler createContentHandler(Map<String, String> parameters)
-    {
-      return new RootXMLContentHandlerImpl(parameters);
-    }
-  }
+//  public static class Describer extends ContentHandlerImpl.Describer
+//  {
+//    /**
+//     * Creates a {@link RootXMLContentHandlerImpl} instance.
+//     */
+//    @Override
+//    protected ContentHandler createContentHandler(Map<String, String> parameters)
+//    {
+//      return new RootXMLContentHandlerImpl(parameters);
+//    }
+//  }
 }
