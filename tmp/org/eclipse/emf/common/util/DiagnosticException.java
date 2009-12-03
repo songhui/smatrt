@@ -16,7 +16,7 @@
  */
 package org.eclipse.emf.common.util;
 
-import org.eclipse.core.runtime.CoreException;
+//import org.eclipse.core.runtime.CoreException;
 
 /**
  * A checked exception representing a diagnosed failure.
@@ -42,8 +42,8 @@ public class DiagnosticException extends Exception
     return diagnostic;
   }
   
-  public static CoreException toCoreException(DiagnosticException exception)
-  {
-    return new CoreException(BasicDiagnostic.toIStatus(exception));
-  }
+//  public static CoreException toCoreException(DiagnosticException exception)
+//  {
+//    return new CoreException(BasicDiagnostic.toIStatus(exception));
+//  }
 }

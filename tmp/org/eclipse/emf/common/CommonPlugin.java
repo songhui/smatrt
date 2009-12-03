@@ -24,8 +24,8 @@ import java.text.Collator;
 import java.util.Comparator;
 import java.util.Locale;
 
-import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.Platform;
+//import org.eclipse.core.runtime.FileLocator;
+//import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.common.util.URI;
 
@@ -65,7 +65,7 @@ public final class CommonPlugin extends EMFPlugin
   @Override
   public ResourceLocator getPluginResourceLocator()
   {
-    return plugin;
+    return null;//plugin;
   }
 
   /**
@@ -152,7 +152,7 @@ public final class CommonPlugin extends EMFPlugin
   /**
    * The actual implementation of the Eclipse <b>Plugin</b>.
    */
-  public static class Implementation extends EclipsePlugin 
+  public static class Implementation 
   {
     /**
      * Creates an instance.
@@ -171,17 +171,17 @@ public final class CommonPlugin extends EMFPlugin
      */
     protected static URI asLocalURI(URI uri)
     {
-      try
-      {
-        String fragment = uri.fragment();
-        URL url = FileLocator.toFileURL(new URL(uri.trimFragment().toString()));
-        return fix(url, fragment);
-      }
-      catch (IOException exception)
-      {
-        // Ignore the exception and return the original URI.
-      }
-      return uri;
+//      try
+//      {
+//        String fragment = uri.fragment();
+//        URL url = FileLocator.toFileURL(new URL(uri.trimFragment().toString()));
+//        return fix(url, fragment);
+//      }
+//      catch (IOException exception)
+//      {
+//        // Ignore the exception and return the original URI.
+//      }
+      return null;
     }
 
     /**
@@ -194,24 +194,24 @@ public final class CommonPlugin extends EMFPlugin
       String uriWithoutFragmentToString = uriWithoutFragment.toString();
       
       URL url = null;
-      try
-      {
-        url = FileLocator.resolve(new URL(uriWithoutFragmentToString));
-      }
-      catch (IOException exception1)
-      {
-        // Platform.resolve() doesn't work if the project is encoded.
-        //
-        try
-        {
-          uriWithoutFragmentToString = URI.decode(uriWithoutFragmentToString);
-          url = FileLocator.resolve(new URL(uriWithoutFragmentToString));
-        }
-        catch (IOException exception2)
-        {
-          // Continue with the unresolved URI.
-        }
-      }
+//      try
+//      {
+//        url = FileLocator.resolve(new URL(uriWithoutFragmentToString));
+//      }
+//      catch (IOException exception1)
+//      {
+//        // Platform.resolve() doesn't work if the project is encoded.
+//        //
+//        try
+//        {
+//          uriWithoutFragmentToString = URI.decode(uriWithoutFragmentToString);
+//          url = FileLocator.resolve(new URL(uriWithoutFragmentToString));
+//        }
+//        catch (IOException exception2)
+//        {
+//          // Continue with the unresolved URI.
+//        }
+//      }
       if (url != null)
       {
         try
@@ -249,7 +249,7 @@ public final class CommonPlugin extends EMFPlugin
      */
     public static Class<?> loadClass(String pluginID, String className) throws ClassNotFoundException
     {
-      return Platform.getBundle(pluginID).loadClass(className);
+      return null;//Platform.getBundle(pluginID).loadClass(className);
     }
   }
 }

@@ -85,12 +85,11 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeConstants;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.Duration;
-import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.namespace.QName;
+import javaxx.xml.datatype.DatatypeConstants;
+import javaxx.xml.datatype.DatatypeFactory;
+import javaxx.xml.datatype.Duration;
+import javaxx.xml.datatype.XMLGregorianCalendar;
+import javaxx.xml.namespace.QName;
 
 import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.xml.type.InvalidDatatypeValueException;
@@ -142,7 +141,7 @@ public final class XMLCalendar extends XMLGregorianCalendar
     {
       datatypeFactory = DatatypeFactory.newInstance();
     }
-    catch (DatatypeConfigurationException exception)
+    catch (Exception exception)
     {
       throw new RuntimeException(exception);
     }

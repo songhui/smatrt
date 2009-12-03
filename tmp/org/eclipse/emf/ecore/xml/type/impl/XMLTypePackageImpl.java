@@ -21,9 +21,10 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 
-import javax.xml.datatype.Duration;
-import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.namespace.QName;
+import javaxx.xml.datatype.Duration;
+import javaxx.xml.datatype.XMLGregorianCalendar;
+import javaxx.xml.namespace.QName;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;

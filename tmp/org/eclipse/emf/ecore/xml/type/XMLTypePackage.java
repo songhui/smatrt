@@ -459,7 +459,7 @@ public interface XMLTypePackage extends EPackage
    * The meta object id for the '<em>Date</em>' data type.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getDate()
    * @generated
    */
@@ -469,7 +469,7 @@ public interface XMLTypePackage extends EPackage
    * The meta object id for the '<em>Date Time</em>' data type.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getDateTime()
    * @generated
    */
@@ -508,7 +508,7 @@ public interface XMLTypePackage extends EPackage
    * The meta object id for the '<em>Duration</em>' data type.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see javax.xml.datatype.Duration
+   * @see javaxx.xml.datatype.Duration
    * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getDuration()
    * @generated
    */
@@ -607,7 +607,7 @@ public interface XMLTypePackage extends EPackage
    * The meta object id for the '<em>GDay</em>' data type.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getGDay()
    * @generated
    */
@@ -617,7 +617,7 @@ public interface XMLTypePackage extends EPackage
    * The meta object id for the '<em>GMonth</em>' data type.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getGMonth()
    * @generated
    */
@@ -627,7 +627,7 @@ public interface XMLTypePackage extends EPackage
    * The meta object id for the '<em>GMonth Day</em>' data type.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getGMonthDay()
    * @generated
    */
@@ -637,7 +637,7 @@ public interface XMLTypePackage extends EPackage
    * The meta object id for the '<em>GYear</em>' data type.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getGYear()
    * @generated
    */
@@ -647,7 +647,7 @@ public interface XMLTypePackage extends EPackage
    * The meta object id for the '<em>GYear Month</em>' data type.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getGYearMonth()
    * @generated
    */
@@ -776,7 +776,7 @@ public interface XMLTypePackage extends EPackage
    * The meta object id for the '<em>NOTATION</em>' data type.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see javax.xml.namespace.QName
+   * @see javaxx.xml.namespace.QName
    * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getNOTATION()
    * @generated
    */
@@ -796,7 +796,7 @@ public interface XMLTypePackage extends EPackage
    * The meta object id for the '<em>QName</em>' data type.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see javax.xml.namespace.QName
+   * @see javaxx.xml.namespace.QName
    * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getQName()
    * @generated
    */
@@ -806,7 +806,7 @@ public interface XMLTypePackage extends EPackage
    * The meta object id for the '<em>Time</em>' data type.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getTime()
    * @generated
    */
@@ -1261,11 +1261,11 @@ public interface XMLTypePackage extends EPackage
   EDataType getByteObject();
 
   /**
-   * Returns the meta object for data type '{@link javax.xml.datatype.XMLGregorianCalendar <em>Date</em>}'.
+   * Returns the meta object for data type '{@link javaxx.xml.datatype.XMLGregorianCalendar <em>Date</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for data type '<em>Date</em>'.
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @model instanceClass="javax.xml.datatype.XMLGregorianCalendar"
    *        extendedMetaData="name='date' whiteSpace='collapse'"
    * @generated
@@ -1273,11 +1273,11 @@ public interface XMLTypePackage extends EPackage
   EDataType getDate();
 
   /**
-   * Returns the meta object for data type '{@link javax.xml.datatype.XMLGregorianCalendar <em>Date Time</em>}'.
+   * Returns the meta object for data type '{@link javaxx.xml.datatype.XMLGregorianCalendar <em>Date Time</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for data type '<em>Date Time</em>'.
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @model instanceClass="javax.xml.datatype.XMLGregorianCalendar"
    *        extendedMetaData="name='dateTime' whiteSpace='collapse'"
    * @generated
@@ -1320,11 +1320,11 @@ public interface XMLTypePackage extends EPackage
   EDataType getDoubleObject();
 
   /**
-   * Returns the meta object for data type '{@link javax.xml.datatype.Duration <em>Duration</em>}'.
+   * Returns the meta object for data type '{@link javaxx.xml.datatype.Duration <em>Duration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for data type '<em>Duration</em>'.
-   * @see javax.xml.datatype.Duration
+   * @see javaxx.xml.datatype.Duration
    * @model instanceClass="javax.xml.datatype.Duration"
    *        extendedMetaData="name='duration' whiteSpace='collapse'"
    * @generated
@@ -1439,11 +1439,11 @@ public interface XMLTypePackage extends EPackage
   EDataType getFloatObject();
 
   /**
-   * Returns the meta object for data type '{@link javax.xml.datatype.XMLGregorianCalendar <em>GDay</em>}'.
+   * Returns the meta object for data type '{@link javaxx.xml.datatype.XMLGregorianCalendar <em>GDay</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for data type '<em>GDay</em>'.
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @model instanceClass="javax.xml.datatype.XMLGregorianCalendar"
    *        extendedMetaData="name='gDay' whiteSpace='collapse'"
    * @generated
@@ -1451,11 +1451,11 @@ public interface XMLTypePackage extends EPackage
   EDataType getGDay();
 
   /**
-   * Returns the meta object for data type '{@link javax.xml.datatype.XMLGregorianCalendar <em>GMonth</em>}'.
+   * Returns the meta object for data type '{@link javaxx.xml.datatype.XMLGregorianCalendar <em>GMonth</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for data type '<em>GMonth</em>'.
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @model instanceClass="javax.xml.datatype.XMLGregorianCalendar"
    *        extendedMetaData="name='gMonth' whiteSpace='collapse'"
    * @generated
@@ -1463,11 +1463,11 @@ public interface XMLTypePackage extends EPackage
   EDataType getGMonth();
 
   /**
-   * Returns the meta object for data type '{@link javax.xml.datatype.XMLGregorianCalendar <em>GMonth Day</em>}'.
+   * Returns the meta object for data type '{@link javaxx.xml.datatype.XMLGregorianCalendar <em>GMonth Day</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for data type '<em>GMonth Day</em>'.
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @model instanceClass="javax.xml.datatype.XMLGregorianCalendar"
    *        extendedMetaData="name='gMonthDay' whiteSpace='collapse'"
    * @generated
@@ -1475,11 +1475,11 @@ public interface XMLTypePackage extends EPackage
   EDataType getGMonthDay();
 
   /**
-   * Returns the meta object for data type '{@link javax.xml.datatype.XMLGregorianCalendar <em>GYear</em>}'.
+   * Returns the meta object for data type '{@link javaxx.xml.datatype.XMLGregorianCalendar <em>GYear</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for data type '<em>GYear</em>'.
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @model instanceClass="javax.xml.datatype.XMLGregorianCalendar"
    *        extendedMetaData="name='gYear' whiteSpace='collapse'"
    * @generated
@@ -1487,11 +1487,11 @@ public interface XMLTypePackage extends EPackage
   EDataType getGYear();
 
   /**
-   * Returns the meta object for data type '{@link javax.xml.datatype.XMLGregorianCalendar <em>GYear Month</em>}'.
+   * Returns the meta object for data type '{@link javaxx.xml.datatype.XMLGregorianCalendar <em>GYear Month</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for data type '<em>GYear Month</em>'.
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @model instanceClass="javax.xml.datatype.XMLGregorianCalendar"
    *        extendedMetaData="name='gYearMonth' whiteSpace='collapse'"
    * @generated
@@ -1642,11 +1642,11 @@ public interface XMLTypePackage extends EPackage
   EDataType getNonNegativeInteger();
 
   /**
-   * Returns the meta object for data type '{@link javax.xml.namespace.QName <em>NOTATION</em>}'.
+   * Returns the meta object for data type '{@link javaxx.xml.namespace.QName <em>NOTATION</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for data type '<em>NOTATION</em>'.
-   * @see javax.xml.namespace.QName
+   * @see javaxx.xml.namespace.QName
    * @model instanceClass="javax.xml.namespace.QName"
    *        extendedMetaData="name='NOTATION' whiteSpace='collapse'"
    * @generated
@@ -1666,11 +1666,11 @@ public interface XMLTypePackage extends EPackage
   EDataType getPositiveInteger();
 
   /**
-   * Returns the meta object for data type '{@link javax.xml.namespace.QName <em>QName</em>}'.
+   * Returns the meta object for data type '{@link javaxx.xml.namespace.QName <em>QName</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for data type '<em>QName</em>'.
-   * @see javax.xml.namespace.QName
+   * @see javaxx.xml.namespace.QName
    * @model instanceClass="javax.xml.namespace.QName"
    *        extendedMetaData="name='QName' whiteSpace='collapse'"
    * @generated
@@ -1678,11 +1678,11 @@ public interface XMLTypePackage extends EPackage
   EDataType getQName();
 
   /**
-   * Returns the meta object for data type '{@link javax.xml.datatype.XMLGregorianCalendar <em>Time</em>}'.
+   * Returns the meta object for data type '{@link javaxx.xml.datatype.XMLGregorianCalendar <em>Time</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for data type '<em>Time</em>'.
-   * @see javax.xml.datatype.XMLGregorianCalendar
+   * @see javaxx.xml.datatype.XMLGregorianCalendar
    * @model instanceClass="javax.xml.datatype.XMLGregorianCalendar"
    *        extendedMetaData="name='time' whiteSpace='collapse'"
    * @generated
@@ -2024,7 +2024,7 @@ public interface XMLTypePackage extends EPackage
      * The meta object literal for the '<em>Date</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see javax.xml.datatype.XMLGregorianCalendar
+     * @see javaxx.xml.datatype.XMLGregorianCalendar
      * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getDate()
      * @generated
      */
@@ -2034,7 +2034,7 @@ public interface XMLTypePackage extends EPackage
      * The meta object literal for the '<em>Date Time</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see javax.xml.datatype.XMLGregorianCalendar
+     * @see javaxx.xml.datatype.XMLGregorianCalendar
      * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getDateTime()
      * @generated
      */
@@ -2073,7 +2073,7 @@ public interface XMLTypePackage extends EPackage
      * The meta object literal for the '<em>Duration</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see javax.xml.datatype.Duration
+     * @see javaxx.xml.datatype.Duration
      * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getDuration()
      * @generated
      */
@@ -2132,7 +2132,7 @@ public interface XMLTypePackage extends EPackage
      * The meta object literal for the '<em>GDay</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see javax.xml.datatype.XMLGregorianCalendar
+     * @see javaxx.xml.datatype.XMLGregorianCalendar
      * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getGDay()
      * @generated
      */
@@ -2142,7 +2142,7 @@ public interface XMLTypePackage extends EPackage
      * The meta object literal for the '<em>GMonth</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see javax.xml.datatype.XMLGregorianCalendar
+     * @see javaxx.xml.datatype.XMLGregorianCalendar
      * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getGMonth()
      * @generated
      */
@@ -2152,7 +2152,7 @@ public interface XMLTypePackage extends EPackage
      * The meta object literal for the '<em>GMonth Day</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see javax.xml.datatype.XMLGregorianCalendar
+     * @see javaxx.xml.datatype.XMLGregorianCalendar
      * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getGMonthDay()
      * @generated
      */
@@ -2162,7 +2162,7 @@ public interface XMLTypePackage extends EPackage
      * The meta object literal for the '<em>GYear</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see javax.xml.datatype.XMLGregorianCalendar
+     * @see javaxx.xml.datatype.XMLGregorianCalendar
      * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getGYear()
      * @generated
      */
@@ -2172,7 +2172,7 @@ public interface XMLTypePackage extends EPackage
      * The meta object literal for the '<em>GYear Month</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see javax.xml.datatype.XMLGregorianCalendar
+     * @see javaxx.xml.datatype.XMLGregorianCalendar
      * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getGYearMonth()
      * @generated
      */
@@ -2379,7 +2379,7 @@ public interface XMLTypePackage extends EPackage
      * The meta object literal for the '<em>NOTATION</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see javax.xml.namespace.QName
+     * @see javaxx.xml.namespace.QName
      * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getNOTATION()
      * @generated
      */
@@ -2399,7 +2399,7 @@ public interface XMLTypePackage extends EPackage
      * The meta object literal for the '<em>QName</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see javax.xml.namespace.QName
+     * @see javaxx.xml.namespace.QName
      * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getQName()
      * @generated
      */
@@ -2438,7 +2438,7 @@ public interface XMLTypePackage extends EPackage
      * The meta object literal for the '<em>Time</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see javax.xml.datatype.XMLGregorianCalendar
+     * @see javaxx.xml.datatype.XMLGregorianCalendar
      * @see org.eclipse.emf.ecore.xml.type.impl.XMLTypePackageImpl#getTime()
      * @generated
      */

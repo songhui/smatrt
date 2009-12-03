@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.xml.type.internal.DataValue.XMLChar;
  * <p>
  * NOTE: this class is for internal use only.
  */
-public final class QName extends javax.xml.namespace.QName
+public final class QName extends javaxx.xml.namespace.QName
 {
   private static final long serialVersionUID = 1L;
 

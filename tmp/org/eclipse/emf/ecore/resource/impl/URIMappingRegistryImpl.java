@@ -147,27 +147,27 @@ public class URIMappingRegistryImpl extends BasicEMap<URI, URI>
    * A map that is a {@link ExtensibleURIConverterImpl.URIMap}.
    */
   @SuppressWarnings("deprecation")
-  protected class URIMapImpl extends DelegatingMap implements URIConverterImpl.URIMap
-  {
-    /**
-     * Creates an instance.
-     */
-    public URIMapImpl()
-    {
-      super();
-    }
-
-    /**
-     * Returns the remapped URI, or the URI itself.
-     * This implementation delegates to the containing {@link URIMappingRegistryImpl}.
-     * @param uri the URI to remap.
-     * @return the remapped URI, or the URI itself.
-     */
-    public URI getURI(URI uri)
-    {
-      return URIMappingRegistryImpl.this.getURI(uri);
-    }
-  }
+//  protected class URIMapImpl extends DelegatingMap implements URIConverterImpl.URIMap
+//  {
+//    /**
+//     * Creates an instance.
+//     */
+//    public URIMapImpl()
+//    {
+//      super();
+//    }
+//
+//    /**
+//     * Returns the remapped URI, or the URI itself.
+//     * This implementation delegates to the containing {@link URIMappingRegistryImpl}.
+//     * @param uri the URI to remap.
+//     * @return the remapped URI, or the URI itself.
+//     */
+//    public URI getURI(URI uri)
+//    {
+//      return URIMappingRegistryImpl.this.getURI(uri);
+//    }
+//  }
 
   /** 
    * Returns a map view that implements {@link ExtensibleURIConverterImpl.URIMap}.
@@ -179,10 +179,10 @@ public class URIMappingRegistryImpl extends BasicEMap<URI, URI>
     {
       view = new View<URI, URI>();
     }
-    if (view.map == null)
-    {
-      view.map = new URIMapImpl();
-    }
+//    if (view.map == null)
+//    {
+//      view.map = new URIMapImpl();
+//    }
 
     return view.map;
   }
