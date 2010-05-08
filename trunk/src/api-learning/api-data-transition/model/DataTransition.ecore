@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dt"
+    nsURI="http://sei.pku.edu.cn/ra/dt" nsPrefix="dt">
+  <eClassifiers xsi:type="ecore:EClass" name="Repository">
+    <eOperations name="getPlaceByJavaElement" upperBound="-1" eType="#//Place">
+      <eParameters name="element" eType="#//SJavaElement"/>
+    </eOperations>
+    <eOperations name="clearTemp"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="place" upperBound="-1"
+        eType="#//Place" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transition" upperBound="-1"
+        eType="#//Transition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tracerBuilder" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" lowerBound="1"
+        eType="#//SJavaElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Place">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variable" lowerBound="1"
+        eType="#//SJavaElement" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statementOrMethod" lowerBound="1"
+        eType="#//SStatementOrMethod" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="involved" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputOf" upperBound="-1"
+        eType="#//Transition" eOpposite="#//Transition/input"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputOf" upperBound="-1"
+        eType="#//Transition" eOpposite="#//Transition/output"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//PlaceType"
+        defaultValueLiteral="False"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paraOrder" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typefull" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
+        eType="#//Place" eOpposite="#//Place/inputOf"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="output" lowerBound="1"
+        eType="#//Place" eOpposite="#//Place/outputOf"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="involved" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="False"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//TransitionType"
+        defaultValueLiteral="False"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="javaElement" lowerBound="1"
+        eType="#//SJavaElement" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signature" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activated" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="False"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="invokechain" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="False"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="SJavaElement" instanceClassName="org.eclipse.jdt.core.IJavaElement"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="PlaceType">
+    <eLiterals name="LocalVariable"/>
+    <eLiterals name="Field" value="1"/>
+    <eLiterals name="Parameter" value="2"/>
+    <eLiterals name="Constant" value="3"/>
+    <eLiterals name="Invisible" value="4"/>
+    <eLiterals name="MethodEnd" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TransitionType">
+    <eLiterals name="Initialize"/>
+    <eLiterals name="Assignment" value="1"/>
+    <eLiterals name="DownCast" value="2"/>
+    <eLiterals name="Upcast" value="3"/>
+    <eLiterals name="InstanceCall" value="4"/>
+    <eLiterals name="StaticCall" value="5"/>
+    <eLiterals name="Parameterize" value="6"/>
+    <eLiterals name="Enumerate" value="7"/>
+    <eLiterals name="Intermediate" value="8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="SStatementOrMethod" instanceClassName="org.eclipse.jdt.core.dom.ASTNode"/>
+</ecore:EPackage>
