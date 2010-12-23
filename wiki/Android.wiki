@@ -1,0 +1,9 @@
+#summary Description of the SM@RT case on Android
+
+= Introduction =
+
+We used SM@RT to provide runtime model support for Android platform. For this initial version, we represent some very simple Android runtime data (including the WiFi and process status) as a dynamic Ecore model, which conforms to the meta-model as shown below.
+
+We first show how to use the final APK on your android phone, so that you can have a intuitive vision about what is a runtime model for android. After that, we show a bit about how to provide such a runtime model support using SM@RT.
+
+= Get stated with the APK =
