@@ -1,0 +1,100 @@
+@MetaPackage=Android.ecore
+@MetaGen=Android.genmodel
+
+
+@GlobalSpecType=Context->android.content.Context
+@GlobalSpecType=ActivityManager->android.app.ActivityManager
+@GlobalSpecType=RunningServiceInfo->android.app.ActivityManager.RunningServiceInfo
+@GlobalSpecType=WifiManager->android.net.wifi.WifiManager
+@GlobalSpecType=ScanResult->android.net.wifi.ScanResult
+
+@Map
+@MetaElement=Context::activityManager
+@Manipulation=Get
+@CodeFragment=@Begin
+    $result=(android.app.ActivityManager)
+        $core.getSystemService($core.ACTIVITY_SERVICE);	
+@End
+@EndMap
+
+@Map
+@MetaElement=Context::wifiManager
+@Manipulation=Get
+@CodeFragment=@Begin
+    $result=(android.net.wifi.WifiManager)
+        $core.getSystemService($core.WIFI_SERVICE);	
+@End
+@EndMap
+
+@Map
+@MetaElement=ActivityManager
+@Manipulation=Identify
+@CodeFragment=@Begin
+    $result= ($core==$arg0);	
+@End
+@EndMap
+
+@Map
+@MetaElement=ActivityManager::runningService
+@Manipulation=List
+@CodeFragment=@Begin
+    $result=$core.getRunningServices(200);	
+@End
+@EndMap
+
+@Map
+@MetaElement=RunningService
+@Manipulation=Identify
+@CodeFragment=@Begin
+    $result=(($spec_type)core).service.equals((($spec_type)arg0).service);
+@End
+@EndMap
+
+@Map
+@MetaElement=RunningService::process
+@Manipulation=Get
+@CodeFragment=@Begin
+    $feature_name=$core.process;
+@End
+@EndMap
+
+@Map
+@MetaElement=WifiManager
+@Manipulation=Identify
+@CodeFragment=@Begin
+    $result= ($core==$arg0);	
+@End
+@EndMap
+
+@Map
+@MetaElement=WifiManager::scanResult
+@Manipulation=List
+@CodeFragment=@Begin
+    List res=$core.getScanResults();
+      if(res!=null)
+    	  $result=res;
+@End
+@EndMap
+
+@Map
+@MetaElement=ScanResult
+@Manipulation=Identify
+@CodeFragment=@Begin
+   $result=(($spec_type)$core).toString().equals((($spec_type)$arg0).toString());
+@End
+@EndMap
+
+@Map
+@MetaElement=ScanResult::ssid
+@Manipulation=Get
+@CodeFragment=@Begin
+    $feature_name=$core.SSID;
+@End
+@EndMap
+
+
+
+
+
+
+

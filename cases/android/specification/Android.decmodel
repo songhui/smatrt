@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DecModel:Decoration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DecModel="http://www.sei.pku.edu.cn/rsa/decmodel" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <genModel href="Android.genmodel#/"/>
+  <importClass>
+    <fullClassName>org.eclipse.emf.ecore.EObject</fullClassName>
+  </importClass>
+  <codeArea/>
+  <mapArea>
+    <globalMap/>
+    <classMap specType="android.content.Context">
+      <classRef href="Android.ecore#//Context"/>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeFragment" text="$result=(android.app.ActivityManager)$core.getSystemService($core.ACTIVITY_SERVICE);"/>
+        </specCode>
+        <feature xsi:type="ecore:EReference" href="Android.ecore#//Context/activityManager"/>
+      </featureMap>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeFragment" text="$result=(android.net.ConnectivityManager)$core.getSystemService($core.CONNECTIVITY_SERVICE);"/>
+        </specCode>
+        <feature xsi:type="ecore:EReference" href="Android.ecore#//Context/connectivityManager"/>
+      </featureMap>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeFragment" text="$result=(android.net.wifi.WifiManager)$core.getSystemService($core.WIFI_SERVICE);"/>
+        </specCode>
+        <feature xsi:type="ecore:EReference" href="Android.ecore#//Context/wifiManager"/>
+      </featureMap>
+    </classMap>
+    <classMap specType="android.app.ActivityManager">
+      <specCode xsi:type="DecModel:Identify">
+        <code xsi:type="DecModel:CodeFragment" text="$result= ($core==$arg0);"/>
+      </specCode>
+      <classRef href="Android.ecore#//ActivityManager"/>
+      <featureMap>
+        <specCode xsi:type="DecModel:ListSub">
+          <code xsi:type="DecModel:CodeFragment" description="" text="$result=$core.getRunningServices(200);"/>
+        </specCode>
+        <feature xsi:type="ecore:EReference" href="Android.ecore#//ActivityManager/runningService"/>
+      </featureMap>
+    </classMap>
+    <classMap specType="android.app.ActivityManager.RunningServiceInfo">
+      <specCode xsi:type="DecModel:Identify">
+        <code xsi:type="DecModel:CodeFragment" text="$result=(($spec_type)core).service.equals((($spec_type)arg0).service);"/>
+      </specCode>
+      <classRef href="Android.ecore#//RunningService"/>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeFragment" text="$feature_name=$core.process;"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="Android.ecore#//RunningService/process"/>
+      </featureMap>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeFragment" text="$feature_name=$core.clientCount;"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="Android.ecore#//RunningService/clientCount"/>
+      </featureMap>
+    </classMap>
+    <classMap specType="android.net.ConnectivityManager">
+      <specCode xsi:type="DecModel:Identify">
+        <code xsi:type="DecModel:CodeFragment" text="$result= ($core==$arg0);"/>
+      </specCode>
+      <classRef href="Android.ecore#//ConnectivityManager"/>
+      <featureMap specType="">
+        <specCode xsi:type="DecModel:ListSub">
+          <code xsi:type="DecModel:CodeFragment" text="android.net.NetworkInfo[] infos=$core.getAllNetworkInfo();&#xD;&#xA;for(int i=0;i&lt;infos.length;i++)&#xD;&#xA;  $result.add(infos[i]);"/>
+        </specCode>
+        <feature xsi:type="ecore:EReference" href="Android.ecore#//ConnectivityManager/networkInfo"/>
+      </featureMap>
+    </classMap>
+    <classMap specType="android.net.NetworkInfo">
+      <specCode xsi:type="DecModel:Identify">
+        <code xsi:type="DecModel:CodeFragment" text="$result=(($spec_type)$core).getType()==(($spec_type)$arg0).getType();"/>
+      </specCode>
+      <classRef href="Android.ecore#//NetworkInfo"/>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeFragment" text="$feature_name=$core.getTypeName();"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="Android.ecore#//NetworkInfo/typeName"/>
+      </featureMap>
+    </classMap>
+    <classMap specType="android.net.wifi.WifiManager">
+      <specCode xsi:type="DecModel:Identify">
+        <code xsi:type="DecModel:CodeFragment" text="$result= ($core==$arg0);"/>
+      </specCode>
+      <classRef href="Android.ecore#//WiFiManager"/>
+      <featureMap specType="">
+        <specCode xsi:type="DecModel:ListSub">
+          <code xsi:type="DecModel:CodeFragment" text="List res=$core.getScanResults();&#xD;&#xA;      if(res!=null)&#xD;&#xA;    &#x9;  $result=res;"/>
+        </specCode>
+        <feature xsi:type="ecore:EReference" href="Android.ecore#//WiFiManager/scanResult"/>
+      </featureMap>
+    </classMap>
+    <classMap specType="android.net.wifi.ScanResult">
+      <specCode xsi:type="DecModel:Identify">
+        <code xsi:type="DecModel:CodeFragment" text="$result=(($spec_type)$core).toString().equals((($spec_type)$arg0).toString());"/>
+      </specCode>
+      <classRef href="Android.ecore#//ScanResult"/>
+      <featureMap>
+        <specCode xsi:type="DecModel:Get">
+          <code xsi:type="DecModel:CodeFragment" text="$feature_name=$core.SSID;"/>
+        </specCode>
+        <feature xsi:type="ecore:EAttribute" href="Android.ecore#//ScanResult/ssid"/>
+      </featureMap>
+    </classMap>
+  </mapArea>
+</DecModel:Decoration>
