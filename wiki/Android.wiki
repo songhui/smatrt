@@ -19,3 +19,23 @@ Download our final all-in-one APK file from [http://smatrt.googlecode.com/files/
 [http://smatrt.googlecode.com/svn/trunk/cases/android/img/count.jpg]
 
 = What's the magic inside this APK =
+
+First, of course, there is something related to SM@RT. Specifically, it is a synchronizer which maintains an Ecore model conforming to the above meta-model, and dynamically synchronize this model with the current system state. So everytime something read or write this model (like the OCL engine), the model it get or set reflects the current system state.
+
+Second, there is an OCL engine to interpret the inputted query, and read the runtime model according to the query. Yes, really, we have ported the EMF and OCL engine on to Android platform. I'm afraid this is even more interesting than SM@RT :(
+
+Finally, there is a stupid Android Activity to let you input OCL queries and show you the result.
+
+= How to generate the synchronizer =
+
+The key component of this apk is the runtime model synchronizer (ok, from our point of view, it is the most important one). It is generated from two simple specifications. The [http://code.google.com/p/smatrt/source/browse/trunk/cases/android/specification/Android.ecore?r=18 first specification] is the system meta-model as shown above (again!), which tells the generator what kind of data can be obtained from the Android API. The [http://code.google.com/p/smatrt/source/browse/trunk/cases/android/specification/Android.acc?r=18 second one] is the so-called access model, which specifies how to invoke the Android API to get or set these kinds of system data. There are five files in the [http://code.google.com/p/smatrt/source/browse/trunk/cases/android/specification specification fold], but except the two mentioned above, other ones are automatically generated.
+
+From these specifications, we can generate the final synchronizer automatically. The generated code can be browsed [http://code.google.com/p/smatrt/source/browse/trunk/cases/android/#android%2Fgenerated%2Focladapt%2Fsrc%2FAndroidSystem here].
+
+= Extension =
+
+Currently, it is just a toy example. There could be some different ways for extension.
+
+# Wrapping more Android APIs, like the LocationMangager, the Accelerate manager etc. We could add more classes, attributes or references on the meta-model, and indicate the corresponding invocations on the access model. After that, just generate the code automatically.
+
+# Aggregate the data using OCL queries. For example, using the signal status of WIFI to estimate the location. 
