@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Insert you rule in Extended OCL</string>
+    <string name="app_name">OCLAdapt</string>
+<color name="white_color">#FFFFFF</color>
+</resources>
