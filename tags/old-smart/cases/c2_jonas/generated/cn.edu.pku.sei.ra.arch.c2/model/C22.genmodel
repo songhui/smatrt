@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/cn.edu.pku.sei.ra.arch.c2/src"
+    modelPluginID="cn.edu.pku.sei.ra.arch.c2" modelName="C22" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject"
+    rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl" reflectiveDelegation="true"
+    importerID="org.eclipse.emf.importer.cdo" featureDelegation="Reflective" complianceLevel="5.0"
+    copyrightFields="false">
+  <foreignModel>C2.ecore</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
+  <genPackages prefix="C2" disposableProviderFactory="true" ecorePackage="C2.ecore#/">
+    <genClasses ecoreClass="C2.ecore#//Architecture" labelFeature="#//C2/Architecture/deployedHost">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C2.ecore#//Architecture/component"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C2.ecore#//Architecture/connector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Architecture/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Architecture/deployedHost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Architecture/comment"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference C2.ecore#//Architecture/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="C2.ecore#//Component">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Component/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Component/filePath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Component/address"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Component/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Component/poolSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Component/minPool"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Component/maxPool"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference C2.ecore#//Component/above"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference C2.ecore#//Component/below"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference C2.ecore#//Component/parent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Component/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Component/comment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C2.ecore#//Component/innerArch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Component/instanceLife"/>
+    </genClasses>
+    <genClasses ecoreClass="C2.ecore#//Connector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Connector/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference C2.ecore#//Connector/parent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Connector/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C2.ecore#//Connector/comment"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference C2.ecore#//Connector/above"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference C2.ecore#//Connector/below"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

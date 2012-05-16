@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="var" path="JRE_LIB" sourcepath="JRE_SRC"/>
+	<classpathentry kind="con" path="C:/work/build/classes"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/connector-1_5.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/ejb-2_1-api.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/emb-jsr86-api.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/gnu-jaf.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/gnu-mail.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/gnu-providers.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/jacc-1_0.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/javax77.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/jaxr-api.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/jms.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/jsp-2_0.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/jsr88-api.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/jta-spec1_0_1.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/saaj.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/servlet-2_4.jar"/>
+	<classpathentry kind="lib" path="C:/JOnAS-4.9.2/lib/commons/j2ee/wsdl4j.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

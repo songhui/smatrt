@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="cn.edu.pku.sei.ra.wrapping.codegen.generateadapter"
+            label="&amp;Generate Adapter"
+            visible="true">
+         <menu
+               id="cn.edu.pku.sei.ra.ui"
+               label="SandTablist">
+            <separator
+                  name="manage">
+            </separator>
+         </menu>
+         <action
+               class="cn.edu.pku.sei.ra.wrapping.codegen.ui.GenerateAction"
+               id="cn.edu.pku.sei.ra.generateadapter"
+               label="Generate Adapter"
+               menubarPath="cn.edu.pku.sei.ra.ui/manage"
+               style="push">
+         </action>
+      </actionSet>
+   </extension>
+
+
+
+
+
+
+
+</plugin>

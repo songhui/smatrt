@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="cn.edu.pku.sei.ra.ui.CausalConnector"
+            label="CausalConnector"
+            visible="true">
+         <menu
+               id="cn.edu.pku.sei.ra.ui"
+               label="SandTablist">
+            <separator
+                  name="manage">
+            </separator>
+            <separator
+                  name="instance">
+            </separator>
+         </menu>
+         <action
+               class="cn.edu.pku.sei.ra.ui.CausalConnectorCreateAction"
+               icon="icons/logo.gif"
+               id="cn.edu.pku.sei.ra.framework.action1"
+               label="Create Causal Connector"
+               menubarPath="cn.edu.pku.sei.ra.ui/manage"
+               pulldown="true"
+               style="pulldown"
+               toolbarPath="manage">
+         </action>
+         <action
+               class="cn.edu.pku.sei.ra.ui.GarbageCollectionAction"
+               id="cn.edu.pku.sei.ra.framework.action1"
+               label="Garbage Collection"
+               menubarPath="cn.edu.pku.sei.ra.ui/manage"
+               style="push">
+         </action>
+      </actionSet>
+   </extension>
+
+
+</plugin>

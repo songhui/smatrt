@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="AndroidSystem"
+    nsURI="http://www.sei.pku.edu.cn/ra/android" nsPrefix="android.system">
+  <eClassifiers xsi:type="ecore:EClass" name="Context">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activityManager" eType="#//ActivityManager"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectivityManager" eType="#//ConnectivityManager"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wifiManager" eType="#//WiFiManager"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityManager">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="runningService" upperBound="-1"
+        eType="#//RunningService" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RunningService">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="process" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="clientCount" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectivityManager">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="networkInfo" upperBound="-1"
+        eType="#//NetworkInfo" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NetworkInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WiFiManager">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scanResult" upperBound="-1"
+        eType="#//ScanResult" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScanResult">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ssid" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        derived="true"/>
+  </eClassifiers>
+</ecore:EPackage>

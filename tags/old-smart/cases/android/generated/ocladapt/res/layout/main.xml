@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white_color">
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/hello"
+    />
+<EditText android:text="" android:layout_width="fill_parent"
+	android:id="@+id/ocl" android:layout_height="120dip" android:gravity="top"
+	android:scrollbars="vertical"/>
+
+<Button android:text="Apply" android:id="@+id/apply"
+	android:layout_width="wrap_content" android:layout_height="wrap_content" />
+	
+<TextView android:text="" android:id="@+id/result"
+  android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+  
+
+
+</LinearLayout>

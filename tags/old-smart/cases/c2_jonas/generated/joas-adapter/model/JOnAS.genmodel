@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/whatisthat/src"
+    modelPluginID="whatisthat" modelName="JOnAS" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>JOnAS.ecore</foreignModel>
+  <genPackages prefix="JOnAS" disposableProviderFactory="true" ecorePackage="JOnAS.ecore#/">
+    <genClasses ecoreClass="JOnAS.ecore#//MBeanServer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//MBeanServer/serverHost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//MBeanServer/serverPort"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JOnAS.ecore#//MBeanServer/jdbcDataSource"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JOnAS.ecore#//MBeanServer/statefulSessionBean"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JOnAS.ecore#//MBeanServer/statelessSessionBean"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JOnAS.ecore#//MBeanServer/entityBean"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JOnAS.ecore#//MBeanServer/jvm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JOnAS.ecore#//MBeanServer/webModule"/>
+    </genClasses>
+    <genClasses ecoreClass="JOnAS.ecore#//J2EEManagedObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//J2EEManagedObject/name"/>
+    </genClasses>
+    <genClasses ecoreClass="JOnAS.ecore#//EJB">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EJB/jndiName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EJB/fileName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EJB/localClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EJB/localHomeClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EJB/homeClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EJB/ejbClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EJB/cacheSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EJB/poolSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EJB/maxCacheSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EJB/minPoolSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EJB/displayName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EJB/dataSourceJNDI"/>
+    </genClasses>
+    <genClasses ecoreClass="JOnAS.ecore#//SessionBean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//SessionBean/sessionTimeOut"/>
+    </genClasses>
+    <genClasses ecoreClass="JOnAS.ecore#//StatefulSessionBean">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference JOnAS.ecore#//StatefulSessionBean/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="JOnAS.ecore#//StatelessSessionBean">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference JOnAS.ecore#//StatelessSessionBean/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="JOnAS.ecore#//EntityBean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EntityBean/passivationTimeOut"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EntityBean/inactivityTimeOut"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EntityBean/deadlockTimeOut"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//EntityBean/lockPolicy"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference JOnAS.ecore#//EntityBean/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="JOnAS.ecore#//JDBCDataSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JDBCDataSource/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JDBCDataSource/jdbcMinConnPool"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JDBCDataSource/jdbcMaxConnPool"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JDBCDataSource/currentOpened"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JDBCDataSource/jndiName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JDBCDataSource/busyMax"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JDBCDataSource/connectionFailures"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JDBCDataSource/currentBusy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JDBCDataSource/userName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JDBCDataSource/busyMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JDBCDataSource/userPassword"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JDBCDataSource/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JDBCDataSource/jdbcMaxWaiters"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference JOnAS.ecore#//JDBCDataSource/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="JOnAS.ecore#//JVM">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JVM/javaVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JVM/javaVendor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//JVM/allThreadsCount"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference JOnAS.ecore#//JVM/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="JOnAS.ecore#//WebModule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//WebModule/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//WebModule/startTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//WebModule/hostname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//WebModule/startupTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//WebModule/warURL"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference JOnAS.ecore#//WebModule/parent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//WebModule/fileName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JOnAS.ecore#//WebModule/ejbref"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
