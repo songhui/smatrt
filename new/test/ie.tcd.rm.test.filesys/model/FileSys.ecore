@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="filesys"
+    nsURI="http://www.tcd.ie/rm/test/filesys" nsPrefix="FileSys">
+  <eClassifiers xsi:type="ecore:EClass" name="EFolder" eSuperTypes="#//EFile">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subfiles" upperBound="-1"
+        eType="#//EFile" containment="true" eOpposite="#//EFile/parent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EFile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readonly" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="NewFile"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//EFolder"
+        eOpposite="#//EFolder/subfiles"/>
+  </eClassifiers>
+</ecore:EPackage>

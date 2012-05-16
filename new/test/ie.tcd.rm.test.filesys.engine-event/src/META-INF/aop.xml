@@ -1,0 +1,13 @@
+<aspectj>
+    <aspects>
+      <!-- declare two existing aspects to the weaver -->
+      <aspect name="ie.tcd.rm.test.filesys.engine.actions.TestAspects"/>
+	  <aspect name="ie.tcd.rm.test.filesys.engin.ListSubFiles"/>
+	  <aspect name="ie.tcd.rm.test.filesys.engin.SetFileName"/>
+      <include within="ie..*"/>
+
+
+    </aspects>
+
+
+</aspectj>

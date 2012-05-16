@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ie.tcd.test.filesys.presentation.FileSysModelWizardID"
+            name="%_UI_FileSysModelWizard_label"
+            class="ie.tcd.test.filesys.presentation.FileSysModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/FileSysModelFile.gif">
+         <description>%_UI_FileSysModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="ie.tcd.test.filesys.presentation.FileSysEditorID"
+            name="%_UI_FileSysEditor_label"
+            icon="icons/full/obj16/FileSysModelFile.gif"
+            extensions="filesys"
+            class="ie.tcd.test.filesys.presentation.FileSysEditor"
+            contributorClass="ie.tcd.test.filesys.presentation.FileSysActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

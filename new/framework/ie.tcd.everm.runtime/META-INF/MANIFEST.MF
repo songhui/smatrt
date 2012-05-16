@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ie.tcd.everm.runtime
+Bundle-SymbolicName: ie.tcd.everm.runtime
+Bundle-Version: 1.0.0
+Bundle-Activator: ie.tcd.everm.runtime.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: ie.tcd.everm.runtime,
+ ie.tcd.everm.runtime.event,
+ ie.tcd.everm.runtime.parser.text
+Bundle-ClassPath: src/,
+ .,
+ bin/

@@ -1,0 +1,57 @@
+package ie.tcd.rm.test.filesys.engin
+
+import ie.tcd.test.filesys.*
+import org.eclipse.xtext.xbase.lib.Functions.*
+import java.io.File
+import java.util.List
+import java.util.ArrayList
+
+EventSequence FileChanges{
+	helper getContainerByPath(EFolder root, String path) : EFolder{
+		val p = path.^split("\\\\")		
+		var EFile f = root
+		for(frag : p.subList(2,p.size-1))
+			f=(f as EFolder)?.subfiles.findFirst(EFile e|e.name == frag)
+		f as EFolder	
+	}
+	helper extractFileName(String path) : String{
+		path.substring(path.lastIndexOf("\\")+1)
+	}	
+	event CreateFile{
+		var root : EFolder;	var folder : EFolder; 
+		parse text by csv{Ignore Ignore [path:String] [op:String] Ignore Ignore}
+		pre{"created" == parser.op
+			folder = FileChanges::getContainerByPath(root, parser.path)		}
+		post{
+			val name = FileChanges::extractFileName(parser.path)
+			val file = if(name.contains("folder"))
+						FileSysFactory::eINSTANCE.createEFolder()
+					   else FileSysFactory::eINSTANCE.createEFile()
+			file.name = name; folder.subfiles += file	
+		}	
+	}	
+	event RenameFile{
+		var root : EFolder;
+		var folder : EFolder; 
+		var file : EFile in folder.subfiles;
+		parse text by csv{Ignore Ignore [path:String] [op:String] Ignore Ignore}
+		pre{
+			parser.op.startsWith("renamed") && !parser.op.contains("Recycle.Bin")
+			folder = FileChanges::getContainerByPath(root,parser.path)
+			file.name = FileChanges::extractFileName(parser.path)		
+		}
+		post{file.name = parser.op.substring(11)}	
+	}	
+	event RemoveFile{
+		var root : EFolder;
+		var folder : EFolder; 
+		var file : EFile in folder.subfiles;
+		parse text by csv{Ignore Ignore [path:String] [op:String] Ignore Ignore}
+		pre{
+			parser.op.startsWith("deleted") || parser.op.contains("Recycle.Bin")
+			folder = FileChanges::getContainerByPath(root,parser.path)
+			file.name = FileChanges::extractFileName(parser.path)		
+		}
+		post{folder.subfiles.^remove(file)} 	
+		}
+	}

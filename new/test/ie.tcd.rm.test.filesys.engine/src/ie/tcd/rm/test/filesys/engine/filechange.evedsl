@@ -1,0 +1,72 @@
+package ie.tcd.rm.test.filesys.engin
+
+import ie.tcd.test.filesys.*
+import org.eclipse.xtext.xbase.lib.Functions.*
+import java.io.File
+import java.util.List
+import java.util.ArrayList
+
+API JavaFileAPI{	
+	helper getFullPath(EFile file) : String{
+		if(file == null) ""	else getFullPath(file.parent) + "\\" + file.name
+	}	
+	mapping EFile => java.io.File{
+		subType EFolder{core.isDirectory()}
+		newImage{element.name = core.name}  	
+	}	
+	invocation ListSubFiles{
+		var parent : EFolder
+		operation get EFolder->subfiles {parent = element; true}
+		pre{true}
+		invoke returning List<File>{
+			val file = new File(JavaFileAPI::getFullPath(parent))
+			file.listFiles.toList		
+		}
+		post(List<EFile> subs){
+			parent.subfiles.clear()
+			parent.subfiles.addAll(subs)
+		}	
+	}	
+	invocation SetFileName{
+		var file : EFile	var newName : String
+		operation set EFile->name{file = element; newName = value as String; true}
+		pre{true}
+		invoke{
+			val oriFile = new File(JavaFileAPI::getFullPath(file))
+			oriFile.renameTo(new File(oriFile.parent+"\\"+newName))		
+		}
+		post{}	
+	}	
+	invocation AddFile{
+		var parent : String 	var newName : String	var isDir : boolean
+		operation add EFolder->subfiles {
+			parent = JavaFileAPI::getFullPath(element)
+			newName = (value as EFile).name; 
+			isDir = value instanceof EFolder; 
+			true
+		}
+		pre{true}
+		invoke{
+			val newFile = new File(parent+"\\"+newName)		
+			if(isDir) newFile.mkdir() else newFile.createNewFile()	
+		}
+		post{}	
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
