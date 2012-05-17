@@ -167,6 +167,8 @@ class APIEngineInferrer {
 					//val Before before = Before::
 					annotations += anno
 					body =[ '''
+						if(elem.eResource()==null)
+							return;
 						«ROOT_FIELD» = «mainCls.simpleName».«EveDescJvmModelInferrer::RESOLVE_INS»(elem.eResource());
 						«op.methodName»(elem, feature, null);
 						

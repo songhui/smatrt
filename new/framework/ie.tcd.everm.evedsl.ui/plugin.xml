@@ -321,5 +321,29 @@
             extensions="evedsl">
     </provider>
   </extension>
+  <extension
+        point="org.eclipse.ui.actionSets">
+     <actionSet
+           id="ie.tcd.everm.evedsl.ui.actionSet"
+           label="Sample Action Set"
+           visible="true">
+        <menu
+              id="sampleMenu"
+              label="Sample &amp;Menu">
+           <separator
+                 name="sampleGroup">
+           </separator>
+        </menu>
+        <action
+              class="ie.tcd.everm.evedsl.ui.actions.SampleAction"
+              icon="icons/sample.gif"
+              id="ie.tcd.everm.evedsl.ui.actions.SampleAction"
+              label="&amp;Sample Action"
+              menubarPath="sampleMenu/sampleGroup"
+              toolbarPath="sampleGroup"
+              tooltip="Hello, Eclipse world">
+        </action>
+     </actionSet>
+  </extension>
 
 </plugin>

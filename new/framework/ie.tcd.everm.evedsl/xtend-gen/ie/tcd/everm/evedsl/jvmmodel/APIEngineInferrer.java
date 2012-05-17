@@ -383,6 +383,11 @@ public class APIEngineInferrer {
                       final Function1<ImportManager,CharSequence> _function = new Function1<ImportManager,CharSequence>() {
                           public CharSequence apply(final ImportManager it) {
                             StringConcatenation _builder = new StringConcatenation();
+                            _builder.append("if(elem.eResource()==null)");
+                            _builder.newLine();
+                            _builder.append("\t");
+                            _builder.append("return;");
+                            _builder.newLine();
                             _builder.append(APIEngineInferrer.ROOT_FIELD, "");
                             _builder.append(" = ");
                             String _simpleName = mainCls.getSimpleName();
