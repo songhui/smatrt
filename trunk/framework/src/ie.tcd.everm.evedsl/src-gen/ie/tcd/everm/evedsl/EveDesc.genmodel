@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ie.tcd.everm.evedsl/src-gen"
+    editDirectory="/ie.tcd.everm.evedsl.edit/src" editorDirectory="/ie.tcd.everm.evedsl.editor/src"
+    modelPluginID="ie.tcd.everm.evedsl" forceOverwrite="true" modelName="EveDesc"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="ie.tcd.everm.evedsl.edit"
+    editorPluginID="ie.tcd.everm.evedsl.editor" usedGenPackages="../../../../../../org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types ../../../../../../org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase">
+  <genPackages prefix="EveDesc" basePackage="ie.tcd.everm.evedsl" disposableProviderFactory="true"
+      ecorePackage="EveDesc.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EveDesc.ecore#//OperationType">
+      <genEnumLiterals ecoreEnumLiteral="EveDesc.ecore#//OperationType/get"/>
+      <genEnumLiterals ecoreEnumLiteral="EveDesc.ecore#//OperationType/set"/>
+      <genEnumLiterals ecoreEnumLiteral="EveDesc.ecore#//OperationType/add"/>
+      <genEnumLiterals ecoreEnumLiteral="EveDesc.ecore#//OperationType/remove"/>
+      <genEnumLiterals ecoreEnumLiteral="EveDesc.ecore#//OperationType/create"/>
+      <genEnumLiterals ecoreEnumLiteral="EveDesc.ecore#//OperationType/destroy"/>
+    </genEnums>
+    <genClasses ecoreClass="EveDesc.ecore#//EventDesc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//EventDesc/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//EventDesc/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//EventDesc/sequence"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//EventDesc/api"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//Import/importedNamespace"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//Helper">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//Helper/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Helper/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Helper/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Helper/body"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//EventSeq">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//EventSeq/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//EventSeq/helper"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//EventSeq/event"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//Event">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//Event/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Event/decScope"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Event/parser"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Event/pre"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Event/post"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//Parser">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Parser/ivar"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//TextParser">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//TextParser/formatter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//TextParser/value"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//TextFormatter"/>
+    <genClasses ecoreClass="EveDesc.ecore#//SplitFormatter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//SplitFormatter/spliter"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//UserDefinedFormatter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//UserDefinedFormatter/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//AbstractTextValue"/>
+    <genClasses ecoreClass="EveDesc.ecore#//VarValue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//VarValue/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//ConstantText">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//ConstantText/content"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//IgnoreValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//IgnoreValue/ignore"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//PlainParser">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//PlainParser/logic"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//DecScope">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//DecScope/var"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//DecScope/scope"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//Scope">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Scope/expr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//Scope/enforce"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//API">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//API/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//API/helper"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//API/mapping"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//API/invocation"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//Mapping">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Mapping/mType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Mapping/sType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//Mapping/unique"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Mapping/identify"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Mapping/subType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Mapping/newImage"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//SubType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//SubType/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//SubType/pre"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//Invocation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//Invocation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Invocation/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Invocation/operation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Invocation/pre"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Invocation/retType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Invocation/invoke"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Invocation/postpara"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Invocation/post"/>
+    </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//OperationPointCut">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//OperationPointCut/opType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//OperationPointCut/elemType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//OperationPointCut/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//OperationPointCut/pre"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

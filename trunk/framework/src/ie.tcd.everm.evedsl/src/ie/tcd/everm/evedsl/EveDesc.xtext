@@ -1,0 +1,151 @@
+grammar ie.tcd.everm.evedsl.EveDesc with org.eclipse.xtext.xbase.Xbase
+
+generate eveDesc "http://www.tcd.ie/everm/evedsl/EveDesc"
+import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
+import "http://www.eclipse.org/xtext/xbase/Xbase" as xbase
+
+EventDesc:
+	'package' name = QualifiedName
+	imports += Import*
+	sequence += EventSeq*
+	api += API*;
+
+Import:
+    'import' importedNamespace = QualifiedNameWithWildCard;
+
+QualifiedNameWithWildCard :
+    QualifiedName  ('.' '*')?;
+    
+Helper:
+	'helper' name = ID 
+			'(' (params+=FullJvmFormalParameter (',' params+=FullJvmFormalParameter)*)?')'
+			':' type=JvmTypeReference
+			body = XBlockExpression
+;
+
+
+/*Event Def starting here ------ */	
+EventSeq:
+	'EventSequence' name = QualifiedName '{'
+		helper += Helper*
+		event += Event*
+	'}';
+
+
+/*Event */
+Event:
+	'event'
+	 name = ID '{'
+		decScope += DecScope*
+		'parse' parser = Parser
+		'pre'  '{' pre += XExpression*	'}'
+		'post' post = XBlockExpression 
+	'}';
+
+/*--Event->Parser*/
+Parser:
+	TextParser | PlainParser
+;
+
+/*--Event->TextParser */
+TextParser:
+	'text' ('by' formatter = TextFormatter)? '{' 
+		('ivar' ivar += XVariableDeclaration)?
+		(value += AbstractTextValue)* 
+	'}'
+;
+
+/*Event->TextParser->TextFormatter */
+TextFormatter: CSVFormatter | SplitFormatter | UserDefinedFormatter;
+
+/*Event->TextParser->CSV */
+CSVFormatter: "csv";
+
+SplitFormatter: "split" "(" spliter = STRING ")";
+
+UserDefinedFormatter: "expr" "(" expr = XExpression ")";	
+
+/*--Event->TextParser->AbstractTextValue */
+AbstractTextValue: 
+	 VarValue | ConstantText | IgnoreValue;
+
+VarValue:	
+	'[' variable = VarValueVariableDesc ']'	
+;
+
+
+VarValueVariableDesc returns xbase::XVariableDeclaration:
+	name = ID writeable?=':' type=JvmTypeReference
+;	
+	
+ConstantText: 	content = STRING	;
+
+IgnoreValue: ignore ?='Ignore';
+
+
+
+/*--Event->PlainParser */
+PlainParser:
+	'plain' '{'
+		('ivar' ivar += XVariableDeclaration)*
+		'logic' logic = XBlockExpression	
+	'}'
+;
+
+/*Event->DecScope */		
+DecScope: 
+	var = VariableDec (scope = Scope)? ';' ;
+
+/*Event->DecScope->VariableDec*/	
+VariableDec returns xbase::XVariableDeclaration: 
+	'var' name = ID writeable?=':' type=JvmTypeReference 
+;	
+
+/*Event->DecScope->Scope*/	
+Scope :
+	('in' expr = XMemberFeatureCall enforce?= ('enforced')?);
+
+
+/*----------Event Def ends here ------- */
+
+
+
+/*----------API Def starts here-------- */
+API:
+	'API' name = QualifiedName '{'
+		helper += Helper*
+		mapping += Mapping*
+		invocation += Invocation*
+	'}'
+;
+
+Mapping:
+	'mapping' mType = JvmTypeReference '=>' sType = JvmTypeReference unique?=('unique')? '{'
+		('identify' identify = XBlockExpression)?
+		subType += SubType*  
+		'newImage' newImage = XBlockExpression
+		
+	'}'
+;
+
+SubType:
+	'subType' type = JvmTypeReference pre = XBlockExpression
+;
+
+Invocation:
+	'invocation' name = QualifiedName '{'
+		variable += VariableDec*
+		operation += OperationPointCut*
+		'pre' pre = XBlockExpression
+		'invoke' ( 'returning' retType = JvmTypeReference)? invoke = XBlockExpression
+		'post' ('(' postpara = JvmFormalParameter ')')? post = XBlockExpression
+	'}'
+;
+
+OperationPointCut:
+	'operation' opType = OperationType (elemType=JvmTypeReference | '*') '->' ((feature = ID) | '*') 
+	pre = XBlockExpression
+;
+
+enum OperationType: get = 'get' | set = 'set' | add = 'add' | remove = 'remove' | create = 'create' | destroy = 'destroy';
+
