@@ -3,7 +3,7 @@
 package ie.tcd.everm.evedsl.eveDesc.impl;
 
 import ie.tcd.everm.evedsl.eveDesc.EveDescPackage;
-import ie.tcd.everm.evedsl.eveDesc.SplitFormatter;
+import ie.tcd.everm.evedsl.eveDesc.WordFormatter;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -13,45 +13,45 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Split Formatter</b></em>'.
+ * An implementation of the model object '<em><b>Word Formatter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ie.tcd.everm.evedsl.eveDesc.impl.SplitFormatterImpl#getSpliter <em>Spliter</em>}</li>
+ *   <li>{@link ie.tcd.everm.evedsl.eveDesc.impl.WordFormatterImpl#isWhite <em>White</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SplitFormatterImpl extends TextFormatterImpl implements SplitFormatter
+public class WordFormatterImpl extends TextFormatterImpl implements WordFormatter
 {
   /**
-   * The default value of the '{@link #getSpliter() <em>Spliter</em>}' attribute.
+   * The default value of the '{@link #isWhite() <em>White</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSpliter()
+   * @see #isWhite()
    * @generated
    * @ordered
    */
-  protected static final String SPLITER_EDEFAULT = null;
+  protected static final boolean WHITE_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #getSpliter() <em>Spliter</em>}' attribute.
+   * The cached value of the '{@link #isWhite() <em>White</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSpliter()
+   * @see #isWhite()
    * @generated
    * @ordered
    */
-  protected String spliter = SPLITER_EDEFAULT;
+  protected boolean white = WHITE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SplitFormatterImpl()
+  protected WordFormatterImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class SplitFormatterImpl extends TextFormatterImpl implements SplitFormat
   @Override
   protected EClass eStaticClass()
   {
-    return EveDescPackage.Literals.SPLIT_FORMATTER;
+    return EveDescPackage.Literals.WORD_FORMATTER;
   }
 
   /**
@@ -72,9 +72,9 @@ public class SplitFormatterImpl extends TextFormatterImpl implements SplitFormat
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getSpliter()
+  public boolean isWhite()
   {
-    return spliter;
+    return white;
   }
 
   /**
@@ -82,12 +82,12 @@ public class SplitFormatterImpl extends TextFormatterImpl implements SplitFormat
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSpliter(String newSpliter)
+  public void setWhite(boolean newWhite)
   {
-    String oldSpliter = spliter;
-    spliter = newSpliter;
+    boolean oldWhite = white;
+    white = newWhite;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EveDescPackage.SPLIT_FORMATTER__SPLITER, oldSpliter, spliter));
+      eNotify(new ENotificationImpl(this, Notification.SET, EveDescPackage.WORD_FORMATTER__WHITE, oldWhite, white));
   }
 
   /**
@@ -100,8 +100,8 @@ public class SplitFormatterImpl extends TextFormatterImpl implements SplitFormat
   {
     switch (featureID)
     {
-      case EveDescPackage.SPLIT_FORMATTER__SPLITER:
-        return getSpliter();
+      case EveDescPackage.WORD_FORMATTER__WHITE:
+        return isWhite();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -116,8 +116,8 @@ public class SplitFormatterImpl extends TextFormatterImpl implements SplitFormat
   {
     switch (featureID)
     {
-      case EveDescPackage.SPLIT_FORMATTER__SPLITER:
-        setSpliter((String)newValue);
+      case EveDescPackage.WORD_FORMATTER__WHITE:
+        setWhite((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -133,8 +133,8 @@ public class SplitFormatterImpl extends TextFormatterImpl implements SplitFormat
   {
     switch (featureID)
     {
-      case EveDescPackage.SPLIT_FORMATTER__SPLITER:
-        setSpliter(SPLITER_EDEFAULT);
+      case EveDescPackage.WORD_FORMATTER__WHITE:
+        setWhite(WHITE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -150,8 +150,8 @@ public class SplitFormatterImpl extends TextFormatterImpl implements SplitFormat
   {
     switch (featureID)
     {
-      case EveDescPackage.SPLIT_FORMATTER__SPLITER:
-        return SPLITER_EDEFAULT == null ? spliter != null : !SPLITER_EDEFAULT.equals(spliter);
+      case EveDescPackage.WORD_FORMATTER__WHITE:
+        return white != WHITE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -167,10 +167,10 @@ public class SplitFormatterImpl extends TextFormatterImpl implements SplitFormat
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (spliter: ");
-    result.append(spliter);
+    result.append(" (white: ");
+    result.append(white);
     result.append(')');
     return result.toString();
   }
 
-} //SplitFormatterImpl
+} //WordFormatterImpl

@@ -769,21 +769,31 @@ ruleCSVFormatter
 
     |
     { 
-        newCompositeNode(grammarAccess.getTextFormatterAccess().getSplitFormatterParserRuleCall_1()); 
+        newCompositeNode(grammarAccess.getTextFormatterAccess().getWordFormatterParserRuleCall_1()); 
     }
-    this_SplitFormatter_1=ruleSplitFormatter
+    this_WordFormatter_1=ruleWordFormatter
     { 
-        $current = $this_SplitFormatter_1.current; 
+        $current = $this_WordFormatter_1.current; 
         afterParserOrEnumRuleCall();
     }
 
     |
     { 
-        newCompositeNode(grammarAccess.getTextFormatterAccess().getUserDefinedFormatterParserRuleCall_2()); 
+        newCompositeNode(grammarAccess.getTextFormatterAccess().getSplitFormatterParserRuleCall_2()); 
     }
-    this_UserDefinedFormatter_2=ruleUserDefinedFormatter
+    this_SplitFormatter_2=ruleSplitFormatter
     { 
-        $current = $this_UserDefinedFormatter_2.current; 
+        $current = $this_SplitFormatter_2.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getTextFormatterAccess().getUserDefinedFormatterParserRuleCall_3()); 
+    }
+    this_UserDefinedFormatter_3=ruleUserDefinedFormatter
+    { 
+        $current = $this_UserDefinedFormatter_3.current; 
         afterParserOrEnumRuleCall();
     }
 )
@@ -815,6 +825,42 @@ ruleCSVFormatter returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleTo
     }
 
     ;
+
+
+
+
+
+// Entry rule entryRuleWordFormatter
+entryRuleWordFormatter returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getWordFormatterRule()); }
+	 iv_ruleWordFormatter=ruleWordFormatter 
+	 { $current=$iv_ruleWordFormatter.current; } 
+	 EOF 
+;
+
+// Rule WordFormatter
+ruleWordFormatter returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		lv_white_0_0=	'word' 
+    {
+        newLeafNode(lv_white_0_0, grammarAccess.getWordFormatterAccess().getWhiteWordKeyword_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getWordFormatterRule());
+	        }
+       		setWithLastConsumed($current, "white", true, "word");
+	    }
+
+)
+)
+;
 
 
 
@@ -1431,7 +1477,29 @@ ruleScope returns [EObject current=null]
 	    }
 
 )
-)?)
+)?(	otherlv_3='as' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getScopeAccess().getAsKeyword_3_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getScopeAccess().getRealtypeJvmTypeReferenceParserRuleCall_3_1_0()); 
+	    }
+		lv_realtype_4_0=ruleJvmTypeReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getScopeRule());
+	        }
+       		set(
+       			$current, 
+       			"realtype",
+        		lv_realtype_4_0, 
+        		"JvmTypeReference");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?)
 ;
 
 

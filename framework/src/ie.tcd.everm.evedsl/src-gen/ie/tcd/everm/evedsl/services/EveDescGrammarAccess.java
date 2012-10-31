@@ -422,24 +422,28 @@ public class EveDescGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TextFormatter");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cCSVFormatterParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSplitFormatterParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cUserDefinedFormatterParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cWordFormatterParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cSplitFormatterParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cUserDefinedFormatterParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		/// *Event->TextParser->TextFormatter * / TextFormatter:
-		//	CSVFormatter | SplitFormatter | UserDefinedFormatter;
+		//	CSVFormatter | WordFormatter | SplitFormatter | UserDefinedFormatter;
 		public ParserRule getRule() { return rule; }
 
-		//CSVFormatter | SplitFormatter | UserDefinedFormatter
+		//CSVFormatter | WordFormatter | SplitFormatter | UserDefinedFormatter
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//CSVFormatter
 		public RuleCall getCSVFormatterParserRuleCall_0() { return cCSVFormatterParserRuleCall_0; }
 
+		//WordFormatter
+		public RuleCall getWordFormatterParserRuleCall_1() { return cWordFormatterParserRuleCall_1; }
+
 		//SplitFormatter
-		public RuleCall getSplitFormatterParserRuleCall_1() { return cSplitFormatterParserRuleCall_1; }
+		public RuleCall getSplitFormatterParserRuleCall_2() { return cSplitFormatterParserRuleCall_2; }
 
 		//UserDefinedFormatter
-		public RuleCall getUserDefinedFormatterParserRuleCall_2() { return cUserDefinedFormatterParserRuleCall_2; }
+		public RuleCall getUserDefinedFormatterParserRuleCall_3() { return cUserDefinedFormatterParserRuleCall_3; }
 	}
 
 	public class CSVFormatterElements extends AbstractParserRuleElementFinder {
@@ -452,6 +456,22 @@ public class EveDescGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"csv"
 		public Keyword getCsvKeyword() { return cCsvKeyword; }
+	}
+
+	public class WordFormatterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "WordFormatter");
+		private final Assignment cWhiteAssignment = (Assignment)rule.eContents().get(1);
+		private final Keyword cWhiteWordKeyword_0 = (Keyword)cWhiteAssignment.eContents().get(0);
+		
+		//WordFormatter:
+		//	white?="word";
+		public ParserRule getRule() { return rule; }
+
+		//white?="word"
+		public Assignment getWhiteAssignment() { return cWhiteAssignment; }
+
+		//"word"
+		public Keyword getWhiteWordKeyword_0() { return cWhiteWordKeyword_0; }
 	}
 
 	public class SplitFormatterElements extends AbstractParserRuleElementFinder {
@@ -770,12 +790,16 @@ public class EveDescGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExprXMemberFeatureCallParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
 		private final Assignment cEnforceAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final Keyword cEnforceEnforcedKeyword_2_0 = (Keyword)cEnforceAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cAsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cRealtypeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cRealtypeJvmTypeReferenceParserRuleCall_3_1_0 = (RuleCall)cRealtypeAssignment_3_1.eContents().get(0);
 		
 		/// *Event->DecScope->Scope* / Scope:
-		//	"in" expr=XMemberFeatureCall enforce?="enforced"?;
+		//	"in" expr=XMemberFeatureCall enforce?="enforced"? ("as" realtype=JvmTypeReference)?;
 		public ParserRule getRule() { return rule; }
 
-		//"in" expr=XMemberFeatureCall enforce?="enforced"?
+		//"in" expr=XMemberFeatureCall enforce?="enforced"? ("as" realtype=JvmTypeReference)?
 		public Group getGroup() { return cGroup; }
 
 		//"in"
@@ -792,6 +816,18 @@ public class EveDescGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"enforced"
 		public Keyword getEnforceEnforcedKeyword_2_0() { return cEnforceEnforcedKeyword_2_0; }
+
+		//("as" realtype=JvmTypeReference)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"as"
+		public Keyword getAsKeyword_3_0() { return cAsKeyword_3_0; }
+
+		//realtype=JvmTypeReference
+		public Assignment getRealtypeAssignment_3_1() { return cRealtypeAssignment_3_1; }
+
+		//JvmTypeReference
+		public RuleCall getRealtypeJvmTypeReferenceParserRuleCall_3_1_0() { return cRealtypeJvmTypeReferenceParserRuleCall_3_1_0; }
 	}
 
 	public class APIElements extends AbstractParserRuleElementFinder {
@@ -1235,6 +1271,7 @@ public class EveDescGrammarAccess extends AbstractGrammarElementFinder {
 	private TextParserElements pTextParser;
 	private TextFormatterElements pTextFormatter;
 	private CSVFormatterElements pCSVFormatter;
+	private WordFormatterElements pWordFormatter;
 	private SplitFormatterElements pSplitFormatter;
 	private UserDefinedFormatterElements pUserDefinedFormatter;
 	private AbstractTextValueElements pAbstractTextValue;
@@ -1357,7 +1394,7 @@ public class EveDescGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// *Event->TextParser->TextFormatter * / TextFormatter:
-	//	CSVFormatter | SplitFormatter | UserDefinedFormatter;
+	//	CSVFormatter | WordFormatter | SplitFormatter | UserDefinedFormatter;
 	public TextFormatterElements getTextFormatterAccess() {
 		return (pTextFormatter != null) ? pTextFormatter : (pTextFormatter = new TextFormatterElements());
 	}
@@ -1374,6 +1411,16 @@ public class EveDescGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getCSVFormatterRule() {
 		return getCSVFormatterAccess().getRule();
+	}
+
+	//WordFormatter:
+	//	white?="word";
+	public WordFormatterElements getWordFormatterAccess() {
+		return (pWordFormatter != null) ? pWordFormatter : (pWordFormatter = new WordFormatterElements());
+	}
+	
+	public ParserRule getWordFormatterRule() {
+		return getWordFormatterAccess().getRule();
 	}
 
 	//SplitFormatter:
@@ -1477,7 +1524,7 @@ public class EveDescGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// *Event->DecScope->Scope* / Scope:
-	//	"in" expr=XMemberFeatureCall enforce?="enforced"?;
+	//	"in" expr=XMemberFeatureCall enforce?="enforced"? ("as" realtype=JvmTypeReference)?;
 	public ScopeElements getScopeAccess() {
 		return (pScope != null) ? pScope : (pScope = new ScopeElements());
 	}

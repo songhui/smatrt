@@ -1,8 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
-
  */
 package ie.tcd.everm.evedsl.eveDesc.util;
 
@@ -130,6 +126,14 @@ public class EveDescSwitch<T> extends Switch<T>
       {
         TextFormatter textFormatter = (TextFormatter)theEObject;
         T result = caseTextFormatter(textFormatter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EveDescPackage.WORD_FORMATTER:
+      {
+        WordFormatter wordFormatter = (WordFormatter)theEObject;
+        T result = caseWordFormatter(wordFormatter);
+        if (result == null) result = caseTextFormatter(wordFormatter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -365,6 +369,22 @@ public class EveDescSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTextFormatter(TextFormatter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Word Formatter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Word Formatter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWordFormatter(WordFormatter object)
   {
     return null;
   }

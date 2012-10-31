@@ -1,8 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
-
  */
 package ie.tcd.everm.evedsl.eveDesc;
 
@@ -403,6 +399,34 @@ public interface EveDescPackage extends EPackage
   int TEXT_FORMATTER_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link ie.tcd.everm.evedsl.eveDesc.impl.WordFormatterImpl <em>Word Formatter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ie.tcd.everm.evedsl.eveDesc.impl.WordFormatterImpl
+   * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getWordFormatter()
+   * @generated
+   */
+  int WORD_FORMATTER = 8;
+
+  /**
+   * The feature id for the '<em><b>White</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORD_FORMATTER__WHITE = TEXT_FORMATTER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Word Formatter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORD_FORMATTER_FEATURE_COUNT = TEXT_FORMATTER_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link ie.tcd.everm.evedsl.eveDesc.impl.SplitFormatterImpl <em>Split Formatter</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -410,7 +434,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getSplitFormatter()
    * @generated
    */
-  int SPLIT_FORMATTER = 8;
+  int SPLIT_FORMATTER = 9;
 
   /**
    * The feature id for the '<em><b>Spliter</b></em>' attribute.
@@ -438,7 +462,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getUserDefinedFormatter()
    * @generated
    */
-  int USER_DEFINED_FORMATTER = 9;
+  int USER_DEFINED_FORMATTER = 10;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -466,7 +490,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getAbstractTextValue()
    * @generated
    */
-  int ABSTRACT_TEXT_VALUE = 10;
+  int ABSTRACT_TEXT_VALUE = 11;
 
   /**
    * The number of structural features of the '<em>Abstract Text Value</em>' class.
@@ -485,7 +509,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getVarValue()
    * @generated
    */
-  int VAR_VALUE = 11;
+  int VAR_VALUE = 12;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -513,7 +537,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getConstantText()
    * @generated
    */
-  int CONSTANT_TEXT = 12;
+  int CONSTANT_TEXT = 13;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -541,7 +565,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getIgnoreValue()
    * @generated
    */
-  int IGNORE_VALUE = 13;
+  int IGNORE_VALUE = 14;
 
   /**
    * The feature id for the '<em><b>Ignore</b></em>' attribute.
@@ -569,7 +593,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getPlainParser()
    * @generated
    */
-  int PLAIN_PARSER = 14;
+  int PLAIN_PARSER = 15;
 
   /**
    * The feature id for the '<em><b>Ivar</b></em>' containment reference list.
@@ -606,7 +630,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getDecScope()
    * @generated
    */
-  int DEC_SCOPE = 15;
+  int DEC_SCOPE = 16;
 
   /**
    * The feature id for the '<em><b>Var</b></em>' containment reference.
@@ -643,7 +667,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getScope()
    * @generated
    */
-  int SCOPE = 16;
+  int SCOPE = 17;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -664,13 +688,22 @@ public interface EveDescPackage extends EPackage
   int SCOPE__ENFORCE = 1;
 
   /**
+   * The feature id for the '<em><b>Realtype</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCOPE__REALTYPE = 2;
+
+  /**
    * The number of structural features of the '<em>Scope</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCOPE_FEATURE_COUNT = 2;
+  int SCOPE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link ie.tcd.everm.evedsl.eveDesc.impl.APIImpl <em>API</em>}' class.
@@ -680,7 +713,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getAPI()
    * @generated
    */
-  int API = 17;
+  int API = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -735,7 +768,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getMapping()
    * @generated
    */
-  int MAPPING = 18;
+  int MAPPING = 19;
 
   /**
    * The feature id for the '<em><b>MType</b></em>' containment reference.
@@ -808,7 +841,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getSubType()
    * @generated
    */
-  int SUB_TYPE = 19;
+  int SUB_TYPE = 20;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -845,7 +878,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getInvocation()
    * @generated
    */
-  int INVOCATION = 20;
+  int INVOCATION = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -936,7 +969,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getOperationPointCut()
    * @generated
    */
-  int OPERATION_POINT_CUT = 21;
+  int OPERATION_POINT_CUT = 22;
 
   /**
    * The feature id for the '<em><b>Op Type</b></em>' attribute.
@@ -991,7 +1024,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getOperationType()
    * @generated
    */
-  int OPERATION_TYPE = 22;
+  int OPERATION_TYPE = 23;
 
 
   /**
@@ -1295,6 +1328,27 @@ public interface EveDescPackage extends EPackage
   EClass getTextFormatter();
 
   /**
+   * Returns the meta object for class '{@link ie.tcd.everm.evedsl.eveDesc.WordFormatter <em>Word Formatter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Word Formatter</em>'.
+   * @see ie.tcd.everm.evedsl.eveDesc.WordFormatter
+   * @generated
+   */
+  EClass getWordFormatter();
+
+  /**
+   * Returns the meta object for the attribute '{@link ie.tcd.everm.evedsl.eveDesc.WordFormatter#isWhite <em>White</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>White</em>'.
+   * @see ie.tcd.everm.evedsl.eveDesc.WordFormatter#isWhite()
+   * @see #getWordFormatter()
+   * @generated
+   */
+  EAttribute getWordFormatter_White();
+
+  /**
    * Returns the meta object for class '{@link ie.tcd.everm.evedsl.eveDesc.SplitFormatter <em>Split Formatter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1493,6 +1547,17 @@ public interface EveDescPackage extends EPackage
    * @generated
    */
   EAttribute getScope_Enforce();
+
+  /**
+   * Returns the meta object for the containment reference '{@link ie.tcd.everm.evedsl.eveDesc.Scope#getRealtype <em>Realtype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Realtype</em>'.
+   * @see ie.tcd.everm.evedsl.eveDesc.Scope#getRealtype()
+   * @see #getScope()
+   * @generated
+   */
+  EReference getScope_Realtype();
 
   /**
    * Returns the meta object for class '{@link ie.tcd.everm.evedsl.eveDesc.API <em>API</em>}'.
@@ -2082,6 +2147,24 @@ public interface EveDescPackage extends EPackage
     EClass TEXT_FORMATTER = eINSTANCE.getTextFormatter();
 
     /**
+     * The meta object literal for the '{@link ie.tcd.everm.evedsl.eveDesc.impl.WordFormatterImpl <em>Word Formatter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ie.tcd.everm.evedsl.eveDesc.impl.WordFormatterImpl
+     * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getWordFormatter()
+     * @generated
+     */
+    EClass WORD_FORMATTER = eINSTANCE.getWordFormatter();
+
+    /**
+     * The meta object literal for the '<em><b>White</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WORD_FORMATTER__WHITE = eINSTANCE.getWordFormatter_White();
+
+    /**
      * The meta object literal for the '{@link ie.tcd.everm.evedsl.eveDesc.impl.SplitFormatterImpl <em>Split Formatter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2250,6 +2333,14 @@ public interface EveDescPackage extends EPackage
      * @generated
      */
     EAttribute SCOPE__ENFORCE = eINSTANCE.getScope_Enforce();
+
+    /**
+     * The meta object literal for the '<em><b>Realtype</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCOPE__REALTYPE = eINSTANCE.getScope_Realtype();
 
     /**
      * The meta object literal for the '{@link ie.tcd.everm.evedsl.eveDesc.impl.APIImpl <em>API</em>}' class.

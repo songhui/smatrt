@@ -1,12 +1,10 @@
 /**
- * <copyright>
- * </copyright>
- *
-
  */
 package ie.tcd.everm.evedsl.eveDesc;
 
 import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.xtext.common.types.JvmTypeReference;
 
 import org.eclipse.xtext.xbase.XExpression;
 
@@ -20,6 +18,7 @@ import org.eclipse.xtext.xbase.XExpression;
  * <ul>
  *   <li>{@link ie.tcd.everm.evedsl.eveDesc.Scope#getExpr <em>Expr</em>}</li>
  *   <li>{@link ie.tcd.everm.evedsl.eveDesc.Scope#isEnforce <em>Enforce</em>}</li>
+ *   <li>{@link ie.tcd.everm.evedsl.eveDesc.Scope#getRealtype <em>Realtype</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,5 +79,31 @@ public interface Scope extends EObject
    * @generated
    */
   void setEnforce(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Realtype</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Realtype</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Realtype</em>' containment reference.
+   * @see #setRealtype(JvmTypeReference)
+   * @see ie.tcd.everm.evedsl.eveDesc.EveDescPackage#getScope_Realtype()
+   * @model containment="true"
+   * @generated
+   */
+  JvmTypeReference getRealtype();
+
+  /**
+   * Sets the value of the '{@link ie.tcd.everm.evedsl.eveDesc.Scope#getRealtype <em>Realtype</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Realtype</em>' containment reference.
+   * @see #getRealtype()
+   * @generated
+   */
+  void setRealtype(JvmTypeReference value);
 
 } // Scope

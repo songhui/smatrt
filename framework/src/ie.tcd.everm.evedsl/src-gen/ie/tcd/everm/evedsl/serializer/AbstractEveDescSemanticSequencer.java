@@ -22,6 +22,7 @@ import ie.tcd.everm.evedsl.eveDesc.SubType;
 import ie.tcd.everm.evedsl.eveDesc.TextParser;
 import ie.tcd.everm.evedsl.eveDesc.UserDefinedFormatter;
 import ie.tcd.everm.evedsl.eveDesc.VarValue;
+import ie.tcd.everm.evedsl.eveDesc.WordFormatter;
 import ie.tcd.everm.evedsl.services.EveDescGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
@@ -225,6 +226,13 @@ public class AbstractEveDescSemanticSequencer extends AbstractSemanticSequencer 
 				if(context == grammarAccess.getAbstractTextValueRule() ||
 				   context == grammarAccess.getVarValueRule()) {
 					sequence_VarValue(context, (VarValue) semanticObject); 
+					return; 
+				}
+				else break;
+			case EveDescPackage.WORD_FORMATTER:
+				if(context == grammarAccess.getTextFormatterRule() ||
+				   context == grammarAccess.getWordFormatterRule()) {
+					sequence_WordFormatter(context, (WordFormatter) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1333,7 +1341,7 @@ public class AbstractEveDescSemanticSequencer extends AbstractSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (expr=XMemberFeatureCall enforce?='enforced'?)
+	 *     (expr=XMemberFeatureCall enforce?='enforced'? realtype=JvmTypeReference?)
 	 */
 	protected void sequence_Scope(EObject context, Scope semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1431,6 +1439,22 @@ public class AbstractEveDescSemanticSequencer extends AbstractSemanticSequencer 
 	 */
 	protected void sequence_VariableDec(EObject context, XVariableDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     white?='word'
+	 */
+	protected void sequence_WordFormatter(EObject context, WordFormatter semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, EveDescPackage.Literals.WORD_FORMATTER__WHITE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EveDescPackage.Literals.WORD_FORMATTER__WHITE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getWordFormatterAccess().getWhiteWordKeyword_0(), semanticObject.isWhite());
+		feeder.finish();
 	}
 	
 	
