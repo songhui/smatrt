@@ -1,8 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
-
  */
 package ie.tcd.everm.evedsl.eveDesc;
 
@@ -97,6 +93,15 @@ public interface EveDescFactory extends EFactory
    * @generated
    */
   TextFormatter createTextFormatter();
+
+  /**
+   * Returns a new object of class '<em>Word Formatter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Word Formatter</em>'.
+   * @generated
+   */
+  WordFormatter createWordFormatter();
 
   /**
    * Returns a new object of class '<em>Split Formatter</em>'.

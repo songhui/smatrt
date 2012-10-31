@@ -1,8 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
-
  */
 package ie.tcd.everm.evedsl.eveDesc.impl;
 
@@ -77,6 +73,7 @@ public class EveDescFactoryImpl extends EFactoryImpl implements EveDescFactory
       case EveDescPackage.PARSER: return createParser();
       case EveDescPackage.TEXT_PARSER: return createTextParser();
       case EveDescPackage.TEXT_FORMATTER: return createTextFormatter();
+      case EveDescPackage.WORD_FORMATTER: return createWordFormatter();
       case EveDescPackage.SPLIT_FORMATTER: return createSplitFormatter();
       case EveDescPackage.USER_DEFINED_FORMATTER: return createUserDefinedFormatter();
       case EveDescPackage.ABSTRACT_TEXT_VALUE: return createAbstractTextValue();
@@ -216,6 +213,17 @@ public class EveDescFactoryImpl extends EFactoryImpl implements EveDescFactory
   {
     TextFormatterImpl textFormatter = new TextFormatterImpl();
     return textFormatter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WordFormatter createWordFormatter()
+  {
+    WordFormatterImpl wordFormatter = new WordFormatterImpl();
+    return wordFormatter;
   }
 
   /**

@@ -1,8 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
-
  */
 package ie.tcd.everm.evedsl.eveDesc.impl;
 
@@ -18,6 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.xtext.common.types.JvmTypeReference;
+
 import org.eclipse.xtext.xbase.XExpression;
 
 /**
@@ -29,6 +27,7 @@ import org.eclipse.xtext.xbase.XExpression;
  * <ul>
  *   <li>{@link ie.tcd.everm.evedsl.eveDesc.impl.ScopeImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link ie.tcd.everm.evedsl.eveDesc.impl.ScopeImpl#isEnforce <em>Enforce</em>}</li>
+ *   <li>{@link ie.tcd.everm.evedsl.eveDesc.impl.ScopeImpl#getRealtype <em>Realtype</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,6 +64,16 @@ public class ScopeImpl extends MinimalEObjectImpl.Container implements Scope
    * @ordered
    */
   protected boolean enforce = ENFORCE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getRealtype() <em>Realtype</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRealtype()
+   * @generated
+   * @ordered
+   */
+  protected JvmTypeReference realtype;
 
   /**
    * <!-- begin-user-doc -->
@@ -163,6 +172,54 @@ public class ScopeImpl extends MinimalEObjectImpl.Container implements Scope
    * <!-- end-user-doc -->
    * @generated
    */
+  public JvmTypeReference getRealtype()
+  {
+    return realtype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetRealtype(JvmTypeReference newRealtype, NotificationChain msgs)
+  {
+    JvmTypeReference oldRealtype = realtype;
+    realtype = newRealtype;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EveDescPackage.SCOPE__REALTYPE, oldRealtype, newRealtype);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRealtype(JvmTypeReference newRealtype)
+  {
+    if (newRealtype != realtype)
+    {
+      NotificationChain msgs = null;
+      if (realtype != null)
+        msgs = ((InternalEObject)realtype).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EveDescPackage.SCOPE__REALTYPE, null, msgs);
+      if (newRealtype != null)
+        msgs = ((InternalEObject)newRealtype).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EveDescPackage.SCOPE__REALTYPE, null, msgs);
+      msgs = basicSetRealtype(newRealtype, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EveDescPackage.SCOPE__REALTYPE, newRealtype, newRealtype));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -170,6 +227,8 @@ public class ScopeImpl extends MinimalEObjectImpl.Container implements Scope
     {
       case EveDescPackage.SCOPE__EXPR:
         return basicSetExpr(null, msgs);
+      case EveDescPackage.SCOPE__REALTYPE:
+        return basicSetRealtype(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -188,6 +247,8 @@ public class ScopeImpl extends MinimalEObjectImpl.Container implements Scope
         return getExpr();
       case EveDescPackage.SCOPE__ENFORCE:
         return isEnforce();
+      case EveDescPackage.SCOPE__REALTYPE:
+        return getRealtype();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -207,6 +268,9 @@ public class ScopeImpl extends MinimalEObjectImpl.Container implements Scope
         return;
       case EveDescPackage.SCOPE__ENFORCE:
         setEnforce((Boolean)newValue);
+        return;
+      case EveDescPackage.SCOPE__REALTYPE:
+        setRealtype((JvmTypeReference)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -228,6 +292,9 @@ public class ScopeImpl extends MinimalEObjectImpl.Container implements Scope
       case EveDescPackage.SCOPE__ENFORCE:
         setEnforce(ENFORCE_EDEFAULT);
         return;
+      case EveDescPackage.SCOPE__REALTYPE:
+        setRealtype((JvmTypeReference)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -246,6 +313,8 @@ public class ScopeImpl extends MinimalEObjectImpl.Container implements Scope
         return expr != null;
       case EveDescPackage.SCOPE__ENFORCE:
         return enforce != ENFORCE_EDEFAULT;
+      case EveDescPackage.SCOPE__REALTYPE:
+        return realtype != null;
     }
     return super.eIsSet(featureID);
   }

@@ -36,6 +36,7 @@ import ie.tcd.everm.evedsl.eveDesc.TextFormatter
 import ie.tcd.everm.evedsl.eveDesc.SplitFormatter
 import ie.tcd.everm.evedsl.eveDesc.UserDefinedFormatter
 import org.eclipse.xtext.common.types.JvmGenericType
+import ie.tcd.everm.evedsl.eveDesc.WordFormatter
 
 class EventEngineInferrer {
 	
@@ -131,7 +132,9 @@ class EventEngineInferrer {
    									for(«ftn» it : scp_«fn»){
    										«pre.value.toJavaStatement(appendable,true)»
    										«appendable»
-   										if(it.get«pre.feature.simpleName.substring(3)»().equals(«appendable.getName(pre.value)»)){
+   										«var toappear = appendable.getName(pre.value)»
+   										«if(toappear.nullOrEmpty){pre.value.toJavaExpression(appendable); toappear=appendable.toString; ""}»
+   										if(it.get«pre.feature.simpleName.substring(3)»().equals(«toappear»)){
    											«fn» = it;
    											break;
    										}  
@@ -171,7 +174,14 @@ class EventEngineInferrer {
    				val toEnforceList = elem.decScope.filter(e | e.scope!=null && e.scope.enforce)
    				for( toEnforce : toEnforceList){
    					val varName = toEnforce.^var.simpleName
-   					val typeName = toEnforce.^var.type.simpleName
+   					val typeName = 
+   						if(toEnforce.scope.realtype==null)
+   							toEnforce.^var.type.simpleName
+   						else{
+   							im.addImportFor(toEnforce.scope.realtype.type)
+   							toEnforce.scope.realtype.simpleName
+   						}   							   					
+   						
    					val parentName = (toEnforce.scope.expr as XMemberFeatureCall).memberCallTarget
    					val memberNameGet = (toEnforce.scope.expr as XMemberFeatureCall).feature.simpleName
    					val involvedPre = elem.pre.filter(e|
@@ -335,6 +345,15 @@ class EventEngineInferrer {
 		   					'''
 		   						«appendable»
 		   						return «appendable.getName(formatter.expr)»;	   						
+		   					'''
+		   				}
+		   				WordFormatter:{
+		   					'''
+		   					java.util.Scanner scanner = new java.util.Scanner(text);
+		   					java.util.ArrayList<String> result = new java.util.ArrayList<String>();
+		   					while(scanner.hasNext())
+		   						result.add(scanner.next());
+		   					return result;
 		   					'''
 		   				}
 		   				default: '''return java.util.Arrays.asList(text.split(","));'''

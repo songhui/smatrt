@@ -90,6 +90,7 @@ public class EveDescParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDecScopeAccess().getGroup(), "rule__DecScope__Group__0");
 					put(grammarAccess.getVariableDecAccess().getGroup(), "rule__VariableDec__Group__0");
 					put(grammarAccess.getScopeAccess().getGroup(), "rule__Scope__Group__0");
+					put(grammarAccess.getScopeAccess().getGroup_3(), "rule__Scope__Group_3__0");
 					put(grammarAccess.getAPIAccess().getGroup(), "rule__API__Group__0");
 					put(grammarAccess.getMappingAccess().getGroup(), "rule__Mapping__Group__0");
 					put(grammarAccess.getMappingAccess().getGroup_6(), "rule__Mapping__Group_6__0");
@@ -246,6 +247,7 @@ public class EveDescParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTextParserAccess().getFormatterAssignment_1_1(), "rule__TextParser__FormatterAssignment_1_1");
 					put(grammarAccess.getTextParserAccess().getIvarAssignment_3_1(), "rule__TextParser__IvarAssignment_3_1");
 					put(grammarAccess.getTextParserAccess().getValueAssignment_4(), "rule__TextParser__ValueAssignment_4");
+					put(grammarAccess.getWordFormatterAccess().getWhiteAssignment(), "rule__WordFormatter__WhiteAssignment");
 					put(grammarAccess.getSplitFormatterAccess().getSpliterAssignment_2(), "rule__SplitFormatter__SpliterAssignment_2");
 					put(grammarAccess.getUserDefinedFormatterAccess().getExprAssignment_2(), "rule__UserDefinedFormatter__ExprAssignment_2");
 					put(grammarAccess.getVarValueAccess().getVariableAssignment_1(), "rule__VarValue__VariableAssignment_1");
@@ -263,6 +265,7 @@ public class EveDescParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVariableDecAccess().getTypeAssignment_3(), "rule__VariableDec__TypeAssignment_3");
 					put(grammarAccess.getScopeAccess().getExprAssignment_1(), "rule__Scope__ExprAssignment_1");
 					put(grammarAccess.getScopeAccess().getEnforceAssignment_2(), "rule__Scope__EnforceAssignment_2");
+					put(grammarAccess.getScopeAccess().getRealtypeAssignment_3_1(), "rule__Scope__RealtypeAssignment_3_1");
 					put(grammarAccess.getAPIAccess().getNameAssignment_1(), "rule__API__NameAssignment_1");
 					put(grammarAccess.getAPIAccess().getHelperAssignment_3(), "rule__API__HelperAssignment_3");
 					put(grammarAccess.getAPIAccess().getMappingAssignment_4(), "rule__API__MappingAssignment_4");

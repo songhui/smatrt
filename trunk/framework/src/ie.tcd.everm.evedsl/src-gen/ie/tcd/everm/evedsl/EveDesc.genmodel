@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ie.tcd.everm.evedsl/src-gen"
-    editDirectory="/ie.tcd.everm.evedsl.edit/src" editorDirectory="/ie.tcd.everm.evedsl.editor/src"
-    modelPluginID="ie.tcd.everm.evedsl" forceOverwrite="true" modelName="EveDesc"
-    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ie.tcd.everm.evedsl/src-gen" editDirectory="/ie.tcd.everm.evedsl.edit/src"
+    editorDirectory="/ie.tcd.everm.evedsl.editor/src" modelPluginID="ie.tcd.everm.evedsl"
+    forceOverwrite="true" modelName="EveDesc" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="ie.tcd.everm.evedsl.edit"
     editorPluginID="ie.tcd.everm.evedsl.editor" usedGenPackages="../../../../../../org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types ../../../../../../org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase">
   <genPackages prefix="EveDesc" basePackage="ie.tcd.everm.evedsl" disposableProviderFactory="true"
@@ -52,6 +50,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//TextParser/value"/>
     </genClasses>
     <genClasses ecoreClass="EveDesc.ecore#//TextFormatter"/>
+    <genClasses ecoreClass="EveDesc.ecore#//WordFormatter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//WordFormatter/white"/>
+    </genClasses>
     <genClasses ecoreClass="EveDesc.ecore#//SplitFormatter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//SplitFormatter/spliter"/>
     </genClasses>
@@ -78,6 +79,7 @@
     <genClasses ecoreClass="EveDesc.ecore#//Scope">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Scope/expr"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//Scope/enforce"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//Scope/realtype"/>
     </genClasses>
     <genClasses ecoreClass="EveDesc.ecore#//API">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EveDesc.ecore#//API/name"/>

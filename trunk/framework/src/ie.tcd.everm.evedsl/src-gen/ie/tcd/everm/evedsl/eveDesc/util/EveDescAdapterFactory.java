@@ -1,8 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
-
  */
 package ie.tcd.everm.evedsl.eveDesc.util;
 
@@ -117,6 +113,11 @@ public class EveDescAdapterFactory extends AdapterFactoryImpl
       public Adapter caseTextFormatter(TextFormatter object)
       {
         return createTextFormatterAdapter();
+      }
+      @Override
+      public Adapter caseWordFormatter(WordFormatter object)
+      {
+        return createWordFormatterAdapter();
       }
       @Override
       public Adapter caseSplitFormatter(SplitFormatter object)
@@ -326,6 +327,21 @@ public class EveDescAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTextFormatterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link ie.tcd.everm.evedsl.eveDesc.WordFormatter <em>Word Formatter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see ie.tcd.everm.evedsl.eveDesc.WordFormatter
+   * @generated
+   */
+  public Adapter createWordFormatterAdapter()
   {
     return null;
   }

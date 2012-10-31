@@ -1,8 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
-
  */
 package ie.tcd.everm.evedsl.eveDesc.impl;
 
@@ -30,6 +26,7 @@ import ie.tcd.everm.evedsl.eveDesc.TextFormatter;
 import ie.tcd.everm.evedsl.eveDesc.TextParser;
 import ie.tcd.everm.evedsl.eveDesc.UserDefinedFormatter;
 import ie.tcd.everm.evedsl.eveDesc.VarValue;
+import ie.tcd.everm.evedsl.eveDesc.WordFormatter;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -106,6 +103,13 @@ public class EveDescPackageImpl extends EPackageImpl implements EveDescPackage
    * @generated
    */
   private EClass textFormatterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass wordFormatterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -563,6 +567,26 @@ public class EveDescPackageImpl extends EPackageImpl implements EveDescPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getWordFormatter()
+  {
+    return wordFormatterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getWordFormatter_White()
+  {
+    return (EAttribute)wordFormatterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSplitFormatter()
   {
     return splitFormatterEClass;
@@ -746,6 +770,16 @@ public class EveDescPackageImpl extends EPackageImpl implements EveDescPackage
   public EAttribute getScope_Enforce()
   {
     return (EAttribute)scopeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getScope_Realtype()
+  {
+    return (EReference)scopeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1114,6 +1148,9 @@ public class EveDescPackageImpl extends EPackageImpl implements EveDescPackage
 
     textFormatterEClass = createEClass(TEXT_FORMATTER);
 
+    wordFormatterEClass = createEClass(WORD_FORMATTER);
+    createEAttribute(wordFormatterEClass, WORD_FORMATTER__WHITE);
+
     splitFormatterEClass = createEClass(SPLIT_FORMATTER);
     createEAttribute(splitFormatterEClass, SPLIT_FORMATTER__SPLITER);
 
@@ -1141,6 +1178,7 @@ public class EveDescPackageImpl extends EPackageImpl implements EveDescPackage
     scopeEClass = createEClass(SCOPE);
     createEReference(scopeEClass, SCOPE__EXPR);
     createEAttribute(scopeEClass, SCOPE__ENFORCE);
+    createEReference(scopeEClass, SCOPE__REALTYPE);
 
     apiEClass = createEClass(API);
     createEAttribute(apiEClass, API__NAME);
@@ -1214,6 +1252,7 @@ public class EveDescPackageImpl extends EPackageImpl implements EveDescPackage
 
     // Add supertypes to classes
     textParserEClass.getESuperTypes().add(this.getParser());
+    wordFormatterEClass.getESuperTypes().add(this.getTextFormatter());
     splitFormatterEClass.getESuperTypes().add(this.getTextFormatter());
     userDefinedFormatterEClass.getESuperTypes().add(this.getTextFormatter());
     varValueEClass.getESuperTypes().add(this.getAbstractTextValue());
@@ -1258,6 +1297,9 @@ public class EveDescPackageImpl extends EPackageImpl implements EveDescPackage
 
     initEClass(textFormatterEClass, TextFormatter.class, "TextFormatter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(wordFormatterEClass, WordFormatter.class, "WordFormatter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getWordFormatter_White(), ecorePackage.getEBoolean(), "white", null, 0, 1, WordFormatter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(splitFormatterEClass, SplitFormatter.class, "SplitFormatter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSplitFormatter_Spliter(), ecorePackage.getEString(), "spliter", null, 0, 1, SplitFormatter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1285,6 +1327,7 @@ public class EveDescPackageImpl extends EPackageImpl implements EveDescPackage
     initEClass(scopeEClass, Scope.class, "Scope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getScope_Expr(), theXbasePackage.getXExpression(), null, "expr", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getScope_Enforce(), ecorePackage.getEBoolean(), "enforce", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getScope_Realtype(), theTypesPackage.getJvmTypeReference(), null, "realtype", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(apiEClass, ie.tcd.everm.evedsl.eveDesc.API.class, "API", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAPI_Name(), ecorePackage.getEString(), "name", null, 0, 1, ie.tcd.everm.evedsl.eveDesc.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

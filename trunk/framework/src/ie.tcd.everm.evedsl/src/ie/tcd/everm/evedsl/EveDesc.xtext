@@ -56,10 +56,12 @@ TextParser:
 ;
 
 /*Event->TextParser->TextFormatter */
-TextFormatter: CSVFormatter | SplitFormatter | UserDefinedFormatter;
+TextFormatter: CSVFormatter | WordFormatter | SplitFormatter | UserDefinedFormatter;
 
 /*Event->TextParser->CSV */
 CSVFormatter: "csv";
+
+WordFormatter: white ?= "word";
 
 SplitFormatter: "split" "(" spliter = STRING ")";
 
@@ -103,7 +105,7 @@ VariableDec returns xbase::XVariableDeclaration:
 
 /*Event->DecScope->Scope*/	
 Scope :
-	('in' expr = XMemberFeatureCall enforce?= ('enforced')?);
+	('in' expr = XMemberFeatureCall enforce?= ('enforced')? ('as' realtype=JvmTypeReference)?);
 
 
 /*----------Event Def ends here ------- */
