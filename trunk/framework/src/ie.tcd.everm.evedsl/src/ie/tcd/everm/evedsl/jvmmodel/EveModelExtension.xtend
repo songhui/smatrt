@@ -14,3 +14,4 @@ class EveModelExtension {
 		intp.ivar.filter(e | e instanceof XVariableDeclaration).map(e | e as XVariableDeclaration)
 	}
 }
+
