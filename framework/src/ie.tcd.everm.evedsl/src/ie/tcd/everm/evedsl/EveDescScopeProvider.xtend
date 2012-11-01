@@ -34,3 +34,4 @@ class EveDescScopeProvider extends XbaseScopeProvider {
         return super.createLocalVarScope(parentScope,scopeContext)    	
     }
 }
+

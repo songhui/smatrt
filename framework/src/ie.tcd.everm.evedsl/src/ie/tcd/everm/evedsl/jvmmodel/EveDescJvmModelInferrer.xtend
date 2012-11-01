@@ -1,5 +1,5 @@
 package ie.tcd.everm.evedsl.jvmmodel
- 
+
 import com.google.inject.Inject
 import org.eclipse.xtext.common.types.JvmDeclaredType
 import org.eclipse.xtext.util.IAcceptor
@@ -42,7 +42,6 @@ import org.eclipse.emf.common.notify.Notification
 import org.eclipse.emf.ecore.EStructuralFeature
 import ie.tcd.everm.evedsl.eveDesc.OperationType
 import ie.tcd.everm.evedsl.eveDesc.Invocation
-
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -115,9 +114,17 @@ class EveDescJvmModelInferrer extends AbstractModelInferrer {
 	   	mainCls.members += eNull.toMethod("execute",rootElement.newTypeRef(Void::TYPE))[
    			parameters += eNull.toParameter("event", rootElement.newTypeRef(typeof(Object)))
    			body = ['''
+			try{
 				«FOR elem : rootElement.event»
-	   				«elem.name.toFirstLower».execute(event);
-	   			«ENDFOR»
+					if(«elem.name.toFirstLower».execute(event))
+						return;
+				«ENDFOR»
+				throw new Exception("Not found");
+			}
+			catch(Exception e){
+				System.out.println("unhandled event: "+event);
+				return;
+			}
    			''']
    		]
    		
