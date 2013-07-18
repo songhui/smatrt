@@ -87,6 +87,8 @@ public class EveDescParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVarValueVariableDescAccess().getGroup(), "rule__VarValueVariableDesc__Group__0");
 					put(grammarAccess.getPlainParserAccess().getGroup(), "rule__PlainParser__Group__0");
 					put(grammarAccess.getPlainParserAccess().getGroup_2(), "rule__PlainParser__Group_2__0");
+					put(grammarAccess.getDirectObjectParserAccess().getGroup(), "rule__DirectObjectParser__Group__0");
+					put(grammarAccess.getDirectObjectParserAccess().getGroup_4(), "rule__DirectObjectParser__Group_4__0");
 					put(grammarAccess.getDecScopeAccess().getGroup(), "rule__DecScope__Group__0");
 					put(grammarAccess.getVariableDecAccess().getGroup(), "rule__VariableDec__Group__0");
 					put(grammarAccess.getScopeAccess().getGroup(), "rule__Scope__Group__0");
@@ -258,6 +260,8 @@ public class EveDescParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIgnoreValueAccess().getIgnoreAssignment(), "rule__IgnoreValue__IgnoreAssignment");
 					put(grammarAccess.getPlainParserAccess().getIvarAssignment_2_1(), "rule__PlainParser__IvarAssignment_2_1");
 					put(grammarAccess.getPlainParserAccess().getLogicAssignment_4(), "rule__PlainParser__LogicAssignment_4");
+					put(grammarAccess.getDirectObjectParserAccess().getTypeAssignment_3(), "rule__DirectObjectParser__TypeAssignment_3");
+					put(grammarAccess.getDirectObjectParserAccess().getIvarAssignment_4_1(), "rule__DirectObjectParser__IvarAssignment_4_1");
 					put(grammarAccess.getDecScopeAccess().getVarAssignment_0(), "rule__DecScope__VarAssignment_0");
 					put(grammarAccess.getDecScopeAccess().getScopeAssignment_1(), "rule__DecScope__ScopeAssignment_1");
 					put(grammarAccess.getVariableDecAccess().getNameAssignment_1(), "rule__VariableDec__NameAssignment_1");

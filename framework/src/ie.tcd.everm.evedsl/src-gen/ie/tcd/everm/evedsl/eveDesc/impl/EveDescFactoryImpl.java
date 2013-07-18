@@ -81,6 +81,7 @@ public class EveDescFactoryImpl extends EFactoryImpl implements EveDescFactory
       case EveDescPackage.CONSTANT_TEXT: return createConstantText();
       case EveDescPackage.IGNORE_VALUE: return createIgnoreValue();
       case EveDescPackage.PLAIN_PARSER: return createPlainParser();
+      case EveDescPackage.DIRECT_OBJECT_PARSER: return createDirectObjectParser();
       case EveDescPackage.DEC_SCOPE: return createDecScope();
       case EveDescPackage.SCOPE: return createScope();
       case EveDescPackage.API: return createAPI();
@@ -301,6 +302,17 @@ public class EveDescFactoryImpl extends EFactoryImpl implements EveDescFactory
   {
     PlainParserImpl plainParser = new PlainParserImpl();
     return plainParser;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DirectObjectParser createDirectObjectParser()
+  {
+    DirectObjectParserImpl directObjectParser = new DirectObjectParserImpl();
+    return directObjectParser;
   }
 
   /**

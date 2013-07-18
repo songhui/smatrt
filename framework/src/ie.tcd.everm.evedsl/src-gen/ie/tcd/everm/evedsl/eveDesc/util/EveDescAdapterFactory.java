@@ -155,6 +155,11 @@ public class EveDescAdapterFactory extends AdapterFactoryImpl
         return createPlainParserAdapter();
       }
       @Override
+      public Adapter caseDirectObjectParser(DirectObjectParser object)
+      {
+        return createDirectObjectParserAdapter();
+      }
+      @Override
       public Adapter caseDecScope(DecScope object)
       {
         return createDecScopeAdapter();
@@ -447,6 +452,21 @@ public class EveDescAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPlainParserAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link ie.tcd.everm.evedsl.eveDesc.DirectObjectParser <em>Direct Object Parser</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see ie.tcd.everm.evedsl.eveDesc.DirectObjectParser
+   * @generated
+   */
+  public Adapter createDirectObjectParserAdapter()
   {
     return null;
   }

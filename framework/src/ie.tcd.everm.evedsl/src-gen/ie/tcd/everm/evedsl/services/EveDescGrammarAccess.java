@@ -339,12 +339,13 @@ public class EveDescGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cTextParserParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cPlainParserParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDirectObjectParserParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		/// *--Event->Parser* / Parser:
-		//	TextParser | PlainParser;
+		//	TextParser | PlainParser | DirectObjectParser;
 		public ParserRule getRule() { return rule; }
 
-		//TextParser | PlainParser
+		//TextParser | PlainParser | DirectObjectParser
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//TextParser
@@ -352,6 +353,9 @@ public class EveDescGrammarAccess extends AbstractGrammarElementFinder {
 
 		//PlainParser
 		public RuleCall getPlainParserParserRuleCall_1() { return cPlainParserParserRuleCall_1; }
+
+		//DirectObjectParser
+		public RuleCall getDirectObjectParserParserRuleCall_2() { return cDirectObjectParserParserRuleCall_2; }
 	}
 
 	public class TextParserElements extends AbstractParserRuleElementFinder {
@@ -708,6 +712,58 @@ public class EveDescGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+
+	public class DirectObjectParserElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DirectObjectParser");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDirectKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cObjectKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeJvmTypeReferenceParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cIvarKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cIvarAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cIvarXVariableDeclarationParserRuleCall_4_1_0 = (RuleCall)cIvarAssignment_4_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//DirectObjectParser:
+		//	"direct" "object" ":" type=JvmTypeReference ("ivar" ivar+=XVariableDeclaration)* ";";
+		public ParserRule getRule() { return rule; }
+
+		//"direct" "object" ":" type=JvmTypeReference ("ivar" ivar+=XVariableDeclaration)* ";"
+		public Group getGroup() { return cGroup; }
+
+		//"direct"
+		public Keyword getDirectKeyword_0() { return cDirectKeyword_0; }
+
+		//"object"
+		public Keyword getObjectKeyword_1() { return cObjectKeyword_1; }
+
+		//":"
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+
+		//type=JvmTypeReference
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+
+		//JvmTypeReference
+		public RuleCall getTypeJvmTypeReferenceParserRuleCall_3_0() { return cTypeJvmTypeReferenceParserRuleCall_3_0; }
+
+		//("ivar" ivar+=XVariableDeclaration)*
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"ivar"
+		public Keyword getIvarKeyword_4_0() { return cIvarKeyword_4_0; }
+
+		//ivar+=XVariableDeclaration
+		public Assignment getIvarAssignment_4_1() { return cIvarAssignment_4_1; }
+
+		//XVariableDeclaration
+		public RuleCall getIvarXVariableDeclarationParserRuleCall_4_1_0() { return cIvarXVariableDeclarationParserRuleCall_4_1_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
 	public class DecScopeElements extends AbstractParserRuleElementFinder {
@@ -1280,6 +1336,7 @@ public class EveDescGrammarAccess extends AbstractGrammarElementFinder {
 	private ConstantTextElements pConstantText;
 	private IgnoreValueElements pIgnoreValue;
 	private PlainParserElements pPlainParser;
+	private DirectObjectParserElements pDirectObjectParser;
 	private DecScopeElements pDecScope;
 	private VariableDecElements pVariableDec;
 	private ScopeElements pScope;
@@ -1374,7 +1431,7 @@ public class EveDescGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// *--Event->Parser* / Parser:
-	//	TextParser | PlainParser;
+	//	TextParser | PlainParser | DirectObjectParser;
 	public ParserElements getParserAccess() {
 		return (pParser != null) ? pParser : (pParser = new ParserElements());
 	}
@@ -1501,6 +1558,16 @@ public class EveDescGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getPlainParserRule() {
 		return getPlainParserAccess().getRule();
+	}
+
+	//DirectObjectParser:
+	//	"direct" "object" ":" type=JvmTypeReference ("ivar" ivar+=XVariableDeclaration)* ";";
+	public DirectObjectParserElements getDirectObjectParserAccess() {
+		return (pDirectObjectParser != null) ? pDirectObjectParser : (pDirectObjectParser = new DirectObjectParserElements());
+	}
+	
+	public ParserRule getDirectObjectParserRule() {
+		return getDirectObjectParserAccess().getRule();
 	}
 
 	/// *Event->DecScope * / DecScope:

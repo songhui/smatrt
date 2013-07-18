@@ -642,6 +642,16 @@ ruleParser returns [EObject current=null]
         $current = $this_PlainParser_1.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getParserAccess().getDirectObjectParserParserRuleCall_2()); 
+    }
+    this_DirectObjectParser_2=ruleDirectObjectParser
+    { 
+        $current = $this_DirectObjectParser_2.current; 
+        afterParserOrEnumRuleCall();
+    }
 )
 ;
 
@@ -1281,6 +1291,83 @@ rulePlainParser returns [EObject current=null]
 )	otherlv_6='}' 
     {
     	newLeafNode(otherlv_6, grammarAccess.getPlainParserAccess().getRightCurlyBracketKeyword_5());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleDirectObjectParser
+entryRuleDirectObjectParser returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getDirectObjectParserRule()); }
+	 iv_ruleDirectObjectParser=ruleDirectObjectParser 
+	 { $current=$iv_ruleDirectObjectParser.current; } 
+	 EOF 
+;
+
+// Rule DirectObjectParser
+ruleDirectObjectParser returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='direct' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getDirectObjectParserAccess().getDirectKeyword_0());
+    }
+	otherlv_1='object' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getDirectObjectParserAccess().getObjectKeyword_1());
+    }
+	otherlv_2=':' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getDirectObjectParserAccess().getColonKeyword_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDirectObjectParserAccess().getTypeJvmTypeReferenceParserRuleCall_3_0()); 
+	    }
+		lv_type_3_0=ruleJvmTypeReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDirectObjectParserRule());
+	        }
+       		set(
+       			$current, 
+       			"type",
+        		lv_type_3_0, 
+        		"JvmTypeReference");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_4='ivar' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getDirectObjectParserAccess().getIvarKeyword_4_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDirectObjectParserAccess().getIvarXVariableDeclarationParserRuleCall_4_1_0()); 
+	    }
+		lv_ivar_5_0=ruleXVariableDeclaration		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDirectObjectParserRule());
+	        }
+       		add(
+       			$current, 
+       			"ivar",
+        		lv_ivar_5_0, 
+        		"XVariableDeclaration");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*	otherlv_6=';' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getDirectObjectParserAccess().getSemicolonKeyword_5());
     }
 )
 ;

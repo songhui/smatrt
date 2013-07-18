@@ -192,6 +192,14 @@ public class EveDescSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EveDescPackage.DIRECT_OBJECT_PARSER:
+      {
+        DirectObjectParser directObjectParser = (DirectObjectParser)theEObject;
+        T result = caseDirectObjectParser(directObjectParser);
+        if (result == null) result = caseParser(directObjectParser);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EveDescPackage.DEC_SCOPE:
       {
         DecScope decScope = (DecScope)theEObject;
@@ -497,6 +505,22 @@ public class EveDescSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePlainParser(PlainParser object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Direct Object Parser</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Direct Object Parser</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDirectObjectParser(DirectObjectParser object)
   {
     return null;
   }

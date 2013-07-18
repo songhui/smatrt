@@ -623,6 +623,43 @@ public interface EveDescPackage extends EPackage
   int PLAIN_PARSER_FEATURE_COUNT = PARSER_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link ie.tcd.everm.evedsl.eveDesc.impl.DirectObjectParserImpl <em>Direct Object Parser</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ie.tcd.everm.evedsl.eveDesc.impl.DirectObjectParserImpl
+   * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getDirectObjectParser()
+   * @generated
+   */
+  int DIRECT_OBJECT_PARSER = 16;
+
+  /**
+   * The feature id for the '<em><b>Ivar</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECT_OBJECT_PARSER__IVAR = PARSER__IVAR;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECT_OBJECT_PARSER__TYPE = PARSER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Direct Object Parser</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECT_OBJECT_PARSER_FEATURE_COUNT = PARSER_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link ie.tcd.everm.evedsl.eveDesc.impl.DecScopeImpl <em>Dec Scope</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -630,7 +667,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getDecScope()
    * @generated
    */
-  int DEC_SCOPE = 16;
+  int DEC_SCOPE = 17;
 
   /**
    * The feature id for the '<em><b>Var</b></em>' containment reference.
@@ -667,7 +704,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getScope()
    * @generated
    */
-  int SCOPE = 17;
+  int SCOPE = 18;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -713,7 +750,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getAPI()
    * @generated
    */
-  int API = 18;
+  int API = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -768,7 +805,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getMapping()
    * @generated
    */
-  int MAPPING = 19;
+  int MAPPING = 20;
 
   /**
    * The feature id for the '<em><b>MType</b></em>' containment reference.
@@ -841,7 +878,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getSubType()
    * @generated
    */
-  int SUB_TYPE = 20;
+  int SUB_TYPE = 21;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -878,7 +915,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getInvocation()
    * @generated
    */
-  int INVOCATION = 21;
+  int INVOCATION = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -969,7 +1006,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getOperationPointCut()
    * @generated
    */
-  int OPERATION_POINT_CUT = 22;
+  int OPERATION_POINT_CUT = 23;
 
   /**
    * The feature id for the '<em><b>Op Type</b></em>' attribute.
@@ -1024,7 +1061,7 @@ public interface EveDescPackage extends EPackage
    * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getOperationType()
    * @generated
    */
-  int OPERATION_TYPE = 23;
+  int OPERATION_TYPE = 24;
 
 
   /**
@@ -1483,6 +1520,27 @@ public interface EveDescPackage extends EPackage
    * @generated
    */
   EReference getPlainParser_Logic();
+
+  /**
+   * Returns the meta object for class '{@link ie.tcd.everm.evedsl.eveDesc.DirectObjectParser <em>Direct Object Parser</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Direct Object Parser</em>'.
+   * @see ie.tcd.everm.evedsl.eveDesc.DirectObjectParser
+   * @generated
+   */
+  EClass getDirectObjectParser();
+
+  /**
+   * Returns the meta object for the containment reference '{@link ie.tcd.everm.evedsl.eveDesc.DirectObjectParser#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see ie.tcd.everm.evedsl.eveDesc.DirectObjectParser#getType()
+   * @see #getDirectObjectParser()
+   * @generated
+   */
+  EReference getDirectObjectParser_Type();
 
   /**
    * Returns the meta object for class '{@link ie.tcd.everm.evedsl.eveDesc.DecScope <em>Dec Scope</em>}'.
@@ -2281,6 +2339,24 @@ public interface EveDescPackage extends EPackage
      * @generated
      */
     EReference PLAIN_PARSER__LOGIC = eINSTANCE.getPlainParser_Logic();
+
+    /**
+     * The meta object literal for the '{@link ie.tcd.everm.evedsl.eveDesc.impl.DirectObjectParserImpl <em>Direct Object Parser</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ie.tcd.everm.evedsl.eveDesc.impl.DirectObjectParserImpl
+     * @see ie.tcd.everm.evedsl.eveDesc.impl.EveDescPackageImpl#getDirectObjectParser()
+     * @generated
+     */
+    EClass DIRECT_OBJECT_PARSER = eINSTANCE.getDirectObjectParser();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIRECT_OBJECT_PARSER__TYPE = eINSTANCE.getDirectObjectParser_Type();
 
     /**
      * The meta object literal for the '{@link ie.tcd.everm.evedsl.eveDesc.impl.DecScopeImpl <em>Dec Scope</em>}' class.

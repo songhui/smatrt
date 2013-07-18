@@ -38,6 +38,7 @@ import ie.tcd.everm.evedsl.eveDesc.SplitFormatter
 import ie.tcd.everm.evedsl.eveDesc.UserDefinedFormatter
 import org.eclipse.xtext.common.types.JvmGenericType
 import ie.tcd.everm.evedsl.eveDesc.WordFormatter
+import ie.tcd.everm.evedsl.eveDesc.DirectObjectParser
 
 class EventEngineInferrer {
 	
@@ -82,11 +83,19 @@ class EventEngineInferrer {
    		
    		/*-----field: parser-------*/
    		val intpElem = elem.parser
-   		val intpCls = intpElem.inferParser
-   		acceptor.accept(intpCls)
-   		cls.members += intpElem.toField("parser",intpCls.createTypeRef())[ 
-   			initializer = [ImportManager i | "new "+ intpCls.simpleName +"()"]
-   		]
+   		
+   		cls.members += switch intpElem{
+   			TextParser:{
+		   		val intpCls = intpElem.inferParser
+		   		acceptor.accept(intpCls)
+		   		 intpElem.toField("parser",intpCls.createTypeRef())[ 
+		   			initializer = [ImportManager i | "new "+ intpCls.simpleName +"()"]
+		   		]
+	   		}
+	   		DirectObjectParser:{
+	   			intpElem.toField("parser",intpElem.type)
+	   		}
+	   	}
    		
    		/*--------init-------------*/
    		
@@ -235,10 +244,15 @@ class EventEngineInferrer {
    		/*-----method: _execute ------------*/
    		
    		val methodInnerExec = eNull.toMethod(INNER_EXECUTE,elem.newTypeRef(typeof(boolean)))[
-   			parameters += eNull.toParameter("text", elem.newTypeRef(typeof(String)))
+   			parameters += eNull.toParameter("event", elem.newTypeRef(typeof(Object)))
    			body = ['''
-   				if(!parser.parse(text))
+   				«IF elem.parser instanceof TextParser»
+   				if(!parser.parse(event.toString()))
    					return false;
+   				«ELSEIF elem.parser instanceof DirectObjectParser»
+   				try{parser = («(elem.parser as DirectObjectParser).type.simpleName») event;}
+   				catch(Exception e){return false;}
+   				«ENDIF»
    				if(!«CAL_VAR»())
    					return false;
    				«POST_CONDITION»();
