@@ -44,7 +44,7 @@ Event:
 
 /*--Event->Parser*/
 Parser:
-	TextParser | PlainParser
+	TextParser | PlainParser | DirectObjectParser
 ;
 
 /*--Event->TextParser */
@@ -92,6 +92,10 @@ PlainParser:
 		('ivar' ivar += XVariableDeclaration)*
 		'logic' logic = XBlockExpression	
 	'}'
+;
+
+DirectObjectParser:
+	'direct' 'object' ':' type = JvmTypeReference ('ivar' ivar += XVariableDeclaration)* ';'
 ;
 
 /*Event->DecScope */		

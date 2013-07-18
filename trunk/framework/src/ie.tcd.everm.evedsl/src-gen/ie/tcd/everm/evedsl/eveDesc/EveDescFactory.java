@@ -167,6 +167,15 @@ public interface EveDescFactory extends EFactory
   PlainParser createPlainParser();
 
   /**
+   * Returns a new object of class '<em>Direct Object Parser</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Direct Object Parser</em>'.
+   * @generated
+   */
+  DirectObjectParser createDirectObjectParser();
+
+  /**
    * Returns a new object of class '<em>Dec Scope</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

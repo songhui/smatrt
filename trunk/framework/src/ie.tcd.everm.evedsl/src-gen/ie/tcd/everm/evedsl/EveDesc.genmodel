@@ -72,6 +72,9 @@
     <genClasses ecoreClass="EveDesc.ecore#//PlainParser">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//PlainParser/logic"/>
     </genClasses>
+    <genClasses ecoreClass="EveDesc.ecore#//DirectObjectParser">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//DirectObjectParser/type"/>
+    </genClasses>
     <genClasses ecoreClass="EveDesc.ecore#//DecScope">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//DecScope/var"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EveDesc.ecore#//DecScope/scope"/>

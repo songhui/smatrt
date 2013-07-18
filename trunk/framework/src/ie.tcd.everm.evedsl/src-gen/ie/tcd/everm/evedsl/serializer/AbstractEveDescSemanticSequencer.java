@@ -5,6 +5,7 @@ import com.google.inject.Provider;
 import ie.tcd.everm.evedsl.eveDesc.API;
 import ie.tcd.everm.evedsl.eveDesc.ConstantText;
 import ie.tcd.everm.evedsl.eveDesc.DecScope;
+import ie.tcd.everm.evedsl.eveDesc.DirectObjectParser;
 import ie.tcd.everm.evedsl.eveDesc.EveDescPackage;
 import ie.tcd.everm.evedsl.eveDesc.Event;
 import ie.tcd.everm.evedsl.eveDesc.EventDesc;
@@ -124,6 +125,13 @@ public class AbstractEveDescSemanticSequencer extends AbstractSemanticSequencer 
 			case EveDescPackage.DEC_SCOPE:
 				if(context == grammarAccess.getDecScopeRule()) {
 					sequence_DecScope(context, (DecScope) semanticObject); 
+					return; 
+				}
+				else break;
+			case EveDescPackage.DIRECT_OBJECT_PARSER:
+				if(context == grammarAccess.getDirectObjectParserRule() ||
+				   context == grammarAccess.getParserRule()) {
+					sequence_DirectObjectParser(context, (DirectObjectParser) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1134,6 +1142,15 @@ public class AbstractEveDescSemanticSequencer extends AbstractSemanticSequencer 
 	 *     (var=VariableDec scope=Scope?)
 	 */
 	protected void sequence_DecScope(EObject context, DecScope semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type=JvmTypeReference ivar+=XVariableDeclaration*)
+	 */
+	protected void sequence_DirectObjectParser(EObject context, DirectObjectParser semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

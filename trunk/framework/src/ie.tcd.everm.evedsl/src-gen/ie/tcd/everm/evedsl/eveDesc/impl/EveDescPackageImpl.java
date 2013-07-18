@@ -5,6 +5,7 @@ package ie.tcd.everm.evedsl.eveDesc.impl;
 import ie.tcd.everm.evedsl.eveDesc.AbstractTextValue;
 import ie.tcd.everm.evedsl.eveDesc.ConstantText;
 import ie.tcd.everm.evedsl.eveDesc.DecScope;
+import ie.tcd.everm.evedsl.eveDesc.DirectObjectParser;
 import ie.tcd.everm.evedsl.eveDesc.EveDescFactory;
 import ie.tcd.everm.evedsl.eveDesc.EveDescPackage;
 import ie.tcd.everm.evedsl.eveDesc.Event;
@@ -159,6 +160,13 @@ public class EveDescPackageImpl extends EPackageImpl implements EveDescPackage
    * @generated
    */
   private EClass plainParserEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass directObjectParserEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -717,6 +725,26 @@ public class EveDescPackageImpl extends EPackageImpl implements EveDescPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getDirectObjectParser()
+  {
+    return directObjectParserEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDirectObjectParser_Type()
+  {
+    return (EReference)directObjectParserEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDecScope()
   {
     return decScopeEClass;
@@ -1171,6 +1199,9 @@ public class EveDescPackageImpl extends EPackageImpl implements EveDescPackage
     plainParserEClass = createEClass(PLAIN_PARSER);
     createEReference(plainParserEClass, PLAIN_PARSER__LOGIC);
 
+    directObjectParserEClass = createEClass(DIRECT_OBJECT_PARSER);
+    createEReference(directObjectParserEClass, DIRECT_OBJECT_PARSER__TYPE);
+
     decScopeEClass = createEClass(DEC_SCOPE);
     createEReference(decScopeEClass, DEC_SCOPE__VAR);
     createEReference(decScopeEClass, DEC_SCOPE__SCOPE);
@@ -1259,6 +1290,7 @@ public class EveDescPackageImpl extends EPackageImpl implements EveDescPackage
     constantTextEClass.getESuperTypes().add(this.getAbstractTextValue());
     ignoreValueEClass.getESuperTypes().add(this.getAbstractTextValue());
     plainParserEClass.getESuperTypes().add(this.getParser());
+    directObjectParserEClass.getESuperTypes().add(this.getParser());
 
     // Initialize classes and features; add operations and parameters
     initEClass(eventDescEClass, EventDesc.class, "EventDesc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1319,6 +1351,9 @@ public class EveDescPackageImpl extends EPackageImpl implements EveDescPackage
 
     initEClass(plainParserEClass, PlainParser.class, "PlainParser", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPlainParser_Logic(), theXbasePackage.getXExpression(), null, "logic", null, 0, 1, PlainParser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(directObjectParserEClass, DirectObjectParser.class, "DirectObjectParser", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDirectObjectParser_Type(), theTypesPackage.getJvmTypeReference(), null, "type", null, 0, 1, DirectObjectParser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(decScopeEClass, DecScope.class, "DecScope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDecScope_Var(), theXbasePackage.getXVariableDeclaration(), null, "var", null, 0, 1, DecScope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
