@@ -265,7 +265,7 @@ class EventEngineInferrer {
    		val methodExtExec = eNull.toMethod(EXT_EXECUTE,elem.newTypeRef(typeof(boolean)))[
    			parameters += eNull.toParameter("event", elem.newTypeRef(typeof(Object)))
    			body = ['''
-				return _execute((String)event);
+				return _execute(event);
    			''']
    		]
    		methodInnerExec.makePublic
